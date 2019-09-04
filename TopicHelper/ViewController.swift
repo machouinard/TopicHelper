@@ -20,6 +20,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         insertStarterTopics()
         populateTopics()
+        getRandomTopic()
+        
+        print(currentTopic.title!)
     }
     
     func populateTopics() {
@@ -27,11 +30,9 @@ class ViewController: UIViewController {
         topics = try! managedContext.fetch(request)
     }
     
-    func getRandomTopic() -> Topic {
+    func getRandomTopic() {
         let rnd = Int(arc4random_uniform(UInt32(topics.count)))
         currentTopic = topics[rnd]
-        
-        return currentTopic
     }
 
     // MARK:- Starter Topics
