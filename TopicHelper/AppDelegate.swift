@@ -18,19 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Save test bow tie
-        let topic = NSEntityDescription.insertNewObject(forEntityName: "Topic", into: self.persistentContainer.viewContext) as! Topic
-        topic.title = "a new topic"
-        topic.details = "topic details"
-        saveContext()
-        
-        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
-        
-        if let topics = try? self.persistentContainer.viewContext.fetch(request), let testTitle = topics.first?.title {
-            print("Title: \(testTitle)")
-        } else {
-            print("fuck")
+        guard let vc = window?.rootViewController as? ViewController else {
+            return true
         }
+        
+        vc.managedContext = persistentContainer.viewContext
         
         return true
     }
