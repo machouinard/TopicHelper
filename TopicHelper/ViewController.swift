@@ -29,15 +29,34 @@ class ViewController: UIViewController {
         
         backgroundLogo.isUserInteractionEnabled = true
         
-//        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.displayNewTopic))
-//        backgroundLogo.addGestureRecognizer(tgr)
+        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
+        backgroundLogo.addGestureRecognizer(tgr)
         
         // Swipe right to show new topic
         let sgr = UISwipeGestureRecognizer(target: self, action: #selector(displayNewTopic))
         backgroundLogo.addGestureRecognizer(sgr)
     }
     
+    // MARK: - GestureRecognizers
+    
+    @objc func topicTapGesture() {
+        performSegue(withIdentifier: "showTopicDetail", sender: nil)
+    }
+    
+    // MARK: - Prepare for Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTopicDetail" {
+            let dtvc = segue.destination as? TopicDetailViewController
+            dtvc?.topicDetail = currentTopic.details
+            dtvc?.title = currentTopic.title
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
+        topicView.centerVertically()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         topicView.centerVertically()
     }
     

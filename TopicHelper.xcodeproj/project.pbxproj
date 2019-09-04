@@ -16,6 +16,7 @@
 		4DCD1FB3231E218F00B9CA49 /* TopicHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB1231E218F00B9CA49 /* TopicHelper.xcdatamodeld */; };
 		4DCD1FB5231E219000B9CA49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB4231E219000B9CA49 /* Assets.xcassets */; };
 		4DCD1FB8231E219000B9CA49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB6231E219000B9CA49 /* LaunchScreen.storyboard */; };
+		4DE11BB1231FA1C600316C92 /* TopicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE11BB0231FA1C600316C92 /* TopicDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4DCD1FB4231E219000B9CA49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DCD1FB7231E219000B9CA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DCD1FB9231E219000B9CA49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DE11BB0231FA1C600316C92 /* TopicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,12 +76,13 @@
 				4DC206EA231F51B3008CCD8C /* Data */,
 				4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */,
 				4DCD1FAC231E218F00B9CA49 /* ViewController.swift */,
+				4DE11BB0231FA1C600316C92 /* TopicDetailViewController.swift */,
+				4DCD1FB1231E218F00B9CA49 /* TopicHelper.xcdatamodeld */,
 				4DCD1FAE231E218F00B9CA49 /* Main.storyboard */,
 				4DCD1FB4231E219000B9CA49 /* Assets.xcassets */,
 				4DCD1FB6231E219000B9CA49 /* LaunchScreen.storyboard */,
 				4DCD1FB9231E219000B9CA49 /* Info.plist */,
 				4DC206EF231F797D008CCD8C /* topics10.plist */,
-				4DCD1FB1231E218F00B9CA49 /* TopicHelper.xcdatamodeld */,
 			);
 			path = TopicHelper;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DCD1FB3231E218F00B9CA49 /* TopicHelper.xcdatamodeld in Sources */,
+				4DE11BB1231FA1C600316C92 /* TopicDetailViewController.swift in Sources */,
 				4DCD1FAD231E218F00B9CA49 /* ViewController.swift in Sources */,
 				4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */,
 				4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */,
