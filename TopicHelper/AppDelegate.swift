@@ -18,12 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
-        guard let mvc = window?.rootViewController?.children.first as? ViewController else {
-            return true
+        let tabController = window?.rootViewController as! UITabBarController
+        if let tabViewControllers = tabController.viewControllers {
+            let navController = tabViewControllers[0] as! UINavigationController
+            let vc = navController.viewControllers.first as! ViewController
+            vc.managedContext = persistentContainer.viewContext
         }
         
-        mvc.managedContext = persistentContainer.viewContext
+        
+//        guard let navController = window?.rootViewController as? UINavigationController,
+//            let viewController = navController.topViewController as? ViewController else {
+//                return true
+//        }
+//
+//        viewController.managedContext = persistentContainer.viewContext
+        
+//        guard let nc = window?.rootViewController?.children.first?.presentedViewController as? ViewController else {
+//            return true
+//        }
+//
+//        nc.managedContext = persistentContainer.viewContext
         
 //        guard let vc = window?.rootViewController as? ViewController else {
 //            return true

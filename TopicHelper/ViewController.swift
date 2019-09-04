@@ -10,19 +10,35 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
+    @IBOutlet weak var topicView: UITextView!
+    @IBOutlet weak var backgroundLogo: UIImageView!
     
     var managedContext: NSManagedObjectContext!
     var topics = [Topic]()
     var currentTopic: Topic!
+    var lastTopic: Topic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         insertStarterTopics()
         populateTopics()
-        getRandomTopic()
         
+        displayNewTopic()
         print(currentTopic.title!)
+        
+        backgroundLogo.isUserInteractionEnabled = true
+        
+//        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.displayNewTopic))
+//        backgroundLogo.addGestureRecognizer(tgr)
+        
+        // Swipe right to show new topic
+        let sgr = UISwipeGestureRecognizer(target: self, action: #selector(displayNewTopic))
+        backgroundLogo.addGestureRecognizer(sgr)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        topicView.centerVertically()
     }
     
     func populateTopics() {
@@ -33,6 +49,12 @@ class ViewController: UIViewController {
     func getRandomTopic() {
         let rnd = Int(arc4random_uniform(UInt32(topics.count)))
         currentTopic = topics[rnd]
+    }
+    
+    @objc func displayNewTopic() {
+        getRandomTopic()
+        topicView.text = currentTopic.title
+        topicView.centerVertically()
     }
 
     // MARK:- Starter Topics
@@ -59,5 +81,20 @@ class ViewController: UIViewController {
         try! managedContext.save()
     }
 
+    @IBAction func tappedNewTopic(_ sender: Any) {
+        displayNewTopic()
+    }
 }
 
+// MARK:- Extensions
+extension UITextView {
+    
+    func centerVertically() {
+        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let size = sizeThatFits(fittingSize)
+        let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+        let positiveTopOffset = max(1, topOffset)
+        contentOffset.y = -positiveTopOffset
+    }
+    
+}
