@@ -10,8 +10,12 @@ import UIKit
 
 class TopicDetailViewController: UIViewController {
     @IBOutlet weak var topicDetailView: UITextView!
+    @IBOutlet weak var topicTitleView: UITextField!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     var topicDetail: String!
+    var topicTitle: String!
+    var editTopic: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +25,16 @@ class TopicDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         topicDetailView.text = topicDetail
+        topicDetailView.isEditable = editTopic
+        topicDetailView.centerVertically()
+        topicTitleView.text = topicTitle
+        topicTitleView.isEnabled = editTopic
+        
     }
-
+    @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
+        // If editing, save
+    }
+    
     /*
     // MARK: - Navigation
 
