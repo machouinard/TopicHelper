@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicDetailViewController: UIViewController {
+class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var topicDetailView: UITextView!
     @IBOutlet weak var topicTitleView: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -34,6 +34,18 @@ class TopicDetailViewController: UIViewController {
     }
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
         // If editing, save
+        done()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        done()
+        
+        return false
+    }
+    
+    @objc func done() {
+        topicTitleView.resignFirstResponder()
+        topicDetailView.resignFirstResponder()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
