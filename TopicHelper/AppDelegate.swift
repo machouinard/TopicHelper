@@ -20,9 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let tabController = window?.rootViewController as! UITabBarController
         if let tabViewControllers = tabController.viewControllers {
-            let navController = tabViewControllers[0] as! UINavigationController
-            let vc = navController.viewControllers.first as! ViewController
-            vc.managedContext = persistentContainer.viewContext
+            let topicNavController = tabViewControllers[0] as! UINavigationController
+            let topicVC = topicNavController.viewControllers.first as! ViewController
+            topicVC.managedContext = persistentContainer.viewContext
+            let allTopicsNavController = tabViewControllers[1] as! UINavigationController
+            let allTopicsVC = allTopicsNavController.viewControllers.first as! AllTopicsViewController
+            allTopicsVC.managedContext = persistentContainer.viewContext
         }
         
         
