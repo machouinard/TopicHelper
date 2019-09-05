@@ -12,6 +12,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     @IBOutlet weak var topicDetailView: UITextView!
     @IBOutlet weak var topicTitleView: UITextField!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var topicDetail: String!
     var topicTitle: String!
@@ -20,8 +21,8 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,17 +50,17 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
+        guard let keyboardFrame: CGRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
         }
+        scrollView.contentInset.bottom = keyboardFrame.height
+        
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
+        let contentInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
     
     /*

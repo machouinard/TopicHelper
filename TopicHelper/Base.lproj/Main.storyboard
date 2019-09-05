@@ -186,6 +186,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="ke6-mQ-b4b" id="Nxr-1P-EjO"/>
+                        <outlet property="scrollView" destination="PRf-hY-UKx" id="GQt-r0-Oup"/>
                         <outlet property="topicDetailView" destination="unF-dp-L4E" id="6td-4d-TTb"/>
                         <outlet property="topicTitleView" destination="ZFy-2j-Ryk" id="QsC-0s-MB2"/>
                     </connections>
