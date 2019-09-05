@@ -69,17 +69,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="lgv-Yn-Us8"/>
+                    <tabBarItem key="tabBarItem" title="Topic" id="lgv-Yn-Us8" userLabel="Topic"/>
                     <navigationItem key="navigationItem" title="Topics for Dummies" id="lR5-iI-QIS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="E1V-Vf-D5d">
-                            <connections>
-                                <segue destination="iMq-Fp-Lmd" kind="show" identifier="editTopicDetail" id="Rj7-dF-q4G"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="E1V-Vf-D5d">
+                                <connections>
+                                    <segue destination="iMq-Fp-Lmd" kind="show" identifier="editTopicDetail" id="Rj7-dF-q4G"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem tag="5" title="Item" image="unlock" id="LU8-kG-7J8">
+                                <connections>
+                                    <action selector="toggleTopicLock:" destination="BYZ-38-t0r" id="vhC-MY-Kqt"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backgroundLogo" destination="AOe-AJ-FW0" id="vCA-Hc-jHP"/>
+                        <outlet property="topicLock" destination="LU8-kG-7J8" id="m4j-TT-UGI"/>
                         <outlet property="topicView" destination="CSn-Jo-I0y" id="K2G-jp-tOf"/>
                         <segue destination="iMq-Fp-Lmd" kind="show" identifier="showTopicDetail" id="Iix-eW-bIK"/>
                     </connections>
@@ -186,11 +194,11 @@
             </objects>
             <point key="canvasLocation" x="4668" y="785.75712143928047"/>
         </scene>
-        <!--Item-->
+        <!--Topic-->
         <scene sceneID="Lag-PK-52d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vcE-Op-Vei" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zK4-Ug-uWh"/>
+                    <tabBarItem key="tabBarItem" title="Topic" id="zK4-Ug-uWh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pyy-AT-StX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -229,6 +237,7 @@
         <image name="blueButtonHighlighted" width="100" height="37"/>
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
+        <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Iix-eW-bIK"/>

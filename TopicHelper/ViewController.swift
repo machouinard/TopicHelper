@@ -12,11 +12,13 @@ import CoreData
 class ViewController: UIViewController {
     @IBOutlet weak var topicView: UITextView!
     @IBOutlet weak var backgroundLogo: UIImageView!
+    @IBOutlet weak var topicLock: UIBarButtonItem!
     
     var managedContext: NSManagedObjectContext!
     var topics = [Topic]()
     var currentTopic: Topic!
     var lastTopic: Topic?
+    var topicLocked: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +82,9 @@ class ViewController: UIViewController {
     }
     
     @objc func displayNewTopic() {
+        guard false == topicLocked else {
+            return
+        }
         getRandomTopic()
         topicView.text = currentTopic.title
         topicView.centerVertically()
@@ -108,7 +113,24 @@ class ViewController: UIViewController {
         }
         try! managedContext.save()
     }
-
+    @IBAction func toggleTopicLock(_ sender: Any) {
+        topicLocked = !topicLocked
+        
+        var lockImg = String()
+        
+        switch topicLocked {
+        case true:
+            lockImg = "lock"
+            break
+        default:
+            lockImg = "unlock"
+            break
+        }
+        
+        topicLock.image = UIImage(named: lockImg)
+        
+    }
+    
     @IBAction func tappedNewTopic(_ sender: Any) {
         displayNewTopic()
     }
