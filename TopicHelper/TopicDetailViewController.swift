@@ -14,8 +14,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var topicDetail: String!
-    var topicTitle: String!
+    var currentTopic: Topic!
     var editTopic: Bool = false
 
     override func viewDidLoad() {
@@ -26,10 +25,9 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        topicDetailView.text = topicDetail
+        topicDetailView.text = currentTopic.details
         topicDetailView.isEditable = editTopic
-//        topicDetailView.centerVertically()
-        topicTitleView.text = topicTitle
+        topicTitleView.text = currentTopic.title
         topicTitleView.isEnabled = editTopic
         
     }

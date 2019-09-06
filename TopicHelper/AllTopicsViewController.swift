@@ -64,7 +64,7 @@ class AllTopicsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let topicToRemove = topics[indexPath.row]
-        guard editingStyle == .delete else {
+        guard  editingStyle == .delete else {
             return
         }
         
@@ -84,8 +84,7 @@ class AllTopicsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSingleTopic" {
             let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.topicTitle = currentTopic?.title
-            dtvc?.topicDetail = currentTopic?.details
+            dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic?.title
             dtvc?.editTopic = true
         }
