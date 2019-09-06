@@ -80,6 +80,12 @@ class ViewController: UIViewController {
     func getRandomTopic() {
         let rnd = Int(arc4random_uniform(UInt32(topics.count)))
         currentTopic = topics[rnd]
+        
+        if currentTopic.title == lastTopic?.title {
+            getRandomTopic()
+            
+        }
+        lastTopic = currentTopic
     }
     
     @objc func displayNewTopic() {

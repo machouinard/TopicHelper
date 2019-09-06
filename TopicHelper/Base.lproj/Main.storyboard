@@ -43,7 +43,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="3cb-9K-Qlq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButton">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -256,11 +256,11 @@
             </objects>
             <point key="canvasLocation" x="2868" y="1503"/>
         </scene>
-        <!--All Topic-->
+        <!--All Topics-->
         <scene sceneID="98A-Id-dp5">
             <objects>
                 <navigationController id="Qp6-3p-EzL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Topic" id="Q4f-WR-gFh"/>
+                    <tabBarItem key="tabBarItem" title="All Topics" id="Q4f-WR-gFh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acO-oV-hoa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
