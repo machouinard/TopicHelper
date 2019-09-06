@@ -19,13 +19,13 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        doneButton.isEnabled = editTopic
+        
         if editTopic {
             topicTitleView.becomeFirstResponder()
+//            self.navigationItem.backBarButtonItem = UIBarButtonItem.init(title: "ASklsdn", style: .plain, target: nil, action: nil)
         }
         
     }
@@ -35,6 +35,10 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         topicDetailView.isEditable = editTopic
         topicTitleView.text = currentTopic.title
         topicTitleView.isEnabled = editTopic
+        
+        doneButton.isEnabled = editTopic
+        
+        
         
     }
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
