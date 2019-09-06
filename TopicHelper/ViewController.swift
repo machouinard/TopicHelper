@@ -86,9 +86,21 @@ class ViewController: UIViewController {
         guard false == topicLocked else {
             return
         }
+        
+        topicView.center.x -= view.bounds.width
+        topicView.alpha = 0.0
+        
         getRandomTopic()
         topicView.text = currentTopic.title
         topicView.centerVertically()
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseIn],
+                       animations: {
+                        self.topicView.center.x += self.view.bounds.width
+                        self.topicView.alpha = 1.0
+        },
+                       completion: nil
+        )
     }
 
     // MARK:- Starter Topics
