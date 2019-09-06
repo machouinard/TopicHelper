@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var topicDetailView: UITextView!
@@ -16,9 +17,13 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     var currentTopic: Topic!
     var editTopic: Bool = false
+    var managedContext: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        topicTitleView.delegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
@@ -55,6 +60,9 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     @objc func done() {
         topicTitleView.resignFirstResponder()
         topicDetailView.resignFirstResponder()
+        if editTopic {
+            try! managedContext.save()
+        }
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

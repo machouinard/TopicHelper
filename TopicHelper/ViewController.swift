@@ -56,6 +56,7 @@ class ViewController: UIViewController {
         
         if segue.identifier == "editTopicDetail" {
             let dtvc = segue.destination as? TopicDetailViewController
+            dtvc?.managedContext = managedContext
             dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic.title
             dtvc?.editTopic = true

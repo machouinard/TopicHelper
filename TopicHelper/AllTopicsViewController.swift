@@ -90,6 +90,7 @@ class AllTopicsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSingleTopic" {
             let dtvc = segue.destination as? TopicDetailViewController
+            dtvc?.managedContext = managedContext
             dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic?.title
             dtvc?.editTopic = true
