@@ -223,15 +223,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="topicCell" textLabel="2hs-jA-ax2" style="IBUITableViewCellStyleDefault" id="ayq-1Y-PFH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="topicCell" textLabel="2hs-jA-ax2" style="IBUITableViewCellStyleDefault" id="ayq-1Y-PFH">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayq-1Y-PFH" id="Meo-76-x8f">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2hs-jA-ax2">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="322" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -247,7 +247,13 @@
                             <outlet property="delegate" destination="yWw-vd-s1Q" id="6d3-4t-gHq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Topics" id="3gA-3K-hbK"/>
+                    <navigationItem key="navigationItem" title="All Topics" id="3gA-3K-hbK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DvW-wA-eLI">
+                            <connections>
+                                <action selector="addTopic:" destination="yWw-vd-s1Q" id="j2X-Jw-vVx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="iMq-Fp-Lmd" kind="show" identifier="editSingleTopic" id="UgT-cu-uI4"/>
                     </connections>
@@ -301,6 +307,6 @@
         <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rj7-dF-q4G"/>
+        <segue reference="UgT-cu-uI4"/>
     </inferredMetricsTieBreakers>
 </document>

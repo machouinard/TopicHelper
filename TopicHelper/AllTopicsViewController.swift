@@ -62,6 +62,12 @@ class AllTopicsViewController: UITableViewController {
         performSegue(withIdentifier: "editSingleTopic", sender: nil)
     }
     
+    @IBAction func addTopic(_ sender: Any) {
+        currentTopic = Topic(context: managedContext)
+        prepare(for: UIStoryboardSegue(identifier: "editSingleTopic", source: self, destination: TopicDetailViewController.init()), sender: nil)
+        performSegue(withIdentifier: "editSingleTopic", sender: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let topicToRemove = topics[indexPath.row]
         guard  editingStyle == .delete else {
@@ -82,7 +88,7 @@ class AllTopicsViewController: UITableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editSingleTopic" {
+        if segue.identifier == "editSingleTopic" || segue.identifier == "accessoryEdit" {
             let dtvc = segue.destination as? TopicDetailViewController
             dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic?.title
