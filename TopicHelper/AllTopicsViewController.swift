@@ -62,6 +62,24 @@ class AllTopicsViewController: UITableViewController {
         performSegue(withIdentifier: "editSingleTopic", sender: nil)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let topicToRemove = topics[indexPath.row] as? Topic, editingStyle == .delete else {
+            return
+        }
+        
+        managedContext.delete(topicToRemove)
+        
+        do {
+            try managedContext.save()
+            topics.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        } catch let error as NSError {
+            print("Deleting error: \(error) description: \(error.userInfo)")
+        }
+        
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSingleTopic" {
             let dtvc = segue.destination as? TopicDetailViewController
