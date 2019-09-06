@@ -13,7 +13,7 @@ class AllTopicsViewController: UITableViewController {
     
     var topics = [Topic]()
     var managedContext: NSManagedObjectContext!
-    var currentTopic = Topic()
+    var currentTopic: Topic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,8 @@ class AllTopicsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard let topicToRemove = topics[indexPath.row] as? Topic, editingStyle == .delete else {
+        let topicToRemove = topics[indexPath.row]
+        guard editingStyle == .delete else {
             return
         }
         
@@ -83,9 +84,9 @@ class AllTopicsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSingleTopic" {
             let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.topicTitle = currentTopic.title
-            dtvc?.topicDetail = currentTopic.details
-            dtvc?.title = currentTopic.title
+            dtvc?.topicTitle = currentTopic?.title
+            dtvc?.topicDetail = currentTopic?.details
+            dtvc?.title = currentTopic?.title
             dtvc?.editTopic = true
         }
     }
