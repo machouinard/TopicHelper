@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="3738.4000000000001" y="786.65667166416802"/>
         </scene>
-        <!--Detail View-->
+        <!--Title-->
         <scene sceneID="ukF-kE-Z97">
             <objects>
                 <viewController id="iMq-Fp-Lmd" customClass="TopicDetailViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,9 +127,9 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="unF-dp-L4E">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="unF-dp-L4E">
                                                 <rect key="frame" x="44.5" y="55" width="325" height="615"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -177,15 +177,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nge-5o-oQB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail View" id="Fe3-3g-JbR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ke6-mQ-b4b">
+                    <navigationItem key="navigationItem" title="Title" id="eyL-up-Ws3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="5av-jY-BQM">
                             <connections>
-                                <action selector="tappedDoneButton:" destination="iMq-Fp-Lmd" id="tbY-rb-RLC"/>
+                                <action selector="tappedDoneButton:" destination="iMq-Fp-Lmd" id="dJg-P1-JW4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="doneButton" destination="ke6-mQ-b4b" id="Nxr-1P-EjO"/>
+                        <outlet property="doneButton" destination="5av-jY-BQM" id="35g-Q2-ndM"/>
                         <outlet property="scrollView" destination="PRf-hY-UKx" id="GQt-r0-Oup"/>
                         <outlet property="topicDetailView" destination="unF-dp-L4E" id="6td-4d-TTb"/>
                         <outlet property="topicTitleView" destination="ZFy-2j-Ryk" id="QsC-0s-MB2"/>

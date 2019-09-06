@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol TopicDetailViewControllerDelegate: class {
+    func topicDetailViewControllerDidModifyTopic(_ controller: TopicDetailViewController)
+}
+
 class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var topicDetailView: UITextView!
     @IBOutlet weak var topicTitleView: UITextField!
@@ -18,6 +22,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     var currentTopic: Topic!
     var editTopic: Bool = false
     var managedContext: NSManagedObjectContext!
+    weak var delegate: TopicDetailViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +41,14 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        topicDetailView.text = currentTopic.details
+        
+        topicDetailView.text = currentTopic?.details
         topicDetailView.isEditable = editTopic
-        topicTitleView.text = currentTopic.title
+        topicTitleView.text = currentTopic?.title
         topicTitleView.isEnabled = editTopic
         
         doneButton.isEnabled = editTopic
-        
+        topicDetailView.centerVertically()
         
         
     }
@@ -58,11 +64,24 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     }
     
     @objc func done() {
+        
+        guard topicTitleView.text != "" else {
+            return
+        }
+        
+        if nil == currentTopic {
+            currentTopic = Topic(context: managedContext)
+        }
+        
         topicTitleView.resignFirstResponder()
         topicDetailView.resignFirstResponder()
         if editTopic {
+            currentTopic.title = topicTitleView.text
+            currentTopic.details = topicDetailView.text
             try! managedContext.save()
         }
+        navigationController?.popViewController(animated: true)
+        delegate?.topicDetailViewControllerDidModifyTopic(self)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

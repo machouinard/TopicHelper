@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AllTopicsViewController: UITableViewController {
+class AllTopicsViewController: UITableViewController, TopicDetailViewControllerDelegate {
     
     var topics = [Topic]()
     var managedContext: NSManagedObjectContext!
@@ -25,11 +25,21 @@ class AllTopicsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     func populateTopics() {
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         topics = try! managedContext.fetch(request)
+    }
+    
+    // MARK: - Detail View Delegate
+    @objc func topicDetailViewControllerDidModifyTopic(_ controller: TopicDetailViewController) {
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -63,7 +73,8 @@ class AllTopicsViewController: UITableViewController {
     }
     
     @IBAction func addTopic(_ sender: Any) {
-        currentTopic = Topic(context: managedContext)
+//        currentTopic = Topic(context: managedContext)
+        currentTopic = nil
         prepare(for: UIStoryboardSegue(identifier: "editSingleTopic", source: self, destination: TopicDetailViewController.init()), sender: nil)
         performSegue(withIdentifier: "editSingleTopic", sender: nil)
     }
@@ -80,6 +91,7 @@ class AllTopicsViewController: UITableViewController {
             try managedContext.save()
             topics.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.reloadData()
         } catch let error as NSError {
             print("Deleting error: \(error) description: \(error.userInfo)")
         }
@@ -94,6 +106,7 @@ class AllTopicsViewController: UITableViewController {
             dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic?.title
             dtvc?.editTopic = true
+            dtvc?.delegate = self
         }
     }
 
