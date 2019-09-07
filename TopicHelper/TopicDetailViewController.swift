@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import CoreData
+
+protocol TopicDetailViewControllerDelegate: class {
+    func TopicDetailViewDidEditTopic(_ controller: TopicDetailViewController, topic: Topic)
+}
 
 class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var topicDetailView: UITextView!
@@ -14,22 +19,25 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var topicDetail: String!
-    var topicTitle: String!
     var editTopic: Bool = false
+    var managedContext: NSManagedObjectContext!
+    var delegate: TopicDetailViewControllerDelegate?
+    var currentTopic: Topic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        topicTitleView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        topicDetailView.text = topicDetail
+        topicDetailView.text = currentTopic?.details
         topicDetailView.isEditable = editTopic
 //        topicDetailView.centerVertically()
-        topicTitleView.text = topicTitle
+        topicTitleView.text = currentTopic?.title
         topicTitleView.isEnabled = editTopic
         
     }
@@ -47,6 +55,26 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     @objc func done() {
         topicTitleView.resignFirstResponder()
         topicDetailView.resignFirstResponder()
+        
+        guard nil != currentTopic else {
+            return
+        }
+        
+        if editTopic {
+            
+            do {
+                currentTopic?.title = topicTitleView.text
+                currentTopic?.details = topicDetailView.text
+                
+                try managedContext.save()
+                delegate?.TopicDetailViewDidEditTopic(self, topic: currentTopic!)
+                navigationController?.popViewController(animated: true)
+            } catch let error as NSError {
+                print("error: \(error) description: \(error.userInfo)")
+            }
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {

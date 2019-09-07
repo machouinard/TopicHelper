@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AllTopicsViewController: UITableViewController {
+class AllTopicsViewController: UITableViewController, TopicDetailViewControllerDelegate {
     
     var topics = [Topic]()
     var managedContext: NSManagedObjectContext!
@@ -84,11 +84,18 @@ class AllTopicsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSingleTopic" {
             let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.topicTitle = currentTopic?.title
-            dtvc?.topicDetail = currentTopic?.details
+            dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic?.title
             dtvc?.editTopic = true
+            dtvc?.managedContext = managedContext
         }
+    }
+    
+    // MARK: - Topic Detail View Delegate
+    func TopicDetailViewDidEditTopic(_ controller: TopicDetailViewController, topic: Topic) {
+        // Topic has been edited in TopicDetailViewController - need to update our table
+        tableView.reloadData()
+        currentTopic = topic
     }
 
     /*

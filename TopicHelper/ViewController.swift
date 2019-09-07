@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TopicDetailViewControllerDelegate {
     
     @IBOutlet weak var topicView: UITextView!
     @IBOutlet weak var backgroundLogo: UIImageView!
@@ -40,6 +40,15 @@ class ViewController: UIViewController {
         backgroundLogo.addGestureRecognizer(sgr)
     }
     
+    
+    
+    // MARK: - Topic Detail View Delegate
+    func TopicDetailViewDidEditTopic(_ controller: TopicDetailViewController, topic: Topic) {
+        populateTopics()
+        currentTopic = topic
+        topicView.text = currentTopic.title
+    }
+    
     // MARK: - GestureRecognizers
     
     @objc func topicTapGesture() {
@@ -50,17 +59,17 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTopicDetail" {
             let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.topicDetail = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            dtvc?.topicTitle = currentTopic.title
+            dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic.title
         }
         
         if segue.identifier == "editTopicDetail" {
             let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.topicDetail = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            dtvc?.topicTitle = currentTopic.title
+            dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic.title
             dtvc?.editTopic = true
+            dtvc?.managedContext = managedContext
+            dtvc?.delegate = self
         }
     }
     
