@@ -49,7 +49,7 @@
                                 </state>
                                 <state key="highlighted" backgroundImage="blueButtonHighlighted"/>
                                 <connections>
-                                    <action selector="tappedNewTopic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lgf-QJ-1zr"/>
+                                    <action selector="tappedNextTopic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fb1-Ub-Q7r"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,18 +71,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Topic" id="lgv-Yn-Us8" userLabel="Topic"/>
                     <navigationItem key="navigationItem" title="Topics for Dummies" id="lR5-iI-QIS">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="edit" id="E1V-Vf-D5d">
-                                <connections>
-                                    <segue destination="iMq-Fp-Lmd" kind="show" identifier="editTopicDetail" id="Rj7-dF-q4G"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem tag="5" title="Item" image="unlock" id="LU8-kG-7J8">
-                                <connections>
-                                    <action selector="toggleTopicLock:" destination="BYZ-38-t0r" id="vhC-MY-Kqt"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" tag="5" title="Item" image="unlock" id="LU8-kG-7J8">
+                            <connections>
+                                <action selector="toggleTopicLock:" destination="BYZ-38-t0r" id="vhC-MY-Kqt"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -178,14 +171,9 @@
                         <viewLayoutGuide key="safeArea" id="nge-5o-oQB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail View" id="Fe3-3g-JbR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="ke6-mQ-b4b">
-                            <connections>
-                                <action selector="tappedDoneButton:" destination="iMq-Fp-Lmd" id="tbY-rb-RLC"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="ke6-mQ-b4b"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="doneButton" destination="ke6-mQ-b4b" id="Nxr-1P-EjO"/>
                         <outlet property="scrollView" destination="PRf-hY-UKx" id="GQt-r0-Oup"/>
                         <outlet property="topicDetailView" destination="unF-dp-L4E" id="6td-4d-TTb"/>
                         <outlet property="topicTitleView" destination="ZFy-2j-Ryk" id="QsC-0s-MB2"/>
@@ -301,6 +289,6 @@
         <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Rj7-dF-q4G"/>
+        <segue reference="Iix-eW-bIK"/>
     </inferredMetricsTieBreakers>
 </document>

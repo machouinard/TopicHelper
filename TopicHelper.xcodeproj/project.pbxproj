@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D34282D232EA9FC006EBB74 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34282C232EA9FC006EBB74 /* Functions.swift */; };
 		4D6FE900232178E600FEE158 /* AllTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */; };
 		4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE9102321E33100FEE158 /* CoreDataStack.swift */; };
 		4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D34282C232EA9FC006EBB74 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTopicsViewController.swift; sourceTree = "<group>"; };
 		4D6FE9102321E33100FEE158 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				4DCD1FB6231E219000B9CA49 /* LaunchScreen.storyboard */,
 				4DCD1FB9231E219000B9CA49 /* Info.plist */,
 				4DC206EF231F797D008CCD8C /* topics10.plist */,
+				4D34282C232EA9FC006EBB74 /* Functions.swift */,
 			);
 			path = TopicHelper;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				4D6FE900232178E600FEE158 /* AllTopicsViewController.swift in Sources */,
 				4DCD1FB3231E218F00B9CA49 /* TopicHelper.xcdatamodeld in Sources */,
+				4D34282D232EA9FC006EBB74 /* Functions.swift in Sources */,
 				4DE11BB1231FA1C600316C92 /* TopicDetailViewController.swift in Sources */,
 				4DCD1FAD231E218F00B9CA49 /* ViewController.swift in Sources */,
 				4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */,
@@ -319,13 +323,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CE25YSL33;
+				DEVELOPMENT_TEAM = 5H7YPW37GG;
 				INFOPLIST_FILE = TopicHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.chouinard.wp.TopicHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = me.chouinard.TopicHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -337,13 +341,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CE25YSL33;
+				DEVELOPMENT_TEAM = 5H7YPW37GG;
 				INFOPLIST_FILE = TopicHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.chouinard.wp.TopicHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = me.chouinard.TopicHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

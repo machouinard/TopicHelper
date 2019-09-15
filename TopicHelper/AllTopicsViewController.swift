@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AllTopicsViewController: UITableViewController, TopicDetailViewControllerDelegate {
+class AllTopicsViewController: UITableViewController {
     
     var topics = [Topic]()
     var managedContext: NSManagedObjectContext!
@@ -89,13 +89,6 @@ class AllTopicsViewController: UITableViewController, TopicDetailViewControllerD
             dtvc?.editTopic = true
             dtvc?.managedContext = managedContext
         }
-    }
-    
-    // MARK: - Topic Detail View Delegate
-    func TopicDetailViewDidEditTopic(_ controller: TopicDetailViewController, topic: Topic) {
-        // Topic has been edited in TopicDetailViewController - need to update our table
-        tableView.reloadData()
-        currentTopic = topic
     }
 
     /*

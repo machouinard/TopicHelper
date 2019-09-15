@@ -9,10 +9,6 @@
 import UIKit
 import CoreData
 
-protocol TopicDetailViewControllerDelegate: class {
-    func TopicDetailViewDidEditTopic(_ controller: TopicDetailViewController, topic: Topic)
-}
-
 class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var topicDetailView: UITextView!
     @IBOutlet weak var topicTitleView: UITextField!
@@ -21,7 +17,6 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     var editTopic: Bool = false
     var managedContext: NSManagedObjectContext!
-    var delegate: TopicDetailViewControllerDelegate?
     var currentTopic: Topic?
 
     override func viewDidLoad() {
@@ -31,6 +26,10 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         topicTitleView.delegate = self
+        
+        if editTopic {
+            topicTitleView.becomeFirstResponder()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +66,6 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
                 currentTopic?.details = topicDetailView.text
                 
                 try managedContext.save()
-                delegate?.TopicDetailViewDidEditTopic(self, topic: currentTopic!)
                 navigationController?.popViewController(animated: true)
             } catch let error as NSError {
                 print("error: \(error) description: \(error.userInfo)")

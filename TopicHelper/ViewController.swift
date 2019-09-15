@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, TopicDetailViewControllerDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var topicView: UITextView!
     @IBOutlet weak var backgroundLogo: UIImageView!
@@ -40,15 +40,6 @@ class ViewController: UIViewController, TopicDetailViewControllerDelegate {
         backgroundLogo.addGestureRecognizer(sgr)
     }
     
-    
-    
-    // MARK: - Topic Detail View Delegate
-    func TopicDetailViewDidEditTopic(_ controller: TopicDetailViewController, topic: Topic) {
-        populateTopics()
-        currentTopic = topic
-        topicView.text = currentTopic.title
-    }
-    
     // MARK: - GestureRecognizers
     
     @objc func topicTapGesture() {
@@ -69,7 +60,6 @@ class ViewController: UIViewController, TopicDetailViewControllerDelegate {
             dtvc?.title = currentTopic.title
             dtvc?.editTopic = true
             dtvc?.managedContext = managedContext
-            dtvc?.delegate = self
         }
     }
     
