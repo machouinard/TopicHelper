@@ -28,7 +28,7 @@
 		<key>id</key>
 		<integer>3</integer>
 		<key>isFavorite</key>
-		<false/>
+		<true/>
 		<key>title</key>
 		<string>Action</string>
 	</dict>
@@ -48,7 +48,7 @@
 		<key>id</key>
 		<integer>5</integer>
 		<key>isFavorite</key>
-		<false/>
+		<true/>
 		<key>title</key>
 		<string>Adversity</string>
 	</dict>
@@ -88,7 +88,7 @@
 		<key>id</key>
 		<integer>9</integer>
 		<key>isFavorite</key>
-		<false/>
+		<true/>
 		<key>title</key>
 		<string>Anger</string>
 	</dict>

@@ -27,17 +27,22 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         topicTitleView.delegate = self
         
-        if editTopic {
-            topicTitleView.becomeFirstResponder()
-        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         topicDetailView.text = currentTopic?.details
         topicDetailView.isEditable = editTopic
-//        topicDetailView.centerVertically()
+        topicDetailView.centerVertically()
         topicTitleView.text = currentTopic?.title
         topicTitleView.isEnabled = editTopic
+        
+        if editTopic {
+            topicTitleView.becomeFirstResponder()
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: #selector(editCurrentTopic), action: #selector(editCurrentTopic))
+        }
         
     }
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
@@ -49,6 +54,14 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         done()
         
         return false
+    }
+    
+    @objc func editCurrentTopic() {
+        editTopic = true
+        topicTitleView.isEnabled = true
+        topicTitleView.becomeFirstResponder()
+        topicDetailView.isEditable = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
     }
     
     @objc func done() {
@@ -68,7 +81,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
                 try managedContext.save()
                 navigationController?.popViewController(animated: true)
             } catch let error as NSError {
-                print("error: \(error) description: \(error.userInfo)")
+                fatalCoreDataError(error)
             }
         } else {
             navigationController?.popViewController(animated: true)

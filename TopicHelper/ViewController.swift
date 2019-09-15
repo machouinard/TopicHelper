@@ -20,15 +20,15 @@ class ViewController: UIViewController {
     var currentTopic: Topic!
     var lastTopic: Topic?
     var topicLocked: Bool = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        insertStarterTopics()
+//        insertStarterTopics()
         populateTopics()
         
         displayNextTopic()
-        print(currentTopic.title!)
         
         backgroundLogo.isUserInteractionEnabled = true
         
@@ -68,6 +68,8 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        topicView.text = currentTopic.title
+        topicView.centerVertically()
         topicView.centerVertically()
     }
     
@@ -84,6 +86,7 @@ class ViewController: UIViewController {
         }
         
         let rnd = Int(arc4random_uniform(UInt32(topics.count)))
+        
         currentTopic = topics[rnd]
         
         if currentTopic.title == lastTopic?.title {
@@ -114,29 +117,7 @@ class ViewController: UIViewController {
         )
     }
 
-    // MARK:- Starter Topics
-    func insertStarterTopics() {
-        
-        let fetch: NSFetchRequest<Topic> = Topic.fetchRequest()
-        let count = try! managedContext.count(for: fetch)
-        
-        if count > 0 {
-            // Topics have been added
-            return
-        }
-        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
-        let dataArray = NSArray(contentsOfFile: path!)!
-        
-        for dict in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: managedContext)!
-            let topic = Topic(entity: entity, insertInto: managedContext)
-            let topicDict = dict as! [String: Any]
-            topic.title = topicDict["title"] as? String
-            topic.details = topicDict["details"] as? String
-            topic.isFavorite = topicDict["isFavorite"] as! Bool
-        }
-        try! managedContext.save()
-    }
+    
     @IBAction func toggleTopicLock(_ sender: Any) {
         topicLocked = !topicLocked
         
