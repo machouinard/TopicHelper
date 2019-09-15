@@ -27,7 +27,7 @@ class ViewController: UIViewController, TopicDetailViewControllerDelegate {
         insertStarterTopics()
         populateTopics()
         
-        displayNewTopic()
+        displayNextTopic()
         print(currentTopic.title!)
         
         backgroundLogo.isUserInteractionEnabled = true
@@ -36,7 +36,7 @@ class ViewController: UIViewController, TopicDetailViewControllerDelegate {
         backgroundLogo.addGestureRecognizer(tgr)
         
         // Swipe right to show new topic
-        let sgr = UISwipeGestureRecognizer(target: self, action: #selector(displayNewTopic))
+        let sgr = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
         backgroundLogo.addGestureRecognizer(sgr)
     }
     
@@ -103,7 +103,7 @@ class ViewController: UIViewController, TopicDetailViewControllerDelegate {
         lastTopic = currentTopic
     }
     
-    @objc func displayNewTopic() {
+    @objc func displayNextTopic() {
         guard false == topicLocked else {
             return
         }
@@ -165,8 +165,8 @@ class ViewController: UIViewController, TopicDetailViewControllerDelegate {
         
     }
     
-    @IBAction func tappedNewTopic(_ sender: Any) {
-        displayNewTopic()
+    @IBAction func tappedNextTopic(_ sender: Any) {
+        displayNextTopic()
     }
 }
 
