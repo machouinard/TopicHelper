@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		4D34282D232EA9FC006EBB74 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34282C232EA9FC006EBB74 /* Functions.swift */; };
 		4D34282F232EAF31006EBB74 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34282E232EAF31006EBB74 /* TopicCell.swift */; };
+		4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */; };
 		4D6FE900232178E600FEE158 /* AllTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */; };
 		4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE9102321E33100FEE158 /* CoreDataStack.swift */; };
 		4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */; };
-		4DC206E9231F51A8008CCD8C /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E7231F51A8008CCD8C /* Topic+CoreDataProperties.swift */; };
 		4DC206F0231F797D008CCD8C /* topics10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC206EF231F797D008CCD8C /* topics10.plist */; };
 		4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */; };
 		4DCD1FAD231E218F00B9CA49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAC231E218F00B9CA49 /* ViewController.swift */; };
@@ -26,10 +26,10 @@
 /* Begin PBXFileReference section */
 		4D34282C232EA9FC006EBB74 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		4D34282E232EAF31006EBB74 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
+		4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTopicsViewController.swift; sourceTree = "<group>"; };
 		4D6FE9102321E33100FEE158 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4DC206E7231F51A8008CCD8C /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4DC206EF231F797D008CCD8C /* topics10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics10.plist; sourceTree = "<group>"; };
 		4DCD1FA7231E218F00B9CA49 /* TopicHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopicHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */,
-				4DC206E7231F51A8008CCD8C /* Topic+CoreDataProperties.swift */,
+				4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */,
 				4D6FE9102321E33100FEE158 /* CoreDataStack.swift */,
 			);
 			path = Data;
@@ -177,9 +177,9 @@
 				4D34282F232EAF31006EBB74 /* TopicCell.swift in Sources */,
 				4DE11BB1231FA1C600316C92 /* TopicDetailViewController.swift in Sources */,
 				4DCD1FAD231E218F00B9CA49 /* ViewController.swift in Sources */,
+				4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */,
 				4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */,
 				4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */,
-				4DC206E9231F51A8008CCD8C /* Topic+CoreDataProperties.swift in Sources */,
 				4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
