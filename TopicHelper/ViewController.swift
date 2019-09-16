@@ -15,7 +15,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!
     
-    var managedContext: NSManagedObjectContext!
+    var managedContext: NSManagedObjectContext! {
+        didSet {
+            NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange, object: managedContext, queue: OperationQueue.main) { notification in
+                
+                if let dictionary = notification.userInfo {
+                    if nil != dictionary[NSInsertedObjectsKey] {
+                        print("new topic")
+                        if !self.topicLocked {
+                            let topics = dictionary["inserted"] as! Set<Topic>
+                            self.currentTopic = topics.first
+                        }
+                    } else if nil != dictionary[NSUpdatedObjectsKey] {
+                        print("updated topic")
+                        if !self.topicLocked {
+                            let topics = dictionary["updated"] as! Set<Topic>
+                            self.currentTopic = topics.first
+                        }
+                        
+                    } else {
+                        print("deleted topic")
+                        self.displayNextTopic()
+                    }
+                }
+                self.populateTopics()
+            }
+        }
+    }
     var topics = [Topic]()
     var currentTopic: Topic!
     var lastTopic: Topic?
@@ -52,6 +78,7 @@ class ViewController: UIViewController {
             let dtvc = segue.destination as? TopicDetailViewController
             dtvc?.currentTopic = currentTopic
             dtvc?.title = currentTopic.title
+            dtvc?.managedContext = managedContext
         }
         
         if segue.identifier == "editTopicDetail" {
@@ -70,7 +97,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         topicView.text = currentTopic.title
         topicView.centerVertically()
-        topicView.centerVertically()
     }
     
     func populateTopics() {
@@ -79,6 +105,9 @@ class ViewController: UIViewController {
     }
     
     func getRandomTopic() {
+        guard 0 != topics.count else {
+            return
+        }
         // If we only have 1 topic, return it
         if (1 == topics.count) {
             currentTopic = topics[0]
@@ -97,7 +126,7 @@ class ViewController: UIViewController {
     }
     
     @objc func displayNextTopic() {
-        guard false == topicLocked else {
+        guard false == topicLocked  && 0 != topics.count else {
             return
         }
         

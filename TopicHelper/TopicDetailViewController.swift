@@ -41,7 +41,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
             topicTitleView.becomeFirstResponder()
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
         } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: #selector(editCurrentTopic), action: #selector(editCurrentTopic))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: #selector(editCurrentTopic))
         }
         
     }
@@ -75,8 +75,8 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         if editTopic {
             
             do {
-                currentTopic?.title = topicTitleView.text
-                currentTopic?.details = topicDetailView.text
+                currentTopic!.title = topicTitleView.text
+                currentTopic!.details = topicDetailView.text
                 
                 try managedContext.save()
                 navigationController?.popViewController(animated: true)
