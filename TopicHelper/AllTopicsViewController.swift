@@ -19,9 +19,8 @@ class AllTopicsViewController: UITableViewController {
         let entity = Topic.entity()
         fetchRequest.entity = entity
         
-        let sort1 = NSSortDescriptor(key: "isFavorite", ascending: false)
-        let sort2 = NSSortDescriptor(key: "title", ascending: true)
-        fetchRequest.sortDescriptors = [sort1, sort2]
+        let sort = NSSortDescriptor(key: "title", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(
@@ -47,6 +46,7 @@ class AllTopicsViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
+        tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
     }
     
     // MARK:- Helper methods
@@ -65,15 +65,15 @@ class AllTopicsViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionInfo = fetchedResultsController.sections![section]
-        print("sectionInfo.name \(sectionInfo.name)")
-        if sectionInfo.name == "0" {
-            return "Topics"
-        } else {
-            return "Favorites"
-        }
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let sectionInfo = fetchedResultsController.sections![section]
+//        print("sectionInfo.name \(sectionInfo.name)")
+//        if sectionInfo.name == "0" {
+//            return "Topics"
+//        } else {
+//            return "Favorites"
+//        }
+//    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -99,8 +99,8 @@ class AllTopicsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentTopic = fetchedResultsController.object(at: indexPath)
-        prepare(for: UIStoryboardSegue(identifier: "editSingleTopic", source: self, destination: TopicDetailViewController.init()), sender: nil)
-        performSegue(withIdentifier: "editSingleTopic", sender: nil)
+        prepare(for: UIStoryboardSegue(identifier: "showSingleTopic", source: self, destination: TopicDetailViewController.init()), sender: nil)
+        performSegue(withIdentifier: "showSingleTopic", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -130,8 +130,12 @@ class AllTopicsViewController: UITableViewController {
         if segue.identifier == "editSingleTopic" {
             let dtvc = segue.destination as? TopicDetailViewController
             dtvc?.currentTopic = currentTopic
-            dtvc?.title = currentTopic?.title
+            dtvc?.title = "Edit Topic"
             dtvc?.editTopic = true
+            dtvc?.managedContext = managedContext
+        } else if segue.identifier == "showSingleTopic" {
+            let dtvc = segue.destination as? TopicDetailViewController
+            dtvc?.currentTopic = currentTopic
             dtvc?.managedContext = managedContext
         }
     }

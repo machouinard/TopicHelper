@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="3738.4000000000001" y="786.65667166416802"/>
         </scene>
-        <!--Detail View-->
+        <!--Topic Detail-->
         <scene sceneID="ukF-kE-Z97">
             <objects>
                 <viewController id="iMq-Fp-Lmd" customClass="TopicDetailViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nge-5o-oQB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail View" id="Fe3-3g-JbR"/>
+                    <navigationItem key="navigationItem" title="Topic Detail" id="Fe3-3g-JbR"/>
                     <connections>
                         <outlet property="scrollView" destination="PRf-hY-UKx" id="GQt-r0-Oup"/>
                         <outlet property="topicDetailView" destination="unF-dp-L4E" id="6td-4d-TTb"/>
@@ -208,7 +208,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Wg-jE-hui">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="58" id="ayq-1Y-PFH" customClass="TopicCell" customModule="TopicHelper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="58"/>
@@ -220,13 +220,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="745" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAM-Qs-wBm">
                                             <rect key="frame" x="20" y="26" width="314" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5X-kx-9T2">
                                             <rect key="frame" x="20" y="11" width="314" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -241,10 +241,12 @@
                                         <constraint firstItem="BAM-Qs-wBm" firstAttribute="trailing" secondItem="Meo-76-x8f" secondAttribute="trailingMargin" id="wj4-NB-7Rt"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="details" destination="BAM-Qs-wBm" id="J5M-AH-GLJ"/>
                                     <outlet property="title" destination="L5X-kx-9T2" id="TUR-o9-Avo"/>
-                                    <segue destination="iMq-Fp-Lmd" kind="show" trigger="accessoryAction" id="ll9-vy-FRJ"/>
+                                    <segue destination="iMq-Fp-Lmd" kind="show" identifier="editSingleTopic" trigger="accessoryAction" id="ll9-vy-FRJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -262,7 +264,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="iMq-Fp-Lmd" kind="show" identifier="editSingleTopic" id="UgT-cu-uI4"/>
+                        <segue destination="iMq-Fp-Lmd" kind="show" identifier="showSingleTopic" id="UgT-cu-uI4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JvY-BM-0LO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -77,17 +77,17 @@ class ViewController: UIViewController {
         if segue.identifier == "showTopicDetail" {
             let dtvc = segue.destination as? TopicDetailViewController
             dtvc?.currentTopic = currentTopic
-            dtvc?.title = currentTopic.title
+//            dtvc?.title = currentTopic.title
             dtvc?.managedContext = managedContext
         }
         
-        if segue.identifier == "editTopicDetail" {
-            let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.currentTopic = currentTopic
-            dtvc?.title = currentTopic.title
-            dtvc?.editTopic = true
-            dtvc?.managedContext = managedContext
-        }
+//        if segue.identifier == "editTopicDetail" {
+//            let dtvc = segue.destination as? TopicDetailViewController
+//            dtvc?.currentTopic = currentTopic
+//            dtvc?.title = currentTopic.title
+//            dtvc?.editTopic = true
+//            dtvc?.managedContext = managedContext
+//        }
     }
     
     override func viewDidLayoutSubviews() {

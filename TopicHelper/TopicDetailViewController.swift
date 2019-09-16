@@ -57,6 +57,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     }
     
     @objc func editCurrentTopic() {
+        title = "Edit Topic"
         editTopic = true
         topicTitleView.isEnabled = true
         topicTitleView.becomeFirstResponder()
