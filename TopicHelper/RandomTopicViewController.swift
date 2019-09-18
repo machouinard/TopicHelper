@@ -110,8 +110,8 @@ class RandomTopicViewController: UIViewController {
         if segue.identifier == "showTopicDetail" {
             let dtvc = segue.destination as? TopicDetailViewController
             dtvc?.currentTopic = currentTopic
-//            dtvc?.title = currentTopic.title
             dtvc?.managedContext = managedContext
+            dtvc?.topicLocked = topicLocked
         }
         
 //        if segue.identifier == "editTopicDetail" {

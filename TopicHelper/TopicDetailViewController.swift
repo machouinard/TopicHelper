@@ -18,6 +18,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     var editTopic: Bool = false
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
+    var topicLocked: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,10 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        guard !topicLocked else {
+            return
+        }
         
         if editTopic {
             topicTitleView.becomeFirstResponder()
