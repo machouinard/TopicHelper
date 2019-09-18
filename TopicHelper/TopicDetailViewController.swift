@@ -26,16 +26,15 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         topicTitleView.delegate = self
-        
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         topicDetailView.text = currentTopic?.details
         topicDetailView.isEditable = editTopic
         topicDetailView.centerVertically()
         topicTitleView.text = currentTopic?.title
         topicTitleView.isEnabled = editTopic
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
         if editTopic {
             topicTitleView.becomeFirstResponder()

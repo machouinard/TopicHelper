@@ -19,26 +19,30 @@ class ViewController: UIViewController {
         didSet {
             NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange, object: managedContext, queue: OperationQueue.main) { notification in
                 
+                
+                self.populateTopics()
+                
                 if let dictionary = notification.userInfo {
                     if nil != dictionary[NSInsertedObjectsKey] {
-                        print("new topic")
+                        print("new topic VC")
                         if !self.topicLocked {
                             let topics = dictionary["inserted"] as! Set<Topic>
                             self.currentTopic = topics.first
                         }
                     } else if nil != dictionary[NSUpdatedObjectsKey] {
-                        print("updated topic")
+                        print("updated topic VC")
                         if !self.topicLocked {
                             let topics = dictionary["updated"] as! Set<Topic>
                             self.currentTopic = topics.first
                         }
                         
                     } else {
-                        print("deleted topic")
-                        self.displayNextTopic()
+                        print("deleted topic VC")
+                        self.getRandomTopic()
                     }
                 }
-                self.populateTopics()
+                
+                self.displayNextTopic(topic: self.currentTopic)
             }
         }
     }
@@ -51,10 +55,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        insertStarterTopics()
+        insertStarterTopics()
+        
         populateTopics()
         
-        displayNextTopic()
+        displayNextTopic(topic: nil)
         
         backgroundLogo.isUserInteractionEnabled = true
         
@@ -95,8 +100,10 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        topicView.text = currentTopic.title
-        topicView.centerVertically()
+        if let topicText = currentTopic?.title {
+            topicView.text = topicText
+            topicView.centerVertically()
+        }
     }
     
     func populateTopics() {
@@ -125,15 +132,22 @@ class ViewController: UIViewController {
         lastTopic = currentTopic
     }
     
-    @objc func displayNextTopic() {
+    @objc func displayNextTopic(topic: Topic?) {
         guard false == topicLocked  && 0 != topics.count else {
+            if topics.isEmpty {
+                topicView.text = ""
+            }
             return
         }
         
         topicView.center.x -= view.bounds.width
         topicView.alpha = 0.0
         
-        getRandomTopic()
+        if let topic = topic {
+            currentTopic = topic
+        } else {
+            getRandomTopic()
+        }
         topicView.text = currentTopic.title
         topicView.centerVertically()
         
@@ -166,7 +180,35 @@ class ViewController: UIViewController {
     }
     
     @IBAction func tappedNextTopic(_ sender: Any) {
-        displayNextTopic()
+        displayNextTopic(topic: nil)
+    }
+    
+    // MARK:- Starter Topics
+    func insertStarterTopics() {
+        
+        let fetch: NSFetchRequest<Topic> = Topic.fetchRequest()
+        let count = try! managedContext.count(for: fetch)
+        
+        if count > 0 {
+            // Topics have been added
+            return
+        }
+        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
+        let dataArray = NSArray(contentsOfFile: path!)!
+        
+        for dict in dataArray {
+            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: managedContext)!
+            let topic = Topic(entity: entity, insertInto: managedContext)
+            let topicDict = dict as! [String: Any]
+            topic.title = topicDict["title"] as? String
+            topic.details = topicDict["details"] as? String
+            topic.isFavorite = topicDict["isFavorite"] as! Bool
+        }
+        do {
+            try managedContext.save()
+        } catch  {
+            fatalCoreDataError(error)
+        }
     }
 }
 

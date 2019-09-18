@@ -38,7 +38,6 @@ class AllTopicsViewController: UITableViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        insertStarterTopics()
         performFetch()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -128,11 +127,19 @@ class AllTopicsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSingleTopic" {
-            let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.currentTopic = currentTopic
-            dtvc?.title = "Edit Topic"
-            dtvc?.editTopic = true
-            dtvc?.managedContext = managedContext
+            
+            let topicDetailVC = segue.destination as? TopicDetailViewController
+            print("sender \(String(describing: sender))")
+            if nil != sender {
+                if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+                    topicDetailVC?.currentTopic = fetchedResultsController.object(at: indexPath)
+                }
+            } else {
+                topicDetailVC?.currentTopic = currentTopic
+            }
+            topicDetailVC?.title = "Edit Topic"
+            topicDetailVC?.editTopic = true
+            topicDetailVC?.managedContext = managedContext
         } else if segue.identifier == "showSingleTopic" {
             let dtvc = segue.destination as? TopicDetailViewController
             dtvc?.currentTopic = currentTopic
@@ -140,33 +147,7 @@ class AllTopicsViewController: UITableViewController {
         }
     }
     
-    // MARK:- Starter Topics
-    func insertStarterTopics() {
-        
-        let fetch: NSFetchRequest<Topic> = Topic.fetchRequest()
-        let count = try! managedContext.count(for: fetch)
-        
-        if count > 0 {
-            // Topics have been added
-            return
-        }
-        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
-        let dataArray = NSArray(contentsOfFile: path!)!
-        
-        for dict in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: managedContext)!
-            let topic = Topic(entity: entity, insertInto: managedContext)
-            let topicDict = dict as! [String: Any]
-            topic.title = topicDict["title"] as? String
-            topic.details = topicDict["details"] as? String
-            topic.isFavorite = topicDict["isFavorite"] as! Bool
-        }
-        do {
-            try managedContext.save()
-        } catch  {
-            fatalCoreDataError(error)
-        }
-    }
+    
 
     /*
     // Override to support conditional editing of the table view.

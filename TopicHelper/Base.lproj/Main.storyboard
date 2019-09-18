@@ -21,7 +21,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradiant" translatesAutoresizingMaskIntoConstraints="NO" id="k6p-ld-dm1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="sdffds" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-Jo-I0y">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-Jo-I0y">
                                 <rect key="frame" x="16" y="223" width="382" height="450"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -69,7 +69,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Topic" id="lgv-Yn-Us8" userLabel="Topic"/>
+                    <tabBarItem key="tabBarItem" title="Random Topic" id="lgv-Yn-Us8" userLabel="Topic"/>
                     <navigationItem key="navigationItem" title="Topics for Dummies" id="lR5-iI-QIS">
                         <barButtonItem key="rightBarButtonItem" tag="5" title="Item" image="unlock" id="LU8-kG-7J8">
                             <connections>
@@ -182,11 +182,11 @@
             </objects>
             <point key="canvasLocation" x="3738" y="1503"/>
         </scene>
-        <!--Topic-->
+        <!--Random Topic-->
         <scene sceneID="Lag-PK-52d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vcE-Op-Vei" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Topic" id="zK4-Ug-uWh"/>
+                    <tabBarItem key="tabBarItem" title="Random Topic" id="zK4-Ug-uWh" userLabel="Random Topic"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pyy-AT-StX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -299,8 +299,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Qp6-3p-EzL" kind="relationship" relationship="viewControllers" id="Y8h-TE-hq3"/>
                         <segue destination="vcE-Op-Vei" kind="relationship" relationship="viewControllers" id="fWk-gb-Hbv"/>
+                        <segue destination="Qp6-3p-EzL" kind="relationship" relationship="viewControllers" id="Y8h-TE-hq3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKY-bu-RAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,6 +316,6 @@
         <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UgT-cu-uI4"/>
+        <segue reference="Iix-eW-bIK"/>
     </inferredMetricsTieBreakers>
 </document>
