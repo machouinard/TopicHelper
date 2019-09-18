@@ -11,7 +11,6 @@ import CoreData
 
 class AllTopicsViewController: UITableViewController {
     
-    var topics = [Topic]()
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
@@ -207,6 +206,10 @@ extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
                     at indexPath: IndexPath?,
                     for type: NSFetchedResultsChangeType,
                     newIndexPath: IndexPath? ) {
+        
+        print("fetched objects: \(String(describing: self.fetchedResultsController.fetchedObjects))")
+        print("AllTopics indexPath: \(String(describing: indexPath))")
+        print("AllTopics newIndexPath: \(String(describing: newIndexPath))")
         switch type {
         case .insert:
             print("*** NSFetchedResultsChangeInsert (object)")
@@ -227,9 +230,9 @@ extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
             tableView.deleteRows(at: [indexPath!], with: .fade)
             tableView.insertRows(at: [newIndexPath!], with: .fade)
         @unknown default:
-            print("asdf")
+            print("controller didChange anObject switch default")
         }
-        
+        print("fetched objects: \(String(describing: self.fetchedResultsController.fetchedObjects))")
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
@@ -250,7 +253,7 @@ extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
         case .move:
             print("*** NSFetchedResultsChangeMove (section)")
         @unknown default:
-            print("asdf")
+            print("didChange sectionInfo switch default")
         }
     }
     

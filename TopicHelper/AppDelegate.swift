@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabController = window?.rootViewController as! UITabBarController
         if let tabViewControllers = tabController.viewControllers {
             let topicNavController = tabViewControllers[0] as! UINavigationController
-            let topicVC = topicNavController.viewControllers.first as! ViewController
+            let topicVC = topicNavController.viewControllers.first as! RandomTopicViewController
             topicVC.managedContext = coreDataStack.managedContext
             let allTopicsNavController = tabViewControllers[1] as! UINavigationController
             let allTopicsVC = allTopicsNavController.viewControllers.first as! AllTopicsViewController

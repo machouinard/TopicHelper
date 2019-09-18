@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RandomTopicViewController.swift
 //  TopicHelper
 //
 //  Created by Mark Chouinard on 9/2/19.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class RandomTopicViewController: UIViewController {
     
     @IBOutlet weak var topicView: UITextView!
     @IBOutlet weak var backgroundLogo: UIImageView!
@@ -19,30 +19,58 @@ class ViewController: UIViewController {
         didSet {
             NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange, object: managedContext, queue: OperationQueue.main) { notification in
                 
-                
-                self.populateTopics()
-                
+                print("TOPICS: \(self.topics)")
+                // Update our topics with latest changes
+                // TODO: only update changed
+//                self.populateTopics()
+                print("notification: \(notification)")
                 if let dictionary = notification.userInfo {
                     if nil != dictionary[NSInsertedObjectsKey] {
                         print("new topic VC")
-                        if !self.topicLocked {
-                            let topics = dictionary["inserted"] as! Set<Topic>
-                            self.currentTopic = topics.first
+                        let topics = dictionary["inserted"] as! Set<Topic>
+                        if let first = topics.first {
+                            print("added first: \(first)")
+                            if let ind = self.topics.firstIndex(of: first) {
+                                print("Add Index: \(ind)")
+                            } else {
+                                print("Added - no index")
+                            }
+                        
                         }
                     } else if nil != dictionary[NSUpdatedObjectsKey] {
                         print("updated topic VC")
-                        if !self.topicLocked {
+                        
                             let topics = dictionary["updated"] as! Set<Topic>
-                            self.currentTopic = topics.first
-                        }
+                            print("Update dictionary: \(dictionary)")
+                            if let first = topics.first {
+                                print("updated first: \(first)")
+                                if let ind = self.topics.firstIndex(of: first) {
+                                    print("Update Index: \(ind)")
+                                } else {
+                                    print("appended to topics: \(first)")
+                                    self.topics.append(first)
+                                }
+                                if !self.topicLocked {
+                                    self.currentTopic = first
+                                }
+                            }
                         
                     } else {
+                        let topics = dictionary["deleted"] as! Set<Topic>
+                        if let first = topics.first {
+                            if let ind = self.topics.firstIndex(of: first) {
+                                print("Delete Index: \(ind)")
+                                self.topics.remove(at: ind)
+                            }
+                            print("Deleted: \(first)")
+                        }
                         print("deleted topic VC")
                         self.getRandomTopic()
                     }
                 }
-                
+                self.lastTopic = self.currentTopic // Make sure we track last topic
                 self.displayNextTopic(topic: self.currentTopic)
+                print("TOPICS: \(self.topics)")
             }
         }
     }
@@ -67,7 +95,7 @@ class ViewController: UIViewController {
         backgroundLogo.addGestureRecognizer(tgr)
         
         // Swipe right to show new topic
-        let sgr = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
+        let sgr = UISwipeGestureRecognizer(target: self, action: #selector(displayRandomTopic))
         backgroundLogo.addGestureRecognizer(sgr)
     }
     
@@ -132,7 +160,11 @@ class ViewController: UIViewController {
         lastTopic = currentTopic
     }
     
-    @objc func displayNextTopic(topic: Topic?) {
+    @objc func displayRandomTopic() {
+        displayNextTopic(topic: nil)
+    }
+    
+    func displayNextTopic(topic: Topic?) {
         guard false == topicLocked  && 0 != topics.count else {
             if topics.isEmpty {
                 topicView.text = ""
