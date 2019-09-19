@@ -26,6 +26,11 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        // Swipe left to show return to previous screen
+        let sgr = UISwipeGestureRecognizer(target: self, action: #selector(returnToPreviousScreen))
+        sgr.direction = UISwipeGestureRecognizer.Direction.left
+        view.addGestureRecognizer(sgr)
+        
         topicTitleView.delegate = self
         
         // If topic title is empty, it's new - go straight to editing
@@ -35,6 +40,10 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
             showCurrentTopic()
         }
         
+    }
+    
+    @objc func returnToPreviousScreen() {
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
