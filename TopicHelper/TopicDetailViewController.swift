@@ -28,14 +28,11 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         
         topicTitleView.delegate = self
         
+        // If topic title is empty, it's new - go straight to editing
         if nil == currentTopic?.title {
             editCurrentTopic()
         } else {
-            topicTitleView.text = currentTopic?.title
-            topicTitleView.isEnabled = editTopic
-            topicDetailView.text = currentTopic?.details
-            topicDetailView.isEditable = editTopic
-            topicDetailView.centerVertically()
+            showCurrentTopic()
         }
         
     }
@@ -63,6 +60,14 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         done()
         
         return false
+    }
+    
+    func showCurrentTopic() {
+        topicTitleView.text = currentTopic?.title
+        topicTitleView.isEnabled = editTopic
+        topicDetailView.text = currentTopic?.details
+        topicDetailView.isEditable = editTopic
+        topicDetailView.centerVertically()
     }
     
     @objc func editCurrentTopic() {
