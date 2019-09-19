@@ -17,7 +17,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     var editTopic: Bool = false
     var managedContext: NSManagedObjectContext!
-    var currentTopic: Topic?
+    var currentTopic: Topic!
     var topicLocked: Bool = false
 
     override func viewDidLoad() {
@@ -26,12 +26,16 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        topicTitleView.delegate = self
-        topicDetailView.text = currentTopic?.details
-        topicDetailView.isEditable = editTopic
-        topicDetailView.centerVertically()
-        topicTitleView.text = currentTopic?.title
-        topicTitleView.isEnabled = editTopic
+        if nil == currentTopic.title {
+            editCurrentTopic()
+        } else {
+            topicTitleView.delegate = self
+            topicDetailView.text = currentTopic?.details
+            topicDetailView.isEditable = editTopic
+            topicDetailView.centerVertically()
+            topicTitleView.text = currentTopic?.title
+            topicTitleView.isEnabled = editTopic
+        }
         
     }
     
@@ -41,7 +45,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
             return
         }
         
-        if editTopic {
+        if editTopic || nil == currentTopic {
             topicTitleView.becomeFirstResponder()
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
         } else {

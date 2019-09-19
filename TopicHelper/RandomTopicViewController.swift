@@ -61,6 +61,9 @@ class RandomTopicViewController: UIViewController {
                             if let ind = self.topics.firstIndex(of: first) {
                                 print("Delete Index: \(ind)")
                                 self.topics.remove(at: ind)
+                                if self.currentTopic == first {
+                                    self.currentTopic = nil
+                                }
                             }
                             print("Deleted: \(first)")
                         }
@@ -75,7 +78,7 @@ class RandomTopicViewController: UIViewController {
         }
     }
     var topics = [Topic]()
-    var currentTopic: Topic!
+    var currentTopic: Topic?
     var lastTopic: Topic?
     var topicLocked: Bool = false
     
@@ -109,6 +112,10 @@ class RandomTopicViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTopicDetail" {
             let dtvc = segue.destination as? TopicDetailViewController
+            print("current: \(String(describing: currentTopic))")
+            if nil == currentTopic {
+                currentTopic = Topic(context: managedContext)
+            }
             dtvc?.currentTopic = currentTopic
             dtvc?.managedContext = managedContext
             dtvc?.topicLocked = topicLocked
@@ -153,7 +160,7 @@ class RandomTopicViewController: UIViewController {
         
         currentTopic = topics[rnd]
         
-        if currentTopic.title == lastTopic?.title {
+        if currentTopic?.title == lastTopic?.title {
             getRandomTopic()
             topicView.alpha = 1.0
         }
@@ -180,7 +187,7 @@ class RandomTopicViewController: UIViewController {
         } else {
             getRandomTopic()
         }
-        topicView.text = currentTopic.title
+        topicView.text = currentTopic?.title
         topicView.centerVertically()
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseIn],
