@@ -170,7 +170,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nge-5o-oQB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Topic Detail" id="Fe3-3g-JbR"/>
+                    <navigationItem key="navigationItem" title="Topic Detail" id="Fe3-3g-JbR">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="vCL-Y7-Omx">
+                            <connections>
+                                <action selector="editCurrentTopic" destination="iMq-Fp-Lmd" id="JVs-rM-XrQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="PRf-hY-UKx" id="GQt-r0-Oup"/>
                         <outlet property="topicDetailView" destination="unF-dp-L4E" id="6td-4d-TTb"/>
@@ -313,6 +319,6 @@
         <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UgT-cu-uI4"/>
+        <segue reference="Iix-eW-bIK"/>
     </inferredMetricsTieBreakers>
 </document>

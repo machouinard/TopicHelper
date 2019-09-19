@@ -12,7 +12,6 @@ import CoreData
 class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var topicDetailView: UITextView!
     @IBOutlet weak var topicTitleView: UITextField!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var editTopic: Bool = false
@@ -42,8 +41,27 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         
     }
     
+    // Rollback unsaved managedObjectContext changes when hitting back button
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        
+        // If parent is nil, back button was used
+        if nil == parent {
+            rollbackMangedObject()
+        }
+    }
+    
+    // Rollback unsaved managedObjectContext changes when swiping left to return from detail screen
     @objc func returnToPreviousScreen() {
+        rollbackMangedObject()
         navigationController?.popViewController(animated: true)
+    }
+    
+    // Rollback managedObjectContext changes
+    func rollbackMangedObject() {
+        if managedContext.hasChanges {
+            managedContext.rollback()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,8 +73,6 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         if editTopic || nil == currentTopic {
             topicTitleView.becomeFirstResponder()
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
-        } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: #selector(editCurrentTopic))
         }
         
     }
@@ -79,7 +95,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         topicDetailView.centerVertically()
     }
     
-    @objc func editCurrentTopic() {
+    @objc @IBAction func editCurrentTopic() {
         title = "Edit Topic"
         editTopic = true
         topicTitleView.isEnabled = true
