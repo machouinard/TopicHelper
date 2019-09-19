@@ -17,7 +17,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     var editTopic: Bool = false
     var managedContext: NSManagedObjectContext!
-    var currentTopic: Topic!
+    var currentTopic: Topic?
     var topicLocked: Bool = false
 
     override func viewDidLoad() {
@@ -26,15 +26,16 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        if nil == currentTopic.title {
+        topicTitleView.delegate = self
+        
+        if nil == currentTopic?.title {
             editCurrentTopic()
         } else {
-            topicTitleView.delegate = self
+            topicTitleView.text = currentTopic?.title
+            topicTitleView.isEnabled = editTopic
             topicDetailView.text = currentTopic?.details
             topicDetailView.isEditable = editTopic
             topicDetailView.centerVertically()
-            topicTitleView.text = currentTopic?.title
-            topicTitleView.isEnabled = editTopic
         }
         
     }
@@ -53,8 +54,8 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         }
         
     }
+    
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
-        // If editing, save
         done()
     }
     
@@ -97,6 +98,7 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         }
     }
     
+    // MARK: - Keyboard functions
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardFrame: CGRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
@@ -110,15 +112,5 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

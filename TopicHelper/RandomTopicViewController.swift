@@ -19,61 +19,34 @@ class RandomTopicViewController: UIViewController {
         didSet {
             NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange, object: managedContext, queue: OperationQueue.main) { notification in
                 
-                print("TOPICS: \(self.topics)")
                 // Update our topics with latest changes
-                // TODO: only update changed
-//                self.populateTopics()
-                print("notification: \(notification)")
                 if let dictionary = notification.userInfo {
-                    if nil != dictionary[NSInsertedObjectsKey] {
-                        print("new topic VC")
-                        let topics = dictionary["inserted"] as! Set<Topic>
-                        if let first = topics.first {
-                            print("added first: \(first)")
-                            if let ind = self.topics.firstIndex(of: first) {
-                                print("Add Index: \(ind)")
-                            } else {
-                                print("Added - no index")
-                            }
-                        
-                        }
-                    } else if nil != dictionary[NSUpdatedObjectsKey] {
-                        print("updated topic VC")
-                        
+                    // New topic is inserted empty, then updated.  We only deal with updated and deleted.
+                    if nil != dictionary[NSUpdatedObjectsKey] {
                             let topics = dictionary["updated"] as! Set<Topic>
-                            print("Update dictionary: \(dictionary)")
                             if let first = topics.first {
-                                print("updated first: \(first)")
-                                if let ind = self.topics.firstIndex(of: first) {
-                                    print("Update Index: \(ind)")
-                                } else {
-                                    print("appended to topics: \(first)")
+                                if  nil == self.topics.firstIndex(of: first) {
+                                    // no index means this is a new topic and needs to be added to our array
                                     self.topics.append(first)
                                 }
+                                // If topic is not locked, make this the current topic
                                 if !self.topicLocked {
                                     self.currentTopic = first
                                 }
                             }
-                        
-                    } else {
+                    } else if nil != dictionary[NSDeletedObjectsKey] {
                         let topics = dictionary["deleted"] as! Set<Topic>
                         if let first = topics.first {
                             if let ind = self.topics.firstIndex(of: first) {
-                                print("Delete Index: \(ind)")
                                 self.topics.remove(at: ind)
-                                if self.currentTopic == first {
-                                    self.currentTopic = nil
-                                }
                             }
-                            print("Deleted: \(first)")
                         }
-                        print("deleted topic VC")
+                        // currentTopic should be the one we just deleted - need to change that
                         self.getRandomTopic()
                     }
                 }
                 self.lastTopic = self.currentTopic // Make sure we track last topic
                 self.displayNextTopic(topic: self.currentTopic)
-                print("TOPICS: \(self.topics)")
             }
         }
     }
@@ -112,22 +85,15 @@ class RandomTopicViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTopicDetail" {
             let dtvc = segue.destination as? TopicDetailViewController
-            print("current: \(String(describing: currentTopic))")
+            
             if nil == currentTopic {
                 currentTopic = Topic(context: managedContext)
             }
+            
             dtvc?.currentTopic = currentTopic
             dtvc?.managedContext = managedContext
             dtvc?.topicLocked = topicLocked
         }
-        
-//        if segue.identifier == "editTopicDetail" {
-//            let dtvc = segue.destination as? TopicDetailViewController
-//            dtvc?.currentTopic = currentTopic
-//            dtvc?.title = currentTopic.title
-//            dtvc?.editTopic = true
-//            dtvc?.managedContext = managedContext
-//        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -147,12 +113,16 @@ class RandomTopicViewController: UIViewController {
     }
     
     func getRandomTopic() {
+        // If no topics, make currentTopic nil and bail
         guard 0 != topics.count else {
+            currentTopic = nil
+            
             return
         }
         // If we only have 1 topic, return it
         if (1 == topics.count) {
-            currentTopic = topics[0]
+            currentTopic = topics.first
+            
             return
         }
         
@@ -199,19 +169,16 @@ class RandomTopicViewController: UIViewController {
         )
     }
 
-    
+    // MARK: - Actions
     @IBAction func toggleTopicLock(_ sender: Any) {
         topicLocked = !topicLocked
         
         var lockImg = String()
         
-        switch topicLocked {
-        case true:
+        if topicLocked {
             lockImg = "lock"
-            break
-        default:
+        } else {
             lockImg = "unlock"
-            break
         }
         
         topicLock.image = UIImage(named: lockImg)
@@ -229,7 +196,7 @@ class RandomTopicViewController: UIViewController {
         let count = try! managedContext.count(for: fetch)
         
         if count > 0 {
-            // Topics have been added
+            // Topics have already been added
             return
         }
         let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
