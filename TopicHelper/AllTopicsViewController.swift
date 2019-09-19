@@ -132,7 +132,6 @@ class AllTopicsViewController: UITableViewController {
 
 extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("** controllerWillChangeContent ***")
         tableView.beginUpdates()
     }
     
@@ -142,18 +141,12 @@ extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
                     for type: NSFetchedResultsChangeType,
                     newIndexPath: IndexPath? ) {
         
-        print("fetched objects: \(String(describing: self.fetchedResultsController.fetchedObjects))")
-        print("AllTopics indexPath: \(String(describing: indexPath))")
-        print("AllTopics newIndexPath: \(String(describing: newIndexPath))")
         switch type {
         case .insert:
-            print("*** NSFetchedResultsChangeInsert (object)")
             tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
-            print("*** NSFetchedResultsChangeDelete (object)")
             tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
-            print("*** NSFetchedResultsChangeUpdate (object)")
             if let cell = tableView.cellForRow(at: indexPath!)
                 as? TopicCell {
                 let topic = controller.object(at: indexPath!)
@@ -161,13 +154,11 @@ extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
                 cell.configure(for: topic)
             }
         case .move:
-            print("*** NSFetchedResultsChangeMove (object)")
             tableView.deleteRows(at: [indexPath!], with: .fade)
             tableView.insertRows(at: [newIndexPath!], with: .fade)
         @unknown default:
             print("controller didChange anObject switch default")
         }
-        print("fetched objects: \(String(describing: self.fetchedResultsController.fetchedObjects))")
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
@@ -176,11 +167,9 @@ extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
                     for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            print("*** NSFetchedResultsChangeInsert (section)")
             tableView.insertSections(IndexSet(integer: sectionIndex),
                                      with: .fade)
         case .delete:
-            print("*** NSFetchedResultsChangeDelete (section)")
             tableView.deleteSections(IndexSet(integer: sectionIndex),
                                      with: .fade)
         case .update:
@@ -194,7 +183,6 @@ extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller:
         NSFetchedResultsController<NSFetchRequestResult>) {
-        print("*** controllerDidChangeContent")
         tableView.endUpdates()
     }
 }
