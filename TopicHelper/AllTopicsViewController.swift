@@ -25,7 +25,7 @@ class AllTopicsViewController: UITableViewController {
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
-            sectionNameKeyPath: "isFavorite",
+            sectionNameKeyPath: nil,
             cacheName: "Topics")
         
         fetchedResultsController.delegate = self
@@ -40,6 +40,13 @@ class AllTopicsViewController: UITableViewController {
         performFetch()
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
+        
+        let applicationDocumentsDirectory: URL = {
+            let paths = FileManager.default.urls(for: .documentDirectory,
+                                                 in: .userDomainMask)
+            return paths[0]
+        }()
+        print("dir: \(applicationDocumentsDirectory)")
     }
     
     // MARK:- Helper methods
@@ -58,19 +65,25 @@ class AllTopicsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections!.count
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+////        return fetchedResultsController.sections!.count
+//        return 1
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print("section: \(section)")
+//        let fetched = fetchedResultsController.fetchedObjects
+//        print("Fetched: \(String(describing: fetched))")
         let sectionInfo = fetchedResultsController.sections![section]
+//        print("NumberOfObjects: \(sectionInfo.numberOfObjects)")
         return sectionInfo.numberOfObjects
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! TopicCell
-
+        
         let topic = fetchedResultsController.object(at: indexPath)
+        
         cell.configure(for: topic)
 
         return cell

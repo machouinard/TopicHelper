@@ -42,11 +42,11 @@ class RandomTopicViewController: UIViewController {
                             }
                         }
                         // currentTopic should be the one we just deleted - need to change that
-                        self.getRandomTopic()
+                        self.displayRandomTopic()
                     }
                 }
                 self.lastTopic = self.currentTopic // Make sure we track last topic
-                self.displayNextTopic(topic: self.currentTopic)
+                self.displayNextTopic()
             }
         }
     }
@@ -54,6 +54,8 @@ class RandomTopicViewController: UIViewController {
     var currentTopic: Topic?
     var lastTopic: Topic?
     var topicLocked: Bool = false
+    var prevTopics = [Topic]()
+    var nextTopics = [Topic]()
     
 
     override func viewDidLoad() {
@@ -63,7 +65,7 @@ class RandomTopicViewController: UIViewController {
         
         populateTopics()
         
-        displayNextTopic(topic: nil)
+        displayRandomTopic()
         
         backgroundLogo.isUserInteractionEnabled = true
         
@@ -71,8 +73,13 @@ class RandomTopicViewController: UIViewController {
         backgroundLogo.addGestureRecognizer(tgr)
         
         // Swipe right to show new topic
-        let sgr = UISwipeGestureRecognizer(target: self, action: #selector(displayRandomTopic))
-        backgroundLogo.addGestureRecognizer(sgr)
+        let sgrRight = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
+        backgroundLogo.addGestureRecognizer(sgrRight)
+        
+        let sgrLeft = UISwipeGestureRecognizer(target: self, action: #selector(displayPreviousTopic))
+        sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
+        backgroundLogo.addGestureRecognizer(sgrLeft)
+        
     }
     
     // MARK: - GestureRecognizers
@@ -110,53 +117,17 @@ class RandomTopicViewController: UIViewController {
     func populateTopics() {
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         topics = try! managedContext.fetch(request)
+//        print("topics populated: \(topics)")
     }
     
-    func getRandomTopic() {
-        // If no topics, make currentTopic nil and bail
-        guard 0 != topics.count else {
-            currentTopic = nil
-            
-            return
-        }
-        // If we only have 1 topic, return it
-        if (1 == topics.count) {
-            currentTopic = topics.first
-            
-            return
-        }
-        
-        let rnd = Int(arc4random_uniform(UInt32(topics.count)))
-        
-        currentTopic = topics[rnd]
-        
-        if currentTopic?.title == lastTopic?.title {
-            getRandomTopic()
-            topicView.alpha = 1.0
-        }
-        lastTopic = currentTopic
-    }
-    
-    @objc func displayRandomTopic() {
-        displayNextTopic(topic: nil)
-    }
-    
-    func displayNextTopic(topic: Topic?) {
-        guard false == topicLocked  && 0 != topics.count else {
-            if topics.isEmpty {
-                topicView.text = ""
-            }
+    func displayTopic() {
+        guard false == topicLocked  && nil != currentTopic else {
             return
         }
         
         topicView.center.x -= view.bounds.width
         topicView.alpha = 0.0
         
-        if let topic = topic {
-            currentTopic = topic
-        } else {
-            getRandomTopic()
-        }
         topicView.text = currentTopic?.title
         topicView.centerVertically()
         
@@ -167,6 +138,89 @@ class RandomTopicViewController: UIViewController {
         },
                        completion: nil
         )
+        
+    }
+    
+    func displayRandomTopic() {
+        
+        guard false == topicLocked && !topics.isEmpty else {
+            
+//            if topics.isEmpty {
+//                topicView.text = ""
+//                currentTopic = nil
+//            }
+            
+            return
+        }
+        
+        if (1 == topics.count) {// If we only have 1 topic, return it
+            currentTopic = topics.first
+            
+        } else {
+            //        let randomIndex = Int.random(in: 0 ..< topics.count)
+            
+            let randomTopic = topics.randomElement()
+            
+            if currentTopic == randomTopic {
+                displayRandomTopic()
+                return
+            }
+            
+            currentTopic = randomTopic
+        }
+        
+
+        
+        displayTopic()
+    }
+    
+    @objc func displayNextTopic() {
+        guard false == topicLocked  && 0 != topics.count else {
+            return
+        }
+        
+        saveCurrentTopicPrevious()
+
+        if nextTopics.isEmpty {
+            displayRandomTopic()
+        } else {
+            currentTopic = nextTopics.removeLast()
+        }
+        
+        displayTopic()
+    }
+    
+    @objc func displayPreviousTopic() {
+        guard !prevTopics.isEmpty else {
+            return
+        }
+        
+        saveCurrentTopicNext()
+        print("PrevTopics: \(prevTopics)")
+        print("CurrentTopic: \(String(describing: currentTopic))")
+        print("****************")
+        currentTopic = prevTopics.removeLast()
+        print("PrevTopics: \(prevTopics)")
+        print("CurrentTopic: \(String(describing: currentTopic))")
+        displayTopic()
+    }
+    
+    func saveCurrentTopicPrevious() {
+        if let cTopic = currentTopic {
+            prevTopics.append(cTopic)
+        }
+        if prevTopics.count > 5 {
+            prevTopics.removeFirst()
+        }
+    }
+    
+    func saveCurrentTopicNext() {
+        if let cTopic = currentTopic {
+            nextTopics.append(cTopic)
+        }
+        if nextTopics.count > 5 {
+            nextTopics.removeFirst()
+        }
     }
 
     // MARK: - Actions
@@ -186,7 +240,7 @@ class RandomTopicViewController: UIViewController {
     }
     
     @IBAction func tappedNextTopic(_ sender: Any) {
-        displayNextTopic(topic: nil)
+        displayNextTopic()
     }
     
     // MARK:- Starter Topics

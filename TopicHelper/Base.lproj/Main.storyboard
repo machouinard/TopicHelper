@@ -39,7 +39,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37R-QR-DWF">
-                                <rect key="frame" x="157" y="766" width="100" height="37"/>
+                                <rect key="frame" x="163" y="783" width="88" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="3cb-9K-Qlq"/>
                                 </constraints>
@@ -69,7 +69,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Random Topic" id="lgv-Yn-Us8" userLabel="Topic"/>
+                    <tabBarItem key="tabBarItem" title="Random Topic" selectedImage="topic" id="lgv-Yn-Us8" userLabel="Topic"/>
                     <navigationItem key="navigationItem" title="Topics for Dummies" id="lR5-iI-QIS">
                         <barButtonItem key="rightBarButtonItem" tag="5" title="Item" image="unlock" id="LU8-kG-7J8">
                             <connections>
@@ -191,7 +191,7 @@
         <scene sceneID="Lag-PK-52d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vcE-Op-Vei" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Random Topic" id="zK4-Ug-uWh" userLabel="Random Topic"/>
+                    <tabBarItem key="tabBarItem" title="Random Topic" image="topic-sbs" id="zK4-Ug-uWh" userLabel="Random Topic"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pyy-AT-StX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -278,7 +278,7 @@
         <scene sceneID="98A-Id-dp5">
             <objects>
                 <navigationController id="Qp6-3p-EzL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Topics" id="Q4f-WR-gFh"/>
+                    <tabBarItem key="tabBarItem" title="All Topics" image="topics-sbs" id="Q4f-WR-gFh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acO-oV-hoa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -316,9 +316,12 @@
         <image name="blueButtonHighlighted" width="100" height="37"/>
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
+        <image name="topic" width="31" height="30.666666030883789"/>
+        <image name="topic-sbs" width="24.666666030883789" height="24.666666030883789"/>
+        <image name="topics-sbs" width="26.666666030883789" height="30.333333969116211"/>
         <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Iix-eW-bIK"/>
+        <segue reference="UgT-cu-uI4"/>
     </inferredMetricsTieBreakers>
 </document>
