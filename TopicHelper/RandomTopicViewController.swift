@@ -39,15 +39,23 @@ class RandomTopicViewController: UIViewController {
                     } else if nil != dictionary[NSDeletedObjectsKey] {
                         let deletedTopics = dictionary["deleted"] as! Set<Topic>
                         if let first = deletedTopics.first {
+                            // Remove topic from prev/next arrays
+                            self.prevTopics.removeAll{ $0 == first }
+                            self.nextTopics.removeAll{ $0 == first }
                             if let ind = self.topics.firstIndex(of: first) {
+                                // Remove topic from array
                                 self.topics.remove(at: ind)
                             }
+                            if self.currentTopic == first {
+                                self.clearCurrentTopic()
+                            }
                         }
-                        // currentTopic should be the one we just deleted - need to change that
-                        self.displayRandomTopic()
                     }
                 }
-                self.lastTopic = self.currentTopic // Make sure we track last topic
+                if nil != self.currentTopic {
+                    self.lastTopic = self.currentTopic // Make sure we track last topic
+                }
+                // This should display topic from nextTopics array or random topic
                 self.displayNextTopic()
             }
         }
@@ -68,13 +76,13 @@ class RandomTopicViewController: UIViewController {
         if nil == currentTopic {
             displayRandomTopic()
         } else {
-            displayTopic()
+            displayTopic(sender: "viewDidLoad")
         }
         
         backgroundLogo.isUserInteractionEnabled = true
         
-//        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
-//        backgroundLogo.addGestureRecognizer(tgr)
+        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
+        backgroundLogo.addGestureRecognizer(tgr)
         
         // Swipe right to show new topic
         let sgrRight = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
@@ -82,19 +90,25 @@ class RandomTopicViewController: UIViewController {
         
         let sgrLeft = UISwipeGestureRecognizer(target: self, action: #selector(displayPreviousTopic))
         sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
-//        backgroundLogo.addGestureRecognizer(sgrLeft)
+        backgroundLogo.addGestureRecognizer(sgrLeft)
         
+    }
+    
+    func clearCurrentTopic() {
+        currentTopic = nil
+        topicTitleLabel.text = ""
+        topicDetailLabel.text = ""
     }
     
     // MARK: - GestureRecognizers
     
-    @objc func topicTapGesture() {
-        performSegue(withIdentifier: "showTopicDetail", sender: nil)
+    @objc @IBAction func topicTapGesture() {
+        performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
     }
     
     // MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showTopicDetail" {
+        if segue.identifier == "editDisplayedTopic" {
             let dtvc = segue.destination as? EditTopicViewController
             
             if nil == currentTopic {
@@ -128,25 +142,41 @@ class RandomTopicViewController: UIViewController {
 //        print("topics populated: \(topics)")
     }
     
-    func displayTopic() {
+    func displayTopic(sender: String) {
         guard false == topicLocked  && nil != currentTopic else {
+            if topics.isEmpty {
+                topicTitleLabel.text = ""
+                topicDetailLabel.text = ""
+                
+                currentTopic = nil
+            }
+            
             return
         }
         
-        topicTitleLabel.center.x -= view.bounds.width
+        // MARK: - Animations
+        // Change direction based on swipe
+        if "previous" == sender {
+            topicTitleLabel.center.x += view.bounds.width
+        } else {
+            topicTitleLabel.center.x -= view.bounds.width
+        }
         topicTitleLabel.alpha = 0.0
         
-        if let title = currentTopic?.title {
-            topicTitleLabel.text = title
-        }
-        if let details = currentTopic?.details {
-            topicDetailLabel.text = details
-        }
+
+        topicTitleLabel.text = currentTopic?.title
+
+        topicDetailLabel.text = currentTopic?.details
+
         
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseIn],
                        animations: {
-                        self.topicTitleLabel.center.x += self.view.bounds.width
+                        if "previous" == sender {
+                            self.topicTitleLabel.center.x -= self.view.bounds.width
+                        } else {
+                            self.topicTitleLabel.center.x += self.view.bounds.width
+                        }
                         self.topicTitleLabel.alpha = 1.0
         },
                        completion: nil
@@ -157,12 +187,6 @@ class RandomTopicViewController: UIViewController {
     func displayRandomTopic() {
         
         guard false == topicLocked && !topics.isEmpty else {
-            
-            if topics.isEmpty {
-                topicTitleLabel.text = ""
-                currentTopic = nil
-            }
-            
             return
         }
         
@@ -182,9 +206,7 @@ class RandomTopicViewController: UIViewController {
             currentTopic = randomTopic
         }
         
-
-        
-        displayTopic()
+        displayTopic(sender: "random")
     }
     
     @objc func displayNextTopic() {
@@ -196,11 +218,12 @@ class RandomTopicViewController: UIViewController {
 
         if nextTopics.isEmpty {
             displayRandomTopic()
+            return
         } else {
             currentTopic = nextTopics.removeLast()
         }
         
-        displayTopic()
+        displayTopic(sender: "next")
     }
     
     @objc func displayPreviousTopic() {
@@ -209,13 +232,8 @@ class RandomTopicViewController: UIViewController {
         }
         
         saveCurrentTopicNext()
-        print("PrevTopics: \(prevTopics)")
-        print("CurrentTopic: \(String(describing: currentTopic))")
-        print("****************")
         currentTopic = prevTopics.removeLast()
-        print("PrevTopics: \(prevTopics)")
-        print("CurrentTopic: \(String(describing: currentTopic))")
-        displayTopic()
+        displayTopic(sender: "previous")
     }
     
     func saveCurrentTopicPrevious() {
@@ -244,8 +262,10 @@ class RandomTopicViewController: UIViewController {
         
         if topicLocked {
             lockImg = "lock"
+            navigationItem.rightBarButtonItems?.first?.isEnabled = false
         } else {
             lockImg = "unlock"
+            navigationItem.rightBarButtonItems?.first?.isEnabled = true
         }
         
         topicLock.image = UIImage(named: lockImg)
