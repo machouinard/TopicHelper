@@ -210,7 +210,7 @@
             </objects>
             <point key="canvasLocation" x="-9646" y="-439"/>
         </scene>
-        <!--Random Topic View Controller-->
+        <!--Random Topic-->
         <scene sceneID="u5P-UO-YhV">
             <objects>
                 <viewController id="Cz9-hF-pSK" customClass="RandomTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -235,7 +235,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="gRe-yo-QVe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -265,22 +265,37 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GT1-WD-fuT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aC1-nT-4ZU"/>
+                    <navigationItem key="navigationItem" title="Random Topic" id="aC1-nT-4ZU">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Edit" id="wyi-x8-KHf">
+                                <connections>
+                                    <action selector="topicTapGesture" destination="Cz9-hF-pSK" id="TNC-JL-zHf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="unlock" id="1a8-g9-vx8">
+                                <connections>
+                                    <action selector="toggleTopicLock:" destination="Cz9-hF-pSK" id="pxb-VF-DsA"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="backgroundLogo" destination="aG5-XB-Xh4" id="O2V-Zz-J56"/>
                         <outlet property="topicDetailLabel" destination="gJz-xi-F8a" id="gzp-ZQ-yrs"/>
+                        <outlet property="topicLock" destination="1a8-g9-vx8" id="OMW-JF-wSR"/>
                         <outlet property="topicTitleLabel" destination="tNL-oi-r8y" id="BYg-UU-4z5"/>
+                        <segue destination="iMq-Fp-Lmd" kind="show" identifier="editDisplayedTopic" id="xpl-Wb-nXM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atk-6L-Vfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7313.04347826087" y="-781.47321428571422"/>
         </scene>
-        <!--Item-->
+        <!--Random Topic-->
         <scene sceneID="8ug-XQ-eFL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eaf-qQ-cLQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vOF-dC-yWI"/>
+                    <tabBarItem key="tabBarItem" title="Random Topic" image="topic-sbs" id="vOF-dC-yWI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Qf-df-hvV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -299,9 +314,12 @@
     <resources>
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
+        <image name="topic-sbs" width="24.666666030883789" height="24.666666030883789"/>
         <image name="topics-sbs" width="26.666666030883789" height="30.333333969116211"/>
+        <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4EV-RO-uzg"/>
+        <segue reference="Kdl-QM-MSD"/>
+        <segue reference="xpl-Wb-nXM"/>
     </inferredMetricsTieBreakers>
 </document>
