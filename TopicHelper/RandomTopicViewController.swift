@@ -91,7 +91,7 @@ class RandomTopicViewController: UIViewController {
     // MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTopicDetail" {
-            let dtvc = segue.destination as? TopicDetailViewController
+            let dtvc = segue.destination as? EditTopicViewController
             
             if nil == currentTopic {
                 currentTopic = Topic(context: managedContext)

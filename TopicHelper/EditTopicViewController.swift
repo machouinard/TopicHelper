@@ -9,12 +9,11 @@
 import UIKit
 import CoreData
 
-class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var topicDetailView: UITextView!
     @IBOutlet weak var topicTitleView: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var editTopic: Bool = false
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
     var topicLocked: Bool = false
@@ -30,13 +29,15 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         sgr.direction = UISwipeGestureRecognizer.Direction.left
         view.addGestureRecognizer(sgr)
         
+        topicTitleView.text = currentTopic?.title
         topicTitleView.delegate = self
         
-        // If topic title is empty, it's new - go straight to editing
-        if nil == currentTopic?.title {
-            editCurrentTopic()
+        topicDetailView.text = currentTopic?.details
+        
+        if let title = currentTopic?.title, !title.isEmpty {
+            topicDetailView.becomeFirstResponder()
         } else {
-            showCurrentTopic()
+            topicTitleView.becomeFirstResponder()
         }
         
     }
@@ -64,19 +65,6 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        guard !topicLocked else {
-            return
-        }
-        
-        if editTopic || nil == currentTopic {
-            topicTitleView.becomeFirstResponder()
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
-        }
-        
-    }
-    
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
         done()
     }
@@ -87,45 +75,24 @@ class TopicDetailViewController: UIViewController, UITextFieldDelegate, UITextVi
         return false
     }
     
-    func showCurrentTopic() {
-        topicTitleView.text = currentTopic?.title
-        topicTitleView.isEnabled = editTopic
-        topicDetailView.text = currentTopic?.details
-        topicDetailView.isEditable = editTopic
-        topicDetailView.centerVertically()
-    }
-    
-    @objc @IBAction func editCurrentTopic() {
-        title = "Edit Topic"
-        editTopic = true
-        topicTitleView.isEnabled = true
-        topicTitleView.becomeFirstResponder()
-        topicDetailView.isEditable = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(done))
-    }
-    
-    @objc func done() {
+    func done() {
         topicTitleView.resignFirstResponder()
         topicDetailView.resignFirstResponder()
         
-        guard nil != currentTopic else {
+        guard nil != currentTopic, "" != topicTitleView.text else {
             return
         }
         
-        if editTopic {
+        do {
+            currentTopic!.title = topicTitleView.text
+            currentTopic!.details = topicDetailView.text
             
-            do {
-                currentTopic!.title = topicTitleView.text
-                currentTopic!.details = topicDetailView.text
-                
-                try managedContext.save()
-                navigationController?.popViewController(animated: true)
-            } catch let error as NSError {
-                fatalCoreDataError(error)
-            }
-        } else {
+            try managedContext.save()
             navigationController?.popViewController(animated: true)
+        } catch let error as NSError {
+            fatalCoreDataError(error)
         }
+        
     }
     
     // MARK: - Keyboard functions

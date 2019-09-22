@@ -15,6 +15,7 @@ class AllTopicsViewController: UITableViewController {
     var currentTopic: Topic?
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
         let fetchRequest = NSFetchRequest<Topic>()
+        
         let entity = Topic.entity()
         fetchRequest.entity = entity
         
@@ -40,13 +41,6 @@ class AllTopicsViewController: UITableViewController {
         performFetch()
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
-        
-        let applicationDocumentsDirectory: URL = {
-            let paths = FileManager.default.urls(for: .documentDirectory,
-                                                 in: .userDomainMask)
-            return paths[0]
-        }()
-        print("dir: \(applicationDocumentsDirectory)")
     }
     
     // MARK:- Helper methods
@@ -71,9 +65,6 @@ class AllTopicsViewController: UITableViewController {
 //    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("section: \(section)")
-//        let fetched = fetchedResultsController.fetchedObjects
-//        print("Fetched: \(String(describing: fetched))")
         let sectionInfo = fetchedResultsController.sections![section]
 //        print("NumberOfObjects: \(sectionInfo.numberOfObjects)")
         return sectionInfo.numberOfObjects
@@ -91,8 +82,8 @@ class AllTopicsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentTopic = fetchedResultsController.object(at: indexPath)
-        prepare(for: UIStoryboardSegue(identifier: "showSingleTopic", source: self, destination: TopicDetailViewController.init()), sender: nil)
-        performSegue(withIdentifier: "showSingleTopic", sender: nil)
+//        prepare(for: UIStoryboardSegue(identifier: "showSingleTopic", source: self, destination: EditTopicViewController.init()), sender: nil)
+//        performSegue(withIdentifier: "showSingleTopic", sender: nil)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -121,7 +112,7 @@ class AllTopicsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editSingleTopic" {
             
-            let topicDetailVC = segue.destination as? TopicDetailViewController
+            let topicDetailVC = segue.destination as? EditTopicViewController
             
             // Get indexPath of cell that was tapped
             if nil != sender {
@@ -131,18 +122,15 @@ class AllTopicsViewController: UITableViewController {
             } else {
                 topicDetailVC?.currentTopic = currentTopic
             }
-            topicDetailVC?.title = "Edit Topic"
-            topicDetailVC?.editTopic = true
             topicDetailVC?.managedContext = managedContext
         } else if segue.identifier == "showSingleTopic" {
-            let dtvc = segue.destination as? TopicDetailViewController
-            dtvc?.currentTopic = currentTopic
-            dtvc?.managedContext = managedContext
+            // TODO: segue to single topic view controller
         }
     }
-
+    
 }
 
+// MARK: - NSFetchedResultsController Delegate
 extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

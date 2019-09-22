@@ -1,98 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iwa-Jw-Mn9">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iwa-Jw-Mn9">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Topics for Dummies-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="RandomTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradiant" translatesAutoresizingMaskIntoConstraints="NO" id="k6p-ld-dm1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSn-Jo-I0y">
-                                <rect key="frame" x="16" y="223" width="382" height="450"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="eIy-L1-SvM"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="32"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="AOe-AJ-FW0">
-                                <rect key="frame" x="19.5" y="273" width="375" height="350"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="AOe-AJ-FW0" secondAttribute="height" multiplier="374:349" id="JUT-v4-1sp"/>
-                                    <constraint firstAttribute="height" constant="350" id="QoZ-JK-rFQ"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37R-QR-DWF">
-                                <rect key="frame" x="163" y="783" width="88" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="3cb-9K-Qlq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <state key="normal" title="Next Topic" backgroundImage="blueButton">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted" backgroundImage="blueButtonHighlighted"/>
-                                <connections>
-                                    <action selector="tappedNextTopic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fb1-Ub-Q7r"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="AOe-AJ-FW0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0AV-FZ-tbJ"/>
-                            <constraint firstAttribute="bottom" secondItem="k6p-ld-dm1" secondAttribute="bottom" id="0hy-He-e3z"/>
-                            <constraint firstItem="k6p-ld-dm1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0n0-KO-iKP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CSn-Jo-I0y" secondAttribute="trailing" constant="16" id="3Qe-VU-Dqg"/>
-                            <constraint firstItem="AOe-AJ-FW0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Xm-Uj-6za"/>
-                            <constraint firstItem="k6p-ld-dm1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IRz-K5-MQu"/>
-                            <constraint firstItem="k6p-ld-dm1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="OEC-AC-Xrt"/>
-                            <constraint firstItem="CSn-Jo-I0y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Riw-Ax-cE2"/>
-                            <constraint firstItem="37R-QR-DWF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V89-Zq-F7b"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="37R-QR-DWF" secondAttribute="bottom" constant="10" id="XT9-lK-MFe"/>
-                            <constraint firstItem="CSn-Jo-I0y" firstAttribute="centerY" secondItem="k6p-ld-dm1" secondAttribute="centerY" id="x2Y-FU-fyq"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Random Topic" selectedImage="topic" id="lgv-Yn-Us8" userLabel="Topic"/>
-                    <navigationItem key="navigationItem" title="Topics for Dummies" id="lR5-iI-QIS">
-                        <barButtonItem key="rightBarButtonItem" tag="5" title="Item" image="unlock" id="LU8-kG-7J8">
-                            <connections>
-                                <action selector="toggleTopicLock:" destination="BYZ-38-t0r" id="vhC-MY-Kqt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="backgroundLogo" destination="AOe-AJ-FW0" id="vCA-Hc-jHP"/>
-                        <outlet property="topicLock" destination="LU8-kG-7J8" id="m4j-TT-UGI"/>
-                        <outlet property="topicView" destination="CSn-Jo-I0y" id="K2G-jp-tOf"/>
-                        <segue destination="iMq-Fp-Lmd" kind="show" identifier="showTopicDetail" id="Iix-eW-bIK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3738.4000000000001" y="786.65667166416802"/>
-        </scene>
         <!--Topic Detail-->
         <scene sceneID="ukF-kE-Z97">
             <objects>
-                <viewController id="iMq-Fp-Lmd" customClass="TopicDetailViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iMq-Fp-Lmd" customClass="EditTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a5m-VL-BFl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-2j-Ryk">
-                                                <rect key="frame" x="44.5" y="10" width="325" height="35"/>
+                                                <rect key="frame" x="44.5" y="10" width="325" height="39"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="325" id="kkC-sr-npU"/>
@@ -124,7 +43,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="unF-dp-L4E">
-                                                <rect key="frame" x="44.5" y="55" width="325" height="615"/>
+                                                <rect key="frame" x="44.5" y="59" width="325" height="607"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="325" id="5wN-Cn-bTO"/>
@@ -171,9 +90,9 @@
                         <viewLayoutGuide key="safeArea" id="nge-5o-oQB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Topic Detail" id="Fe3-3g-JbR">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="vCL-Y7-Omx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vCL-Y7-Omx">
                             <connections>
-                                <action selector="editCurrentTopic" destination="iMq-Fp-Lmd" id="JVs-rM-XrQ"/>
+                                <action selector="tappedDoneButton:" destination="iMq-Fp-Lmd" id="1io-b9-pfd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -185,26 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAH-O5-zNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3738" y="1503"/>
-        </scene>
-        <!--Random Topic-->
-        <scene sceneID="Lag-PK-52d">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vcE-Op-Vei" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Random Topic" image="topic-sbs" id="zK4-Ug-uWh" userLabel="Random Topic"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pyy-AT-StX">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NUt-Cx-YyT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dOq-Wn-AIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2868.115942028986" y="782.8125"/>
+            <point key="canvasLocation" x="-6358" y="3"/>
         </scene>
         <!--All Topics-->
         <scene sceneID="xZh-zp-Psg">
@@ -215,21 +115,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="58" id="ayq-1Y-PFH" customClass="TopicCell" customModule="TopicHelper" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="58" id="ayq-1Y-PFH" customClass="TopicCell" customModule="TopicHelper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayq-1Y-PFH" id="Meo-76-x8f">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="57.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5X-kx-9T2">
-                                            <rect key="frame" x="20" y="10" width="314" height="21"/>
+                                            <rect key="frame" x="20" y="10" width="342" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="745" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAM-Qs-wBm">
-                                            <rect key="frame" x="20" y="31" width="314" height="14.5"/>
+                                            <rect key="frame" x="20" y="31" width="342" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -245,7 +145,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="details" destination="BAM-Qs-wBm" id="J5M-AH-GLJ"/>
                                     <outlet property="title" destination="L5X-kx-9T2" id="TUR-o9-Avo"/>
@@ -266,13 +166,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="iMq-Fp-Lmd" kind="show" identifier="showSingleTopic" id="UgT-cu-uI4"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JvY-BM-0LO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2866.666666666667" y="1502.6785714285713"/>
+            <point key="canvasLocation" x="-7313" y="3"/>
         </scene>
         <!--All Topics-->
         <scene sceneID="98A-Id-dp5">
@@ -289,12 +186,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3g-A5-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="1503"/>
+            <point key="canvasLocation" x="-8400" y="4"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Topic Tab Bar Controller-->
         <scene sceneID="BnG-9M-1ST">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iwa-Jw-Mn9" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iwa-Jw-Mn9" customClass="TopicTabBarController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uf9-Tg-5vp">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -302,26 +199,17 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vcE-Op-Vei" kind="relationship" relationship="viewControllers" id="fWk-gb-Hbv"/>
                         <segue destination="Qp6-3p-EzL" kind="relationship" relationship="viewControllers" id="Y8h-TE-hq3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKY-bu-RAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957.9710144927537" y="782.8125"/>
+            <point key="canvasLocation" x="-8399" y="-897"/>
         </scene>
     </scenes>
     <resources>
-        <image name="blueButton" width="100" height="37"/>
-        <image name="blueButtonHighlighted" width="100" height="37"/>
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
-        <image name="topic" width="31" height="30.666666030883789"/>
-        <image name="topic-sbs" width="24.666666030883789" height="24.666666030883789"/>
         <image name="topics-sbs" width="26.666666030883789" height="30.333333969116211"/>
-        <image name="unlock" width="28" height="27"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="UgT-cu-uI4"/>
-    </inferredMetricsTieBreakers>
 </document>

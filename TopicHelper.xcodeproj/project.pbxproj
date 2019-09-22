@@ -12,6 +12,7 @@
 		4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */; };
 		4D6FE900232178E600FEE158 /* AllTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */; };
 		4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE9102321E33100FEE158 /* CoreDataStack.swift */; };
+		4DBBC6E72336D15B00B852F7 /* TopicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */; };
 		4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */; };
 		4DC206F0231F797D008CCD8C /* topics10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC206EF231F797D008CCD8C /* topics10.plist */; };
 		4DC2B7B52334260100BD02A4 /* topics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC2B7B42334260100BD02A4 /* topics.plist */; };
@@ -21,7 +22,7 @@
 		4DCD1FB3231E218F00B9CA49 /* TopicHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB1231E218F00B9CA49 /* TopicHelper.xcdatamodeld */; };
 		4DCD1FB5231E219000B9CA49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB4231E219000B9CA49 /* Assets.xcassets */; };
 		4DCD1FB8231E219000B9CA49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB6231E219000B9CA49 /* LaunchScreen.storyboard */; };
-		4DE11BB1231FA1C600316C92 /* TopicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE11BB0231FA1C600316C92 /* TopicDetailViewController.swift */; };
+		4DE11BB1231FA1C600316C92 /* EditTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE11BB0231FA1C600316C92 /* EditTopicViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTopicsViewController.swift; sourceTree = "<group>"; };
 		4D6FE9102321E33100FEE158 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTabBarController.swift; sourceTree = "<group>"; };
 		4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DC206EF231F797D008CCD8C /* topics10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics10.plist; sourceTree = "<group>"; };
 		4DC2B7B42334260100BD02A4 /* topics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics.plist; sourceTree = "<group>"; };
@@ -41,7 +43,7 @@
 		4DCD1FB4231E219000B9CA49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DCD1FB7231E219000B9CA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DCD1FB9231E219000B9CA49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4DE11BB0231FA1C600316C92 /* TopicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailViewController.swift; sourceTree = "<group>"; };
+		4DE11BB0231FA1C600316C92 /* EditTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTopicViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +89,7 @@
 				4DC206EA231F51B3008CCD8C /* Data */,
 				4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */,
 				4DCD1FAC231E218F00B9CA49 /* RandomTopicViewController.swift */,
-				4DE11BB0231FA1C600316C92 /* TopicDetailViewController.swift */,
+				4DE11BB0231FA1C600316C92 /* EditTopicViewController.swift */,
 				4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */,
 				4DCD1FB1231E218F00B9CA49 /* TopicHelper.xcdatamodeld */,
 				4DCD1FAE231E218F00B9CA49 /* Main.storyboard */,
@@ -98,6 +100,7 @@
 				4DC2B7B42334260100BD02A4 /* topics.plist */,
 				4D34282C232EA9FC006EBB74 /* Functions.swift */,
 				4D34282E232EAF31006EBB74 /* TopicCell.swift */,
+				4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */,
 			);
 			path = TopicHelper;
 			sourceTree = "<group>";
@@ -179,8 +182,9 @@
 				4DCD1FB3231E218F00B9CA49 /* TopicHelper.xcdatamodeld in Sources */,
 				4D34282D232EA9FC006EBB74 /* Functions.swift in Sources */,
 				4D34282F232EAF31006EBB74 /* TopicCell.swift in Sources */,
-				4DE11BB1231FA1C600316C92 /* TopicDetailViewController.swift in Sources */,
+				4DE11BB1231FA1C600316C92 /* EditTopicViewController.swift in Sources */,
 				4DCD1FAD231E218F00B9CA49 /* RandomTopicViewController.swift in Sources */,
+				4DBBC6E72336D15B00B852F7 /* TopicTabBarController.swift in Sources */,
 				4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */,
 				4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */,
 				4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */,
