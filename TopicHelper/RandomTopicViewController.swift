@@ -74,10 +74,10 @@ class RandomTopicViewController: UIViewController {
         populateTopics()
         
         if nil == currentTopic {
-            displayRandomTopic()
-        } else {
-            displayTopic(sender: "viewDidLoad")
+            setRandomTopic()
         }
+        
+        displayTopic(sender: "viewDidLoad")
         
         backgroundLogo.isUserInteractionEnabled = true
         
@@ -184,7 +184,7 @@ class RandomTopicViewController: UIViewController {
         
     }
     
-    func displayRandomTopic() {
+    func setRandomTopic() {
         
         guard false == topicLocked && !topics.isEmpty else {
             return
@@ -194,19 +194,16 @@ class RandomTopicViewController: UIViewController {
             currentTopic = topics.first
             
         } else {
-            //        let randomIndex = Int.random(in: 0 ..< topics.count)
             
             let randomTopic = topics.randomElement()
             
             if currentTopic == randomTopic {
-                displayRandomTopic()
+                setRandomTopic()
                 return
             }
             
             currentTopic = randomTopic
         }
-        
-        displayTopic(sender: "random")
     }
     
     @objc func displayNextTopic() {
@@ -217,8 +214,7 @@ class RandomTopicViewController: UIViewController {
         saveCurrentTopicPrevious()
 
         if nextTopics.isEmpty {
-            displayRandomTopic()
-            return
+            setRandomTopic()
         } else {
             currentTopic = nextTopics.removeLast()
         }
