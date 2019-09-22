@@ -129,6 +129,7 @@ class AllTopicsViewController: UITableViewController {
             let RandomTopicVC = segue.destination as! RandomTopicViewController
             RandomTopicVC.currentTopic = currentTopic
             RandomTopicVC.managedContext = managedContext
+            RandomTopicVC.title = "All Topics"
         }
     }
     
