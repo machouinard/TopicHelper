@@ -11,7 +11,8 @@ import CoreData
 
 class RandomTopicViewController: UIViewController {
     
-    @IBOutlet weak var topicView: UITextView!
+    @IBOutlet weak var topicTitleLabel: UILabel!
+    @IBOutlet weak var topicDetailLabel: UILabel!
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!
     
@@ -23,8 +24,8 @@ class RandomTopicViewController: UIViewController {
                 if let dictionary = notification.userInfo {
                     // New topic is inserted empty, then updated.  We only deal with updated and deleted.
                     if nil != dictionary[NSUpdatedObjectsKey] {
-                            let topics = dictionary["updated"] as! Set<Topic>
-                            if let first = topics.first {
+                            let updatedTopics = dictionary["updated"] as! Set<Topic>
+                            if let first = updatedTopics.first {
                                 if  nil == self.topics.firstIndex(of: first) {
                                     // no index means this is a new topic and needs to be added to our array
                                     self.topics.append(first)
@@ -32,11 +33,12 @@ class RandomTopicViewController: UIViewController {
                                 // If topic is not locked, make this the current topic
                                 if !self.topicLocked {
                                     self.currentTopic = first
+                                    self.nextTopics.append(first)
                                 }
                             }
                     } else if nil != dictionary[NSDeletedObjectsKey] {
-                        let topics = dictionary["deleted"] as! Set<Topic>
-                        if let first = topics.first {
+                        let deletedTopics = dictionary["deleted"] as! Set<Topic>
+                        if let first = deletedTopics.first {
                             if let ind = self.topics.firstIndex(of: first) {
                                 self.topics.remove(at: ind)
                             }
@@ -60,25 +62,27 @@ class RandomTopicViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        insertStarterTopics()
         
         populateTopics()
         
-        displayRandomTopic()
+        if nil == currentTopic {
+            displayRandomTopic()
+        } else {
+            displayTopic()
+        }
         
         backgroundLogo.isUserInteractionEnabled = true
         
-        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
-        backgroundLogo.addGestureRecognizer(tgr)
+//        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
+//        backgroundLogo.addGestureRecognizer(tgr)
         
         // Swipe right to show new topic
         let sgrRight = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
-        backgroundLogo.addGestureRecognizer(sgrRight)
+        view.addGestureRecognizer(sgrRight)
         
         let sgrLeft = UISwipeGestureRecognizer(target: self, action: #selector(displayPreviousTopic))
         sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
-        backgroundLogo.addGestureRecognizer(sgrLeft)
+//        backgroundLogo.addGestureRecognizer(sgrLeft)
         
     }
     
@@ -104,19 +108,23 @@ class RandomTopicViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        topicView.centerVertically()
+//        topicView.centerVertically()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if let topicText = currentTopic?.title {
-            topicView.text = topicText
-            topicView.centerVertically()
+            topicTitleLabel.text = topicText
+        }
+        if let detailText = currentTopic?.details {
+            topicDetailLabel.text = detailText
         }
     }
     
     func populateTopics() {
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
-        topics = try! managedContext.fetch(request)
+        if topics.isEmpty {
+            topics = try! managedContext.fetch(request)
+        }
 //        print("topics populated: \(topics)")
     }
     
@@ -125,16 +133,21 @@ class RandomTopicViewController: UIViewController {
             return
         }
         
-        topicView.center.x -= view.bounds.width
-        topicView.alpha = 0.0
+        topicTitleLabel.center.x -= view.bounds.width
+        topicTitleLabel.alpha = 0.0
         
-        topicView.text = currentTopic?.title
-        topicView.centerVertically()
+        if let title = currentTopic?.title {
+            topicTitleLabel.text = title
+        }
+        if let details = currentTopic?.details {
+            topicDetailLabel.text = details
+        }
+        
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseIn],
                        animations: {
-                        self.topicView.center.x += self.view.bounds.width
-                        self.topicView.alpha = 1.0
+                        self.topicTitleLabel.center.x += self.view.bounds.width
+                        self.topicTitleLabel.alpha = 1.0
         },
                        completion: nil
         )
@@ -145,10 +158,10 @@ class RandomTopicViewController: UIViewController {
         
         guard false == topicLocked && !topics.isEmpty else {
             
-//            if topics.isEmpty {
-//                topicView.text = ""
-//                currentTopic = nil
-//            }
+            if topics.isEmpty {
+                topicTitleLabel.text = ""
+                currentTopic = nil
+            }
             
             return
         }
@@ -241,34 +254,6 @@ class RandomTopicViewController: UIViewController {
     
     @IBAction func tappedNextTopic(_ sender: Any) {
         displayNextTopic()
-    }
-    
-    // MARK:- Starter Topics
-    func insertStarterTopics() {
-        
-        let fetch: NSFetchRequest<Topic> = Topic.fetchRequest()
-        let count = try! managedContext.count(for: fetch)
-        
-        if count > 0 {
-            // Topics have already been added
-            return
-        }
-        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
-        let dataArray = NSArray(contentsOfFile: path!)!
-        
-        for dict in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: managedContext)!
-            let topic = Topic(entity: entity, insertInto: managedContext)
-            let topicDict = dict as! [String: Any]
-            topic.title = topicDict["title"] as? String
-            topic.details = topicDict["details"] as? String
-            topic.isFavorite = topicDict["isFavorite"] as! Bool
-        }
-        do {
-            try managedContext.save()
-        } catch  {
-            fatalCoreDataError(error)
-        }
     }
 }
 

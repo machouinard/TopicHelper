@@ -82,8 +82,9 @@ class AllTopicsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentTopic = fetchedResultsController.object(at: indexPath)
-//        prepare(for: UIStoryboardSegue(identifier: "showSingleTopic", source: self, destination: EditTopicViewController.init()), sender: nil)
-//        performSegue(withIdentifier: "showSingleTopic", sender: nil)
+//        prepare(for: UIStoryboardSegue(identifier: "showTopic", source: self, destination: RandomTopicViewController.init()), sender: nil)
+        performSegue(withIdentifier: "showTopic", sender: nil)
+        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -104,27 +105,30 @@ class AllTopicsViewController: UITableViewController {
     
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
-        performSegue(withIdentifier: "editSingleTopic", sender: nil)
+        performSegue(withIdentifier: "editTopic", sender: nil)
     }
     
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editSingleTopic" {
+        if segue.identifier == "editTopic" {
             
-            let topicDetailVC = segue.destination as? EditTopicViewController
+            let editTopicVC = segue.destination as? EditTopicViewController
             
             // Get indexPath of cell that was tapped
             if nil != sender {
                 if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
-                    topicDetailVC?.currentTopic = fetchedResultsController.object(at: indexPath)
+                    editTopicVC?.currentTopic = fetchedResultsController.object(at: indexPath)
                 }
-            } else {
-                topicDetailVC?.currentTopic = currentTopic
+            } else { // If sender is nil this was initiated by clicking the add bar button
+                editTopicVC?.currentTopic = currentTopic
             }
-            topicDetailVC?.managedContext = managedContext
-        } else if segue.identifier == "showSingleTopic" {
-            // TODO: segue to single topic view controller
+            
+            editTopicVC?.managedContext = managedContext
+        } else if segue.identifier == "showTopic" {
+            let RandomTopicVC = segue.destination as! RandomTopicViewController
+            RandomTopicVC.currentTopic = currentTopic
+            RandomTopicVC.managedContext = managedContext
         }
     }
     

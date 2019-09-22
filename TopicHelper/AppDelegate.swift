@@ -22,9 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabController = window?.rootViewController as! TopicTabBarController
         tabController.managedContext = coreDataStack.managedContext
         if let tabViewControllers = tabController.viewControllers {
-            let allTopicsNavController = tabViewControllers[0] as! UINavigationController
-            let allTopicsVC = allTopicsNavController.viewControllers.first as! AllTopicsViewController
+            var navController = tabViewControllers[1] as! UINavigationController
+            let allTopicsVC = navController.viewControllers.first as! AllTopicsViewController
             allTopicsVC.managedContext = coreDataStack.managedContext
+            navController = tabViewControllers[0] as! UINavigationController
+            let randomVC = navController.topViewController as! RandomTopicViewController
+            print("random \(randomVC)")
+            randomVC.managedContext = coreDataStack.managedContext
         }
         
         listenForFatalCoreDataNotifications()
