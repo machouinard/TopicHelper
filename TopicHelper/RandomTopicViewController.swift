@@ -15,6 +15,8 @@ class RandomTopicViewController: UIViewController {
     @IBOutlet weak var topicDetailLabel: UILabel!
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!
+    @IBOutlet weak var isFavoriteButton: UIBarButtonItem!
+    
     
     var managedContext: NSManagedObjectContext! {
         didSet {
@@ -50,13 +52,14 @@ class RandomTopicViewController: UIViewController {
                                 self.clearCurrentTopic()
                             }
                         }
+                        // This should display topic from nextTopics array or random topic
+                        self.displayNextTopic()
                     }
                 }
-                if nil != self.currentTopic {
-                    self.lastTopic = self.currentTopic // Make sure we track last topic
-                }
-                // This should display topic from nextTopics array or random topic
-                self.displayNextTopic()
+//                if nil != self.currentTopic {
+//                    self.lastTopic = self.currentTopic // Make sure we track last topic
+//                }
+                
             }
         }
     }
@@ -66,6 +69,7 @@ class RandomTopicViewController: UIViewController {
     var topicLocked: Bool = false
     var prevTopics = [Topic]()
     var nextTopics = [Topic]()
+    var isFavorite: Bool = false
     
 
     override func viewDidLoad() {
@@ -153,6 +157,9 @@ class RandomTopicViewController: UIViewController {
             
             return
         }
+        
+        isFavorite = currentTopic?.isFavorite ?? false
+        configureFavoriteButton()
         
         // MARK: - Animations
         // Change direction based on swipe
@@ -278,6 +285,35 @@ class RandomTopicViewController: UIViewController {
     @IBAction func tappedNextTopic(_ sender: Any) {
         displayNextTopic()
     }
+    
+    @IBAction func didTapFavorite(_ sender: Any) {
+        guard nil != currentTopic else {
+            return
+        }
+        
+        isFavorite = !isFavorite
+        currentTopic?.isFavorite = isFavorite
+        
+        do {
+            try managedContext.save()
+        } catch {
+            fatalCoreDataError(error)
+        }
+        
+        
+        configureFavoriteButton()
+    }
+    
+    func configureFavoriteButton() {
+        let btn = navigationItem.leftBarButtonItem
+        if isFavorite {
+            btn?.image = UIImage(named: "fave-fill")
+        } else {
+            btn?.image = UIImage(named: "fave")
+        }
+    }
+    
+    
 }
 
 // MARK:- Extensions

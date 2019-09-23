@@ -145,7 +145,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="details" destination="BAM-Qs-wBm" id="J5M-AH-GLJ"/>
                                     <outlet property="title" destination="L5X-kx-9T2" id="TUR-o9-Avo"/>
@@ -278,6 +278,11 @@
                         <viewLayoutGuide key="safeArea" id="GT1-WD-fuT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Random Topic" id="aC1-nT-4ZU">
+                        <barButtonItem key="leftBarButtonItem" title="Favorite" image="fave" id="THW-ma-eXa">
+                            <connections>
+                                <action selector="didTapFavorite:" destination="Cz9-hF-pSK" id="xlU-2I-IeO"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Edit" id="wyi-x8-KHf">
                                 <connections>
@@ -293,6 +298,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundLogo" destination="aG5-XB-Xh4" id="O2V-Zz-J56"/>
+                        <outlet property="isFavoriteButton" destination="THW-ma-eXa" id="4JI-Bi-jba"/>
                         <outlet property="topicDetailLabel" destination="gJz-xi-F8a" id="gzp-ZQ-yrs"/>
                         <outlet property="topicLock" destination="1a8-g9-vx8" id="OMW-JF-wSR"/>
                         <outlet property="topicTitleLabel" destination="tNL-oi-r8y" id="BYg-UU-4z5"/>
@@ -326,6 +332,7 @@
     <resources>
         <image name="blueButton" width="100" height="37"/>
         <image name="blueButtonHighlighted" width="100" height="37"/>
+        <image name="fave" width="19" height="18"/>
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
         <image name="topic-sbs" width="24.666666030883789" height="24.666666030883789"/>
