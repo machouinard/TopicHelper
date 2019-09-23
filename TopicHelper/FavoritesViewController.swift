@@ -96,6 +96,14 @@ class FavoritesViewController: UITableViewController {
         performSegue(withIdentifier: "showFavorite", sender: nil)
         
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
 
     /*
     // Override to support conditional editing of the table view.
