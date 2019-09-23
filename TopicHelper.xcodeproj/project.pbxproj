@@ -12,6 +12,7 @@
 		4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */; };
 		4D6FE900232178E600FEE158 /* AllTopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */; };
 		4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE9102321E33100FEE158 /* CoreDataStack.swift */; };
+		4D720BED2338726000C56029 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D720BEC2338726000C56029 /* FavoritesViewController.swift */; };
 		4DBBC6E72336D15B00B852F7 /* TopicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */; };
 		4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */; };
 		4DC206F0231F797D008CCD8C /* topics10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC206EF231F797D008CCD8C /* topics10.plist */; };
@@ -31,6 +32,7 @@
 		4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D6FE8FF232178E600FEE158 /* AllTopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTopicsViewController.swift; sourceTree = "<group>"; };
 		4D6FE9102321E33100FEE158 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		4D720BEC2338726000C56029 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTabBarController.swift; sourceTree = "<group>"; };
 		4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DC206EF231F797D008CCD8C /* topics10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics10.plist; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				4D34282C232EA9FC006EBB74 /* Functions.swift */,
 				4D34282E232EAF31006EBB74 /* TopicCell.swift */,
 				4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */,
+				4D720BEC2338726000C56029 /* FavoritesViewController.swift */,
 			);
 			path = TopicHelper;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */,
 				4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */,
 				4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */,
+				4D720BED2338726000C56029 /* FavoritesViewController.swift in Sources */,
 				4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
