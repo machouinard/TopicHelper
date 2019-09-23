@@ -33,6 +33,11 @@ class AllTopicsViewController: UITableViewController {
         
         return fetchedResultsController
     }()
+    
+    override func loadView() {
+        super.loadView()
+        self.tableView.rowHeight = 44
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
