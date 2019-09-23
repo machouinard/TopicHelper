@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             allTopicsVC.managedContext = coreDataStack.managedContext
             navController = tabViewControllers[0] as! UINavigationController
             let randomVC = navController.topViewController as! RandomTopicViewController
-            print("random \(randomVC)")
             randomVC.managedContext = coreDataStack.managedContext
         }
         
