@@ -103,6 +103,10 @@ class AllTopicsViewController: UITableViewController {
         
     }
     
+    func UITableViewAlertForLayoutOutsideViewHierarchy() {
+        print("OutsideViewHierarchy")
+    }
+    
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
         performSegue(withIdentifier: "editTopic", sender: nil)

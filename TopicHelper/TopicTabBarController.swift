@@ -44,7 +44,7 @@ class TopicTabBarController: UITabBarController {
             return
         }
                 
-        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
+        let path = Bundle.main.path(forResource: "topics", ofType: "plist")
         let dataArray = NSArray(contentsOfFile: path!)!
         
         for dict in dataArray {

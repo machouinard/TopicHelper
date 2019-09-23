@@ -33,7 +33,7 @@ class RandomTopicViewController: UIViewController {
                                 // If topic is not locked, make this the current topic
                                 if !self.topicLocked {
                                     self.currentTopic = first
-                                    self.nextTopics.append(first)
+//                                    self.nextTopics.append(first)
                                 }
                             }
                     } else if nil != dictionary[NSDeletedObjectsKey] {
