@@ -314,7 +314,6 @@ class RandomTopicViewController: UIViewController {
     }
     
     @objc func didTapBack() {
-        print("ASDFASFDASFDASDF")
         navigationController?.popViewController(animated: true)
     }
     

@@ -254,7 +254,7 @@
         <scene sceneID="98A-Id-dp5">
             <objects>
                 <navigationController id="Qp6-3p-EzL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Topics" image="topics-sbs" id="Q4f-WR-gFh"/>
+                    <tabBarItem key="tabBarItem" title="All Topics" image="topics" id="Q4f-WR-gFh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acO-oV-hoa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -390,7 +390,7 @@
         <scene sceneID="8ug-XQ-eFL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eaf-qQ-cLQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Random Topic" image="topic-sbs" id="vOF-dC-yWI"/>
+                    <tabBarItem key="tabBarItem" title="Random Topic" image="topic" id="vOF-dC-yWI"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Qf-df-hvV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -413,12 +413,12 @@
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
         <image name="star.fill" catalog="system" width="64" height="58"/>
-        <image name="topic-sbs" width="24.666666030883789" height="24.666666030883789"/>
-        <image name="topics-sbs" width="26.666666030883789" height="30.333333969116211"/>
-        <image name="unlock" width="28" height="27"/>
+        <image name="topic" width="16" height="16"/>
+        <image name="topics" width="17" height="19"/>
+        <image name="unlock" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sfu-32-Avi"/>
+        <segue reference="Kdl-QM-MSD"/>
         <segue reference="xpl-Wb-nXM"/>
     </inferredMetricsTieBreakers>
 </document>
