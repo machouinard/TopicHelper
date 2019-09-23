@@ -172,7 +172,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JvY-BM-0LO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7313" y="3"/>
+            <point key="canvasLocation" x="-7345" y="-794"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="uvp-Q4-FC6">
@@ -183,21 +183,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="58" id="C3Q-Wm-q9E" customClass="TopicCell" customModule="TopicHelper" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="58" id="C3Q-Wm-q9E" customClass="TopicCell" customModule="TopicHelper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3Q-Wm-q9E" id="XfI-bB-boY">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="58"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0B-US-EKd">
-                                            <rect key="frame" x="20" y="35.5" width="374" height="14.5"/>
+                                            <rect key="frame" x="20" y="35.5" width="330" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-Gf-fyL">
-                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="342" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -225,6 +225,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="Thl-bZ-VAK"/>
+                    <connections>
+                        <segue destination="Cz9-hF-pSK" kind="show" identifier="showFavorite" id="Sfu-32-Avi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ct9-6g-DkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,7 +265,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3g-A5-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8359" y="3"/>
+            <point key="canvasLocation" x="-8391" y="-794"/>
         </scene>
         <!--Topic Tab Bar Controller-->
         <scene sceneID="BnG-9M-1ST">
@@ -352,9 +355,9 @@
                         <viewLayoutGuide key="safeArea" id="GT1-WD-fuT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Random Topic" id="aC1-nT-4ZU">
-                        <barButtonItem key="leftBarButtonItem" title="Favorite" image="fave" id="THW-ma-eXa">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="fave" id="RMx-Uh-IIc">
                             <connections>
-                                <action selector="didTapFavorite:" destination="Cz9-hF-pSK" id="xlU-2I-IeO"/>
+                                <action selector="didTapFavorite:" destination="Cz9-hF-pSK" id="mPw-OQ-U9q"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -372,7 +375,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backgroundLogo" destination="aG5-XB-Xh4" id="O2V-Zz-J56"/>
-                        <outlet property="isFavoriteButton" destination="THW-ma-eXa" id="4JI-Bi-jba"/>
+                        <outlet property="isFavoriteButton" destination="RMx-Uh-IIc" id="Vw8-Po-IXj"/>
                         <outlet property="topicDetailLabel" destination="gJz-xi-F8a" id="gzp-ZQ-yrs"/>
                         <outlet property="topicLock" destination="1a8-g9-vx8" id="OMW-JF-wSR"/>
                         <outlet property="topicTitleLabel" destination="tNL-oi-r8y" id="BYg-UU-4z5"/>
@@ -381,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atk-6L-Vfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7313.04347826087" y="-781.47321428571422"/>
+            <point key="canvasLocation" x="-7345" y="11"/>
         </scene>
         <!--Random Topic-->
         <scene sceneID="8ug-XQ-eFL">
@@ -400,7 +403,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYA-EG-X31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8400" y="-789"/>
+            <point key="canvasLocation" x="-8432" y="3"/>
         </scene>
     </scenes>
     <resources>
@@ -415,7 +418,7 @@
         <image name="unlock" width="28" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4EV-RO-uzg"/>
-        <segue reference="ll9-vy-FRJ"/>
+        <segue reference="Sfu-32-Avi"/>
+        <segue reference="xpl-Wb-nXM"/>
     </inferredMetricsTieBreakers>
 </document>

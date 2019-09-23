@@ -70,6 +70,8 @@ class RandomTopicViewController: UIViewController {
     var prevTopics = [Topic]()
     var nextTopics = [Topic]()
     var isFavorite: Bool = false
+    var viewShouldScroll: Bool = true
+    var backButtonTitle: String?
     
 
     override func viewDidLoad() {
@@ -81,6 +83,11 @@ class RandomTopicViewController: UIViewController {
             setRandomTopic()
         }
         
+        if let backText = backButtonTitle {
+            let backButton = UIBarButtonItem(title: backText, style: .done, target: self, action: #selector(didTapBack))
+            navigationItem.leftBarButtonItems?.insert(backButton, at: 0)
+        }
+        
         displayTopic(sender: "viewDidLoad")
         
         backgroundLogo.isUserInteractionEnabled = true
@@ -88,13 +95,15 @@ class RandomTopicViewController: UIViewController {
         let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
         backgroundLogo.addGestureRecognizer(tgr)
         
-        // Swipe right to show new topic
-        let sgrRight = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
-        view.addGestureRecognizer(sgrRight)
-        
-        let sgrLeft = UISwipeGestureRecognizer(target: self, action: #selector(displayPreviousTopic))
-        sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
-        backgroundLogo.addGestureRecognizer(sgrLeft)
+        if viewShouldScroll {
+            // Swipe right to show new topic
+            let sgrRight = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
+            view.addGestureRecognizer(sgrRight)
+            
+            let sgrLeft = UISwipeGestureRecognizer(target: self, action: #selector(displayPreviousTopic))
+            sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
+            backgroundLogo.addGestureRecognizer(sgrLeft)
+        }
         
     }
     
@@ -304,8 +313,13 @@ class RandomTopicViewController: UIViewController {
         configureFavoriteButton()
     }
     
+    @objc func didTapBack() {
+        print("ASDFASFDASFDASDF")
+        navigationController?.popViewController(animated: true)
+    }
+    
     func configureFavoriteButton() {
-        let btn = navigationItem.leftBarButtonItem
+        let btn = navigationItem.leftBarButtonItems?.last
         if isFavorite {
             btn?.image = UIImage(named: "fave-fill")
         } else {

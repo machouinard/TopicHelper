@@ -12,6 +12,7 @@ import CoreData
 class FavoritesViewController: UITableViewController {
     
     var managedContext: NSManagedObjectContext!
+    var currentTopic: Topic?
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
         let fetchRequest = NSFetchRequest<Topic>()
         
@@ -86,6 +87,15 @@ class FavoritesViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let topic = fetchedResultsController.object(at: indexPath)
+        
+        currentTopic = topic
+        
+        performSegue(withIdentifier: "showFavorite", sender: nil)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -122,15 +132,19 @@ class FavoritesViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if "showFavorite" == segue.identifier {
+            let RandomTopicVC = segue.destination as! RandomTopicViewController
+            RandomTopicVC.currentTopic = currentTopic
+            RandomTopicVC.managedContext = managedContext
+            RandomTopicVC.title = "Favorite"
+            RandomTopicVC.viewShouldScroll = false
+            RandomTopicVC.backButtonTitle = "Faves"
+        }
     }
-    */
 
 }
 

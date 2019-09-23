@@ -134,6 +134,8 @@ class AllTopicsViewController: UITableViewController {
             RandomTopicVC.currentTopic = currentTopic
             RandomTopicVC.managedContext = managedContext
             RandomTopicVC.title = "All Topics"
+            RandomTopicVC.viewShouldScroll = false
+            RandomTopicVC.backButtonTitle = "< All Topics"
         }
     }
     

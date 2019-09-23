@@ -65,6 +65,11 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
         }
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     @IBAction func tappedDoneButton(_ sender: UIBarButtonItem) {
         done()
     }
