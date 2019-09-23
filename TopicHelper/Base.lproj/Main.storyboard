@@ -134,7 +134,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="745" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAM-Qs-wBm">
                                                     <rect key="frame" x="0.0" y="20.5" width="342" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -147,7 +147,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="details" destination="BAM-Qs-wBm" id="J5M-AH-GLJ"/>
                                     <outlet property="title" destination="L5X-kx-9T2" id="TUR-o9-Avo"/>
@@ -326,7 +325,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
-                                <rect key="frame" x="157" y="770" width="100" height="37"/>
+                                <rect key="frame" x="107" y="733" width="200" height="74"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -422,7 +421,7 @@
         <image name="unlocked" width="24.5" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kdl-QM-MSD"/>
-        <segue reference="xpl-Wb-nXM"/>
+        <segue reference="Sfu-32-Avi"/>
+        <segue reference="ll9-vy-FRJ"/>
     </inferredMetricsTieBreakers>
 </document>
