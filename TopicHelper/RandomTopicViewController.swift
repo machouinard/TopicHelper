@@ -158,10 +158,13 @@ class RandomTopicViewController: UIViewController {
         // Change direction based on swipe
         if "previous" == sender {
             topicTitleLabel.center.x += view.bounds.width
+            topicDetailLabel.center.x += view.bounds.width
         } else {
             topicTitleLabel.center.x -= view.bounds.width
+            topicDetailLabel.center.x -= view.bounds.width
         }
         topicTitleLabel.alpha = 0.0
+        topicDetailLabel.alpha = 0.0
         
 
         topicTitleLabel.text = currentTopic?.title
@@ -174,10 +177,14 @@ class RandomTopicViewController: UIViewController {
                        animations: {
                         if "previous" == sender {
                             self.topicTitleLabel.center.x -= self.view.bounds.width
+                            self.topicDetailLabel.center.x -= self.view.bounds.width
                         } else {
                             self.topicTitleLabel.center.x += self.view.bounds.width
+                            self.topicDetailLabel.center.x += self.view.bounds.width
                         }
                         self.topicTitleLabel.alpha = 1.0
+                        self.topicDetailLabel.alpha = 1.0
+                        
         },
                        completion: nil
         )
