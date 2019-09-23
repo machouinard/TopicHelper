@@ -12,9 +12,26 @@ import CoreData
 class TopicTabBarController: UITabBarController {
     
     var managedContext: NSManagedObjectContext!
+    lazy var coreDataStack = CoreDataStack(modelName: "TopicHelper")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.managedContext = coreDataStack.managedContext
+        if let tabViewControllers = self.viewControllers {
+            var navController = tabViewControllers[2] as! UINavigationController
+            let allTopicsVC = navController.viewControllers.first as! TopicsViewController
+            allTopicsVC.managedContext = coreDataStack.managedContext
+            navController = tabViewControllers[0] as! UINavigationController
+            let randomVC = navController.topViewController as! RandomTopicViewController
+            randomVC.managedContext = coreDataStack.managedContext
+            navController = tabViewControllers[1] as! UINavigationController
+            let faveVC = navController.topViewController as! FavoritesViewController
+            faveVC.managedContext = coreDataStack.managedContext
+        }
+        
+        listenForFatalCoreDataNotifications()
 
         insertStarterTopics()
     }
@@ -29,6 +46,39 @@ class TopicTabBarController: UITabBarController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK:- Helper methods
+        func listenForFatalCoreDataNotifications() {
+            // 1
+            NotificationCenter.default.addObserver(
+                forName: CoreDataSaveFailedNotification,
+                object: nil, queue: OperationQueue.main,
+                using: { notification in
+                    // 2
+                    let message = """
+    There was a fatal error in the app and it cannot continue.
+    Press OK to terminate the app. Sorry for the inconvenience.
+    """
+                    // 3
+                    let alert = UIAlertController(
+                        title: "Internal Error", message: message,
+                        preferredStyle: .alert)
+                    // 4
+                    let action = UIAlertAction(title: "OK",
+                                               style: .default) { _ in
+                                                let exception = NSException(
+                                                    name: NSExceptionName.internalInconsistencyException,
+                                                    reason: "Fatal Core Data error", userInfo: nil)
+                                                exception.raise()
+                    }
+                    alert.addAction(action)
+                    // 5
+//                    let tabController = self.window!.rootViewController!
+                    self.present(alert, animated: true,
+                                          completion: nil)
+            })
+        }
+
     
     // MARK:- Starter Topics
     func insertStarterTopics() {

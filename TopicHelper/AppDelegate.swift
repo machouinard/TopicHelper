@@ -19,21 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let tabController = window?.rootViewController as! TopicTabBarController
-        tabController.managedContext = coreDataStack.managedContext
-        if let tabViewControllers = tabController.viewControllers {
-            var navController = tabViewControllers[2] as! UINavigationController
-            let allTopicsVC = navController.viewControllers.first as! AllTopicsViewController
-            allTopicsVC.managedContext = coreDataStack.managedContext
-            navController = tabViewControllers[0] as! UINavigationController
-            let randomVC = navController.topViewController as! RandomTopicViewController
-            randomVC.managedContext = coreDataStack.managedContext
-            navController = tabViewControllers[1] as! UINavigationController
-            let faveVC = navController.topViewController as! FavoritesViewController
-            faveVC.managedContext = coreDataStack.managedContext
-        }
-        
-        listenForFatalCoreDataNotifications()
+//        let tabController = window?.rootViewController as! TopicTabBarController
+//        tabController.managedContext = coreDataStack.managedContext
+//        if let tabViewControllers = tabController.viewControllers {
+//            var navController = tabViewControllers[2] as! UINavigationController
+//            let allTopicsVC = navController.viewControllers.first as! TopicsViewController
+//            allTopicsVC.managedContext = coreDataStack.managedContext
+//            navController = tabViewControllers[0] as! UINavigationController
+//            let randomVC = navController.topViewController as! RandomTopicViewController
+//            randomVC.managedContext = coreDataStack.managedContext
+//            navController = tabViewControllers[1] as! UINavigationController
+//            let faveVC = navController.topViewController as! FavoritesViewController
+//            faveVC.managedContext = coreDataStack.managedContext
+//        }
+//
+//        listenForFatalCoreDataNotifications()
         
         return true
     }
@@ -63,36 +63,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coreDataStack.saveContext()
     }
     
-    // MARK:- Helper methods
-    func listenForFatalCoreDataNotifications() {
-        // 1
-        NotificationCenter.default.addObserver(
-            forName: CoreDataSaveFailedNotification,
-            object: nil, queue: OperationQueue.main,
-            using: { notification in
-                // 2
-                let message = """
-There was a fatal error in the app and it cannot continue.
-Press OK to terminate the app. Sorry for the inconvenience.
-"""
-                // 3
-                let alert = UIAlertController(
-                    title: "Internal Error", message: message,
-                    preferredStyle: .alert)
-                // 4
-                let action = UIAlertAction(title: "OK",
-                                           style: .default) { _ in
-                                            let exception = NSException(
-                                                name: NSExceptionName.internalInconsistencyException,
-                                                reason: "Fatal Core Data error", userInfo: nil)
-                                            exception.raise()
-                }
-                alert.addAction(action)
-                // 5
-                let tabController = self.window!.rootViewController!
-                tabController.present(alert, animated: true,
-                                      completion: nil)
-        })
-    }
-
+    
 }

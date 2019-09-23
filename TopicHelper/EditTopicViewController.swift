@@ -26,7 +26,7 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
         
         // Swipe left to show return to previous screen
         let sgr = UISwipeGestureRecognizer(target: self, action: #selector(returnToPreviousScreen))
-        sgr.direction = UISwipeGestureRecognizer.Direction.left
+//        sgr.direction = UISwipeGestureRecognizer.Direction.left
         view.addGestureRecognizer(sgr)
         
         topicTitleView.text = currentTopic?.title

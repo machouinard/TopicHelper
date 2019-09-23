@@ -9,10 +9,17 @@
 import UIKit
 import CoreData
 
-class AllTopicsViewController: UITableViewController {
+enum ListViewType: String {
+    case AllTopics
+    case FavoriteTopics
+    
+}
+
+class TopicsViewController: UITableViewController {
     
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
+    var usePredicate: Bool = false
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
         let fetchRequest = NSFetchRequest<Topic>()
         
@@ -33,6 +40,7 @@ class AllTopicsViewController: UITableViewController {
         
         return fetchedResultsController
     }()
+    
     
     override func loadView() {
         super.loadView()
@@ -136,18 +144,21 @@ class AllTopicsViewController: UITableViewController {
             editTopicVC?.managedContext = managedContext
         } else if segue.identifier == "showTopic" {
             let RandomTopicVC = segue.destination as! RandomTopicViewController
-            RandomTopicVC.currentTopic = currentTopic
+//            RandomTopicVC.currentTopic = currentTopic
+            if let ct = currentTopic {
+                RandomTopicVC.nextTopics.append(ct)
+            }
             RandomTopicVC.managedContext = managedContext
             RandomTopicVC.title = "All Topics"
             RandomTopicVC.viewShouldScroll = false
-            RandomTopicVC.backButtonTitle = "< All Topics"
+            RandomTopicVC.backButtonTitle = "Back"
         }
     }
     
 }
 
 // MARK: - NSFetchedResultsController Delegate
-extension AllTopicsViewController: NSFetchedResultsControllerDelegate {
+extension TopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }

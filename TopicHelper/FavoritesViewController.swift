@@ -146,7 +146,10 @@ class FavoritesViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if "showFavorite" == segue.identifier {
             let RandomTopicVC = segue.destination as! RandomTopicViewController
-            RandomTopicVC.currentTopic = currentTopic
+//            RandomTopicVC.currentTopic = currentTopic
+            if let ct = currentTopic {
+                RandomTopicVC.nextTopics.append(ct)
+            }
             RandomTopicVC.managedContext = managedContext
             RandomTopicVC.title = "Favorite"
             RandomTopicVC.viewShouldScroll = false
