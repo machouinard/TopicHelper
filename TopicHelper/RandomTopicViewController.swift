@@ -73,9 +73,24 @@ class RandomTopicViewController: UIViewController {
     var isFavorite: Bool = false
     var viewShouldScroll: Bool = true
     var backButtonTitle: String?
+    var titleCenter: NSLayoutConstraint!
+    var titleTop: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Use extension to get title constraint
+        if let constr = view.constraint(withIdentifier: "titleVertCenter") {
+            titleCenter = constr
+        } else {
+            titleCenter = topicTitleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        }
+        
+        
+        titleTop = topicTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        
+        
+        NSLayoutConstraint.activate([titleCenter])
         
         populateTopics()
         
@@ -151,6 +166,26 @@ class RandomTopicViewController: UIViewController {
 //        print("topics populated: \(topics)")
     }
     
+    func moveTopic(topic: Topic) {
+        if let details = topic.details {
+            
+            if "" != details {
+                NSLayoutConstraint.deactivate([titleCenter])
+                NSLayoutConstraint.activate([titleTop])
+                topicDetailLabel.isHidden = false
+            } else {
+                NSLayoutConstraint.deactivate([titleTop])
+                NSLayoutConstraint.activate([titleCenter])
+                topicDetailLabel.isHidden = true
+            }
+           
+        } else {
+            NSLayoutConstraint.deactivate([titleTop])
+            NSLayoutConstraint.activate([titleCenter])
+            topicDetailLabel.isHidden = true
+        }
+    }
+    
     func displayTopic(sender: String) {
         guard false == topicLocked  && nil != currentTopic else {
             if topics.isEmpty {
@@ -166,6 +201,10 @@ class RandomTopicViewController: UIViewController {
         // MARK: - Set Favorite
         isFavorite = currentTopic?.isFavorite ?? false
         configureFavoriteButton()
+        
+        if let topic = currentTopic {
+            moveTopic(topic: topic)
+        }
         
         // MARK: - Animations
         // Change direction based on swipe
