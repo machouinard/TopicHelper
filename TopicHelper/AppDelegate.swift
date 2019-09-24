@@ -19,15 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let tabController = window?.rootViewController as! UITabBarController
-        if let tabViewControllers = tabController.viewControllers {
-            let topicNavController = tabViewControllers[0] as! UINavigationController
-            let topicVC = topicNavController.viewControllers.first as! ViewController
-            topicVC.managedContext = coreDataStack.managedContext
-            let allTopicsNavController = tabViewControllers[1] as! UINavigationController
-            let allTopicsVC = allTopicsNavController.viewControllers.first as! AllTopicsViewController
-            allTopicsVC.managedContext = coreDataStack.managedContext
-        }
+//        let tabController = window?.rootViewController as! TopicTabBarController
+//        tabController.managedContext = coreDataStack.managedContext
+//        if let tabViewControllers = tabController.viewControllers {
+//            var navController = tabViewControllers[2] as! UINavigationController
+//            let allTopicsVC = navController.viewControllers.first as! TopicsViewController
+//            allTopicsVC.managedContext = coreDataStack.managedContext
+//            navController = tabViewControllers[0] as! UINavigationController
+//            let randomVC = navController.topViewController as! RandomTopicViewController
+//            randomVC.managedContext = coreDataStack.managedContext
+//            navController = tabViewControllers[1] as! UINavigationController
+//            let faveVC = navController.topViewController as! FavoritesViewController
+//            faveVC.managedContext = coreDataStack.managedContext
+//        }
+//
+//        listenForFatalCoreDataNotifications()
         
         return true
     }
@@ -56,5 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         coreDataStack.saveContext()
     }
-
+    
+    
 }
