@@ -308,15 +308,15 @@
                                     <constraint firstAttribute="height" constant="360" id="Twt-su-Gqq"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-oi-r8y">
-                                <rect key="frame" x="20" y="100" width="374" height="37.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-oi-r8y">
+                                <rect key="frame" x="20" y="429.5" width="374" height="37.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-xi-F8a">
+                            <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-xi-F8a">
                                 <rect key="frame" x="20" y="415" width="374" height="66"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -347,9 +347,9 @@
                             <constraint firstItem="GT1-WD-fuT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BoP-zr-yZ2" secondAttribute="trailing" id="Uv0-g7-O4F"/>
                             <constraint firstItem="WqB-RA-NWc" firstAttribute="top" secondItem="QAD-cl-Dfi" secondAttribute="top" id="W2S-8a-7fA"/>
                             <constraint firstItem="tNL-oi-r8y" firstAttribute="leading" secondItem="GT1-WD-fuT" secondAttribute="leading" constant="20" id="WQV-0c-z7c"/>
-                            <constraint firstItem="tNL-oi-r8y" firstAttribute="top" secondItem="GT1-WD-fuT" secondAttribute="top" constant="12" id="WlA-DS-QUX"/>
                             <constraint firstItem="BoP-zr-yZ2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GT1-WD-fuT" secondAttribute="leading" id="c2c-vz-c7R"/>
                             <constraint firstItem="gJz-xi-F8a" firstAttribute="leading" secondItem="GT1-WD-fuT" secondAttribute="leading" constant="20" id="eC8-vl-5w9"/>
+                            <constraint firstItem="tNL-oi-r8y" firstAttribute="centerY" secondItem="QAD-cl-Dfi" secondAttribute="centerY" identifier="titleVertCenter" id="gTH-iY-Tq4"/>
                             <constraint firstAttribute="bottom" secondItem="WqB-RA-NWc" secondAttribute="bottom" id="hgx-is-9t1"/>
                             <constraint firstItem="gJz-xi-F8a" firstAttribute="centerY" secondItem="QAD-cl-Dfi" secondAttribute="centerY" id="pT7-lG-07L"/>
                             <constraint firstItem="GT1-WD-fuT" firstAttribute="trailing" secondItem="gJz-xi-F8a" secondAttribute="trailing" constant="20" id="tFQ-qa-B6n"/>
@@ -422,6 +422,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Sfu-32-Avi"/>
-        <segue reference="ll9-vy-FRJ"/>
+        <segue reference="xpl-Wb-nXM"/>
     </inferredMetricsTieBreakers>
 </document>
