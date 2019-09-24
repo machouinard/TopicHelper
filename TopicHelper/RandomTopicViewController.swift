@@ -349,3 +349,9 @@ extension UITextView {
     }
     
 }
+
+extension UIView {
+    func constraint(withIdentifier: String) -> NSLayoutConstraint? {
+        return self.constraints.filter { $0.identifier == withIdentifier }.first
+    }
+}
