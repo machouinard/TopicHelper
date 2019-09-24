@@ -73,13 +73,9 @@ class RandomTopicViewController: UIViewController {
     var isFavorite: Bool = false
     var viewShouldScroll: Bool = true
     var backButtonTitle: String?
-    var xCenter: NSLayoutXAxisAnchor?
-    var yCenter: NSLayoutYAxisAnchor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        xCenter = topicTitleLabel.centerXAnchor
-        yCenter = topicTitleLabel.centerYAnchor
         
         populateTopics()
         
@@ -250,25 +246,6 @@ class RandomTopicViewController: UIViewController {
             setRandomTopic()
         } else {
             currentTopic = nextTopics.removeLast()
-        }
-        
-        if nil == currentTopic?.details {
-            topicDetailLabel.isHidden = true
-            topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-//            topicTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            topicTitleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        } else {
-            topicDetailLabel.isHidden = false
-            topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-//            if let x = xCenter {
-//                topicTitleLabel.centerXAnchor.constraint(equalTo: x).isActive = true
-//            }
-//            topicTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-            if let y = yCenter {
-                
-                topicTitleLabel.centerYAnchor.constraint(equalTo: y).isActive = true
-            }
         }
         
         displayTopic(sender: "next")
