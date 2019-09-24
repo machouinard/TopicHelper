@@ -97,6 +97,8 @@ class RandomTopicViewController: UIViewController {
         if let backText = backButtonTitle {
             let backButton = UIBarButtonItem(title: backText, style: .done, target: self, action: #selector(didTapBack))
             navigationItem.leftBarButtonItems?.insert(backButton, at: 0)
+            let sgrBack = UISwipeGestureRecognizer(target: self, action: #selector(dumbFuncToGoBack))
+            view.addGestureRecognizer(sgrBack)
         }
         
         backgroundLogo.isUserInteractionEnabled = true
@@ -116,6 +118,10 @@ class RandomTopicViewController: UIViewController {
         
         displayNextTopic()
         
+    }
+    
+    @objc func dumbFuncToGoBack() {
+        navigationController?.popViewController(animated: true)
     }
     
     func clearCurrentTopic() {
