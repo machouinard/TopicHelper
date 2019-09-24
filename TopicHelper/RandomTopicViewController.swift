@@ -11,7 +11,6 @@ import CoreData
 
 class RandomTopicViewController: UIViewController {
     
-    @IBOutlet weak var topicTitleLabel: UILabel!
     @IBOutlet weak var topicDetailLabel: UILabel!
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!
@@ -26,18 +25,18 @@ class RandomTopicViewController: UIViewController {
                 if let dictionary = notification.userInfo {
                     // New topic is inserted empty, then updated.  We only deal with updated and deleted.
                     if nil != dictionary[NSUpdatedObjectsKey] {
-                            let updatedTopics = dictionary["updated"] as! Set<Topic>
-                            if let first = updatedTopics.first {
-                                if  nil == self.topics.firstIndex(of: first) {
-                                    // no index means this is a new topic and needs to be added to our array
-                                    self.topics.append(first)
-                                }
-                                // If topic is not locked, make this the current topic
-                                if !self.topicLocked {
-                                    self.currentTopic = nil
-                                    self.nextTopics.append(first)
-                                }
+                        let updatedTopics = dictionary["updated"] as! Set<Topic>
+                        if let first = updatedTopics.first {
+                            if  nil == self.topics.firstIndex(of: first) {
+                                // no index means this is a new topic and needs to be added to our array
+                                self.topics.append(first)
                             }
+                            // If topic is not locked, make this the current topic
+                            if !self.topicLocked {
+                                self.currentTopic = nil
+                                self.nextTopics.append(first)
+                            }
+                        }
                     } else if nil != dictionary[NSDeletedObjectsKey] {
                         let deletedTopics = dictionary["deleted"] as! Set<Topic>
                         if let first = deletedTopics.first {
@@ -57,10 +56,6 @@ class RandomTopicViewController: UIViewController {
                     // This should display topic from nextTopics array or random topic
                     self.displayNextTopic()
                 }
-//                if nil != self.currentTopic {
-//                    self.lastTopic = self.currentTopic // Make sure we track last topic
-//                }
-                
             }
         }
     }
@@ -73,24 +68,43 @@ class RandomTopicViewController: UIViewController {
     var isFavorite: Bool = false
     var viewShouldScroll: Bool = true
     var backButtonTitle: String?
-    var titleCenter: NSLayoutConstraint!
+    var topicTitleLabel: UILabel!
+    var titleCenterY: NSLayoutConstraint!
     var titleTop: NSLayoutConstraint!
+    
+    
+    override func loadView() {
+        super.loadView()
+        
+        // MARK: - Constraints - Title
+        topicTitleLabel = UILabel(frame: .zero)
+        topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Title constraint - centering vertically
+        titleCenterY = topicTitleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        
+        view.addSubview(topicTitleLabel)
+        
+        // Set and activate title constraints
+        topicTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        topicTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        titleCenterY.isActive = true
+        topicTitleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        
+        // Title constraint for later use - top 20 below safe area
+        titleTop = topicTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Use extension to get title constraint
-        if let constr = view.constraint(withIdentifier: "titleVertCenter") {
-            titleCenter = constr
-        } else {
-            titleCenter = topicTitleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        }
-        
-        
-        titleTop = topicTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        
-        
-        NSLayoutConstraint.activate([titleCenter])
+        // MARK: - Label attributes
+        topicTitleLabel.numberOfLines = 0
+        topicTitleLabel.textColor = .white
+        topicTitleLabel.textAlignment = .center
+        topicTitleLabel.lineBreakMode = .byWordWrapping
+        topicTitleLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 28.0)
         
         populateTopics()
         
@@ -107,10 +121,10 @@ class RandomTopicViewController: UIViewController {
         backgroundLogo.addGestureRecognizer(tgr)
         
         if viewShouldScroll {
-            // Swipe right to show new topic
+            // Swipe right to show next topic
             let sgrRight = UISwipeGestureRecognizer(target: self, action: #selector(displayNextTopic))
             view.addGestureRecognizer(sgrRight)
-            
+            // Swipe left to show previous topics
             let sgrLeft = UISwipeGestureRecognizer(target: self, action: #selector(displayPreviousTopic))
             sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
             backgroundLogo.addGestureRecognizer(sgrLeft)
@@ -120,10 +134,6 @@ class RandomTopicViewController: UIViewController {
         
     }
     
-    @objc func dumbFuncToGoBack() {
-        navigationController?.popViewController(animated: true)
-    }
-    
     func clearCurrentTopic() {
         currentTopic = nil
         topicTitleLabel.text = ""
@@ -131,6 +141,10 @@ class RandomTopicViewController: UIViewController {
     }
     
     // MARK: - GestureRecognizers
+    
+    @objc func dumbFuncToGoBack() {
+        navigationController?.popViewController(animated: true)
+    }
     
     @objc @IBAction func topicTapGesture() {
         performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
@@ -151,10 +165,7 @@ class RandomTopicViewController: UIViewController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-//        topicView.centerVertically()
-    }
-    
+    // TODO: Figure out why I decided to this on viewWillAppear instead of didLoad
     override func viewWillAppear(_ animated: Bool) {
         if let topicText = currentTopic?.title {
             topicTitleLabel.text = topicText
@@ -164,36 +175,42 @@ class RandomTopicViewController: UIViewController {
         }
     }
     
+    /**
+     Fetch all topics
+     */
     func populateTopics() {
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         if topics.isEmpty {
             topics = try! managedContext.fetch(request)
         }
-//        print("topics populated: \(topics)")
     }
     
+    /**
+     If we have details to show, move topic title to top of view
+     */
     func moveTopic(topic: Topic) {
         if let details = topic.details {
             
             if "" != details {
-                NSLayoutConstraint.deactivate([titleCenter])
+                NSLayoutConstraint.deactivate([titleCenterY])
                 NSLayoutConstraint.activate([titleTop])
                 topicDetailLabel.isHidden = false
             } else {
                 NSLayoutConstraint.deactivate([titleTop])
-                NSLayoutConstraint.activate([titleCenter])
+                NSLayoutConstraint.activate([titleCenterY])
                 topicDetailLabel.isHidden = true
             }
-           
+            
         } else {
             NSLayoutConstraint.deactivate([titleTop])
-            NSLayoutConstraint.activate([titleCenter])
+            NSLayoutConstraint.activate([titleCenterY])
             topicDetailLabel.isHidden = true
         }
     }
     
     func displayTopic(sender: String) {
         guard false == topicLocked  && nil != currentTopic else {
+            // If we've just deleted last topic, make sure we clear the display
             if topics.isEmpty {
                 topicTitleLabel.text = ""
                 topicDetailLabel.text = ""
@@ -231,13 +248,11 @@ class RandomTopicViewController: UIViewController {
             topicDetailLabel.alpha = 0.0
         }
         
-
+        
         topicTitleLabel.text = currentTopic?.title
-
-//        if nil != currentTopic?.details {
-            topicDetailLabel?.text = currentTopic?.details
-//        }
-
+        
+        
+        topicDetailLabel?.text = currentTopic?.details
         
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseIn],
@@ -286,7 +301,7 @@ class RandomTopicViewController: UIViewController {
         }
         
         saveCurrentTopicPrevious()
-
+        
         if nextTopics.isEmpty {
             setRandomTopic()
         } else {
@@ -302,10 +317,10 @@ class RandomTopicViewController: UIViewController {
         }
         
         saveCurrentTopicNext()
-//        nextTopics.append(prevTopics.removeLast())
+        //        nextTopics.append(prevTopics.removeLast())
         currentTopic = prevTopics.removeLast()
         displayTopic(sender: "previous")
-//        displayNextTopic()
+        //        displayNextTopic()
     }
     
     func saveCurrentTopicPrevious() {
@@ -325,7 +340,7 @@ class RandomTopicViewController: UIViewController {
             nextTopics.removeFirst()
         }
     }
-
+    
     // MARK: - Actions
     @IBAction func toggleTopicLock(_ sender: Any) {
         topicLocked = !topicLocked
@@ -395,6 +410,7 @@ extension UITextView {
     
 }
 
+// TODO: do we still need this?
 extension UIView {
     func constraint(withIdentifier: String) -> NSLayoutConstraint? {
         return self.constraints.filter { $0.identifier == withIdentifier }.first
