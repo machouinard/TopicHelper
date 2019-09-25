@@ -17,6 +17,13 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
     var topicLocked: Bool = false
+    
+    override func loadView() {
+        super.loadView()
+        
+        
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
