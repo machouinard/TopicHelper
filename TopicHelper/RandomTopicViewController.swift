@@ -11,7 +11,6 @@ import CoreData
 
 class RandomTopicViewController: UIViewController {
     
-    @IBOutlet weak var topicDetailLabel: UILabel!
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!
     @IBOutlet weak var isFavoriteButton: UIBarButtonItem!
@@ -69,6 +68,9 @@ class RandomTopicViewController: UIViewController {
     var viewShouldScroll: Bool = true
     var backButtonTitle: String?
     var topicTitleLabel: UILabel!
+    var topicDetailLabel: UILabel!
+    var topicScrollView: UIScrollView!
+    var scrollStack: UIStackView!
     var titleCenterY: NSLayoutConstraint!
     var titleTop: NSLayoutConstraint!
     
@@ -79,11 +81,21 @@ class RandomTopicViewController: UIViewController {
         // MARK: - Constraints - Title
         topicTitleLabel = UILabel(frame: .zero)
         topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        topicDetailLabel = UILabel(frame: .zero)
+        topicDetailLabel.translatesAutoresizingMaskIntoConstraints = false
+        topicScrollView = UIScrollView(frame: .zero)
+        topicScrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollStack = UIStackView(frame: .zero)
+        scrollStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollStack.addSubview(topicDetailLabel)
+        topicScrollView.addSubview(scrollStack)
         
         // Title constraint - centering vertically
         titleCenterY = topicTitleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
         
         view.addSubview(topicTitleLabel)
+        view.addSubview(topicScrollView)
         
         // Set and activate title constraints
         topicTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -93,6 +105,23 @@ class RandomTopicViewController: UIViewController {
         
         // Title constraint for later use - top 20 below safe area
         titleTop = topicTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+        
+        topicScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topicScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topicScrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        topicScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        scrollStack.leadingAnchor.constraint(equalTo: topicScrollView.leadingAnchor).isActive = true
+        scrollStack.trailingAnchor.constraint(equalTo: topicScrollView.trailingAnchor).isActive = true
+        scrollStack.topAnchor.constraint(equalTo: topicScrollView.topAnchor).isActive = true
+        scrollStack.bottomAnchor.constraint(equalTo: topicScrollView.bottomAnchor).isActive = true
+        scrollStack.widthAnchor.constraint(equalTo: topicScrollView.widthAnchor).isActive = true
+        
+        topicDetailLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        topicDetailLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        topicDetailLabel.topAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        scrollStack.axis = .vertical
         
     }
     
@@ -105,6 +134,12 @@ class RandomTopicViewController: UIViewController {
         topicTitleLabel.textAlignment = .center
         topicTitleLabel.lineBreakMode = .byWordWrapping
         topicTitleLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 28.0)
+        
+        topicDetailLabel.numberOfLines = 0
+        topicDetailLabel.textColor = .white
+        topicDetailLabel.textAlignment = .center
+        topicDetailLabel.lineBreakMode = .byWordWrapping
+        topicDetailLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 22.0)
         
         populateTopics()
         
