@@ -68,7 +68,7 @@ class RandomTopicViewController: UIViewController {
     var viewShouldScroll: Bool = true
     var backButtonTitle: String?
     var topicTitleLabel: UILabel!
-    var topicDetailLabel: UILabel!
+    var topicDetailTextView: UILabel!
     var topicScrollView: UIScrollView!
     var scrollStack: UIStackView!
     var titleCenterY: NSLayoutConstraint!
@@ -84,18 +84,18 @@ class RandomTopicViewController: UIViewController {
         // MARK: - Constraints - Title
         topicTitleLabel = UILabel(frame: .zero)
         topicTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        topicDetailLabel = UILabel(frame: .zero)
-        topicDetailLabel.translatesAutoresizingMaskIntoConstraints = false
+        topicDetailTextView = UILabel(frame: .zero)
+        topicDetailTextView.translatesAutoresizingMaskIntoConstraints = false
         topicScrollView = UIScrollView(frame: .zero)
         topicScrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollStack = UIStackView(frame: .zero)
         scrollStack.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollStack.addSubview(topicDetailLabel)
+        scrollStack.addSubview(topicDetailTextView)
         topicScrollView.addSubview(scrollStack)
         
         // Title constraint - centering vertically
-        titleCenterY = topicTitleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        titleCenterY = topicTitleLabel.centerYAnchor.constraint(equalTo: self.backgroundLogo.centerYAnchor)
         
         view.addSubview(topicTitleLabel)
         view.addSubview(topicScrollView)
@@ -119,10 +119,10 @@ class RandomTopicViewController: UIViewController {
         scrollStack.topAnchor.constraint(equalTo: topicScrollView.topAnchor).isActive = true
         scrollStack.bottomAnchor.constraint(equalTo: topicScrollView.bottomAnchor).isActive = true
         scrollStack.widthAnchor.constraint(equalTo: topicScrollView.widthAnchor).isActive = true
-        scrollStack.heightAnchor.constraint(equalTo: topicDetailLabel.heightAnchor).isActive = true
+        scrollStack.heightAnchor.constraint(equalTo: topicDetailTextView.heightAnchor).isActive = true
         
-        topicDetailLabel.leadingAnchor.constraint(equalTo: scrollStack.leadingAnchor).isActive = true
-        topicDetailLabel.trailingAnchor.constraint(equalTo: scrollStack.trailingAnchor).isActive = true
+        topicDetailTextView.leadingAnchor.constraint(equalTo: scrollStack.leadingAnchor).isActive = true
+        topicDetailTextView.trailingAnchor.constraint(equalTo: scrollStack.trailingAnchor).isActive = true
 //        topicDetailLabel.topAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     
         
@@ -143,12 +143,12 @@ class RandomTopicViewController: UIViewController {
 //        topicTitleLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 32.0)
         topicTitleLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .headline), size: 34)
         
-        topicDetailLabel.numberOfLines = 0
-        topicDetailLabel.textColor = .white
-        topicDetailLabel.textAlignment = .center
+        topicDetailTextView.numberOfLines = 0
+        topicDetailTextView.textColor = .white
+        topicDetailTextView.textAlignment = .center
 //        topicDetailLabel.lineBreakMode = .byWordWrapping
 //        topicDetailLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 21.0)
-        topicDetailLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .subheadline), size: 26)
+        topicDetailTextView.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .subheadline), size: 26)
         
         populateTopics()
         
@@ -183,7 +183,7 @@ class RandomTopicViewController: UIViewController {
     func clearCurrentTopic() {
         currentTopic = nil
         topicTitleLabel.text = ""
-        topicDetailLabel.text = ""
+        topicDetailTextView.text = ""
     }
     
     // MARK: - GestureRecognizers
@@ -217,7 +217,7 @@ class RandomTopicViewController: UIViewController {
             topicTitleLabel.text = topicText
         }
         if let detailText = currentTopic?.details {
-            topicDetailLabel.text = detailText
+            topicDetailTextView.text = detailText
         }
     }
     
@@ -240,17 +240,17 @@ class RandomTopicViewController: UIViewController {
             if "" != details {
                 NSLayoutConstraint.deactivate([titleCenterY])
                 NSLayoutConstraint.activate([titleTop])
-                topicDetailLabel.isHidden = false
+                topicDetailTextView.isHidden = false
             } else {
                 NSLayoutConstraint.deactivate([titleTop])
                 NSLayoutConstraint.activate([titleCenterY])
-                topicDetailLabel.isHidden = true
+                topicDetailTextView.isHidden = true
             }
             
         } else {
             NSLayoutConstraint.deactivate([titleTop])
             NSLayoutConstraint.activate([titleCenterY])
-            topicDetailLabel.isHidden = true
+            topicDetailTextView.isHidden = true
         }
     }
     
@@ -259,7 +259,7 @@ class RandomTopicViewController: UIViewController {
             // If we've just deleted last topic, make sure we clear the display
             if topics.isEmpty {
                 topicTitleLabel.text = ""
-                topicDetailLabel.text = ""
+                topicDetailTextView.text = ""
                 
                 currentTopic = nil
             }
@@ -281,37 +281,37 @@ class RandomTopicViewController: UIViewController {
         if "previous" == sender {
             topicTitleLabel.center.x += view.bounds.width
             if nil != currentTopic?.details {
-                topicDetailLabel.center.x += view.bounds.width
+                topicDetailTextView.center.x += view.bounds.width
             }
         } else {
             topicTitleLabel.center.x -= view.bounds.width
             if nil != currentTopic?.details {
-                topicDetailLabel.center.x -= view.bounds.width
+                topicDetailTextView.center.x -= view.bounds.width
             }
         }
         topicTitleLabel.alpha = 0.0
         if nil != currentTopic?.details {
-            topicDetailLabel.alpha = 0.0
+            topicDetailTextView.alpha = 0.0
         }
         
         
         topicTitleLabel.text = currentTopic?.title
         
         
-        topicDetailLabel?.text = currentTopic?.details
+        topicDetailTextView?.text = currentTopic?.details
         
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseIn],
                        animations: {
                         if "previous" == sender {
                             self.topicTitleLabel.center.x -= self.view.bounds.width
-                            self.topicDetailLabel?.center.x -= self.view.bounds.width
+                            self.topicDetailTextView?.center.x -= self.view.bounds.width
                         } else {
                             self.topicTitleLabel.center.x += self.view.bounds.width
-                            self.topicDetailLabel?.center.x += self.view.bounds.width
+                            self.topicDetailTextView?.center.x += self.view.bounds.width
                         }
                         self.topicTitleLabel.alpha = 1.0
-                        self.topicDetailLabel?.alpha = 1.0
+                        self.topicDetailTextView?.alpha = 1.0
                         
         },
                        completion: nil
