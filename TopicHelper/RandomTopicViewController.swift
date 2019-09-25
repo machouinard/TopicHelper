@@ -157,6 +157,7 @@ class RandomTopicViewController: UIViewController {
             navigationItem.leftBarButtonItems?.insert(backButton, at: 0)
             let sgrBack = UISwipeGestureRecognizer(target: self, action: #selector(dumbFuncToGoBack))
             view.addGestureRecognizer(sgrBack)
+            nextButton.isHidden = true
         }
         
         backgroundLogo.isUserInteractionEnabled = true
