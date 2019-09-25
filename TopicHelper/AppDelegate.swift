@@ -19,16 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let tabController = window?.rootViewController as! UITabBarController
-        if let tabViewControllers = tabController.viewControllers {
-            let topicNavController = tabViewControllers[0] as! UINavigationController
-            let topicVC = topicNavController.viewControllers.first as! ViewController
-            topicVC.managedContext = coreDataStack.managedContext
-            let allTopicsNavController = tabViewControllers[1] as! UINavigationController
-            let allTopicsVC = allTopicsNavController.viewControllers.first as! AllTopicsViewController
-            allTopicsVC.managedContext = coreDataStack.managedContext
-        }
-        
         return true
     }
 
@@ -56,5 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         coreDataStack.saveContext()
     }
-
+    
+    
 }
