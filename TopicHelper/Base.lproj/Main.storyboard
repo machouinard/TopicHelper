@@ -32,31 +32,30 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opj-dS-EBe">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-2j-Ryk">
-                                                <rect key="frame" x="44.5" y="10" width="325" height="39"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-2j-Ryk">
+                                                <rect key="frame" x="44.5" y="157" width="325" height="44"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="325" id="kkC-sr-npU"/>
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="unF-dp-L4E">
-                                                <rect key="frame" x="44.5" y="59" width="325" height="607"/>
+                                                <rect key="frame" x="44.5" y="211" width="325" height="303"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="325" id="5wN-Cn-bTO"/>
                                                 </constraints>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="unF-dp-L4E" firstAttribute="centerY" secondItem="Opj-dS-EBe" secondAttribute="centerY" id="A1l-ht-j5u"/>
-                                            <constraint firstItem="ZFy-2j-Ryk" firstAttribute="top" secondItem="Opj-dS-EBe" secondAttribute="top" constant="10" id="a2M-bJ-xe8"/>
                                             <constraint firstItem="unF-dp-L4E" firstAttribute="centerX" secondItem="Opj-dS-EBe" secondAttribute="centerX" id="dwg-oU-Tzg"/>
                                             <constraint firstItem="ZFy-2j-Ryk" firstAttribute="centerX" secondItem="Opj-dS-EBe" secondAttribute="centerX" id="f2h-hk-yeT"/>
                                             <constraint firstItem="unF-dp-L4E" firstAttribute="top" secondItem="ZFy-2j-Ryk" secondAttribute="bottom" constant="10" id="p94-in-P3E"/>
@@ -84,6 +83,7 @@
                             <constraint firstItem="Fv3-Iu-JHX" firstAttribute="top" secondItem="nge-5o-oQB" secondAttribute="top" id="bXY-jx-y1h"/>
                             <constraint firstItem="Fv3-Iu-JHX" firstAttribute="centerX" secondItem="a5m-VL-BFl" secondAttribute="centerX" id="hmr-G1-ZH0"/>
                             <constraint firstItem="PRf-hY-UKx" firstAttribute="leading" secondItem="m8N-rM-RxS" secondAttribute="leading" id="ka8-1d-W14"/>
+                            <constraint firstItem="Fv3-Iu-JHX" firstAttribute="centerY" secondItem="ZFy-2j-Ryk" secondAttribute="centerY" constant="1" id="s88-iW-2jK"/>
                             <constraint firstItem="PRf-hY-UKx" firstAttribute="leading" secondItem="nge-5o-oQB" secondAttribute="leading" id="t6f-bi-C7R"/>
                             <constraint firstItem="m8N-rM-RxS" firstAttribute="top" secondItem="a5m-VL-BFl" secondAttribute="top" id="tK4-zK-Hcz"/>
                         </constraints>
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
-                                <rect key="frame" x="107" y="719" width="200" height="74"/>
+                                <rect key="frame" x="157" y="756" width="100" height="37"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
