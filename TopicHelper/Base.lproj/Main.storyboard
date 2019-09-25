@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Topic Detail-->
+        <!--Edit Topic-->
         <scene sceneID="ukF-kE-Z97">
             <objects>
                 <viewController id="iMq-Fp-Lmd" customClass="EditTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nge-5o-oQB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Topic Detail" id="Fe3-3g-JbR">
+                    <navigationItem key="navigationItem" title="Edit Topic" id="Fe3-3g-JbR">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="vCL-Y7-Omx">
                             <connections>
                                 <action selector="tappedDoneButton:" destination="iMq-Fp-Lmd" id="1io-b9-pfd"/>
@@ -290,7 +290,7 @@
             </objects>
             <point key="canvasLocation" x="-9697" y="3"/>
         </scene>
-        <!--Random Topic-->
+        <!--Random Topics-->
         <scene sceneID="u5P-UO-YhV">
             <objects>
                 <viewController id="Cz9-hF-pSK" customClass="RandomTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -308,19 +308,11 @@
                                     <constraint firstAttribute="height" constant="360" id="Twt-su-Gqq"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-xi-F8a">
-                                <rect key="frame" x="20" y="415" width="374" height="66"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
-                                <rect key="frame" x="157" y="770" width="100" height="37"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
+                                <rect key="frame" x="107" y="733" width="200" height="74"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
-                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" backgroundImage="blueButton"/>
                                 <connections>
@@ -338,15 +330,12 @@
                             <constraint firstItem="GT1-WD-fuT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BoP-zr-yZ2" secondAttribute="trailing" id="Uv0-g7-O4F"/>
                             <constraint firstItem="WqB-RA-NWc" firstAttribute="top" secondItem="QAD-cl-Dfi" secondAttribute="top" id="W2S-8a-7fA"/>
                             <constraint firstItem="BoP-zr-yZ2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GT1-WD-fuT" secondAttribute="leading" id="c2c-vz-c7R"/>
-                            <constraint firstItem="gJz-xi-F8a" firstAttribute="leading" secondItem="GT1-WD-fuT" secondAttribute="leading" constant="20" id="eC8-vl-5w9"/>
                             <constraint firstAttribute="bottom" secondItem="WqB-RA-NWc" secondAttribute="bottom" id="hgx-is-9t1"/>
-                            <constraint firstItem="gJz-xi-F8a" firstAttribute="centerY" secondItem="QAD-cl-Dfi" secondAttribute="centerY" id="pT7-lG-07L"/>
-                            <constraint firstItem="GT1-WD-fuT" firstAttribute="trailing" secondItem="gJz-xi-F8a" secondAttribute="trailing" constant="20" id="tFQ-qa-B6n"/>
                             <constraint firstItem="WqB-RA-NWc" firstAttribute="trailing" secondItem="QAD-cl-Dfi" secondAttribute="trailing" id="v49-jL-Qfb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GT1-WD-fuT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Random Topic" id="aC1-nT-4ZU">
+                    <navigationItem key="navigationItem" title="Random Topics" id="aC1-nT-4ZU">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="star-open" id="RMx-Uh-IIc">
                             <connections>
                                 <action selector="didTapFavorite:" destination="Cz9-hF-pSK" id="mPw-OQ-U9q"/>
@@ -368,7 +357,6 @@
                     <connections>
                         <outlet property="backgroundLogo" destination="aG5-XB-Xh4" id="O2V-Zz-J56"/>
                         <outlet property="isFavoriteButton" destination="RMx-Uh-IIc" id="Vw8-Po-IXj"/>
-                        <outlet property="topicDetailLabel" destination="gJz-xi-F8a" id="gzp-ZQ-yrs"/>
                         <outlet property="topicLock" destination="1a8-g9-vx8" id="OMW-JF-wSR"/>
                         <segue destination="iMq-Fp-Lmd" kind="show" identifier="editDisplayedTopic" id="xpl-Wb-nXM"/>
                     </connections>

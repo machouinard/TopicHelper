@@ -54,13 +54,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(We Agnostics)</string>
 		<key>id</key>
 		<integer>6</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Agnostics (We Agnostics)</string>
+		<string>Agnostics</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -154,13 +154,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(in and out of AA)</string>
 		<key>id</key>
 		<integer>16</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Being Considerate of Others (in and out of AA)</string>
+		<string>Being Considerate of Others</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -174,13 +174,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Using the Big Book)</string>
 		<key>id</key>
 		<integer>18</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Big Book (Using the Big Book)</string>
+		<string>The Big Book</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -194,13 +194,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(you hit bottom when you stop digging)</string>
 		<key>id</key>
 		<integer>20</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>(The) Bottom is Where You Stop Digging (you hit bottom when you stop digging)</string>
+		<string>The Bottom is Where You Stop Digging</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -254,13 +254,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(to avoid drinking)</string>
 		<key>id</key>
 		<integer>26</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Changing Routines, Changing People, Places and Things (to avoid drinking)</string>
+		<string>Changing Routines, Changing People, Places and Things</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -344,13 +344,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Serenity Prayer)</string>
 		<key>id</key>
 		<integer>35</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Courage to Change the Things I Can (Serenity Prayer)</string>
+		<string>Courage to Change the Things I Can</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -460,7 +460,7 @@
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Don’t Drink and Go To Meetings</string>
+		<string>Don’t Drink, and Go To Meetings</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -490,17 +490,17 @@
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>(A) Drug is a Drug</string>
+		<string>A Drug is a Drug</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Problems Other Than Alcohol)</string>
 		<key>id</key>
 		<integer>50</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Drugs (Problems Other Than Alcohol)</string>
+		<string>Drugs</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -544,23 +544,23 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(ego-smashing, Easing God Out)</string>
 		<key>id</key>
 		<integer>55</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Ego (ego-smashing, Easing God Out)</string>
+		<string>Ego</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(from Step 10)</string>
 		<key>id</key>
 		<integer>56</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Emotional Hangover (from Step 10)</string>
+		<string>Emotional Hangover</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -570,17 +570,17 @@
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Emotional Sobriety (Emotions)</string>
+		<string>Emotional Sobriety</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Having Fun Sober)</string>
 		<key>id</key>
 		<integer>58</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Enjoying Life (Having Fun Sober)</string>
+		<string>Enjoying Life</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -594,23 +594,23 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Unreasonable Expectation, Pre-Planned Resentments)</string>
 		<key>id</key>
 		<integer>60</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Expectations (Unreasonable Expectation, Pre-Planned Resentments)</string>
+		<string>Expectations</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Sharing Our Experience)</string>
 		<key>id</key>
 		<integer>61</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Experience (Sharing Our Experience)</string>
+		<string>Experience</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -650,7 +650,7 @@
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>(The) Family Afterwards</string>
+		<string>The Family Afterwards</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -784,13 +784,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(from pages 8 &amp; 25 in The Big Book)</string>
 		<key>id</key>
 		<integer>79</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Fourth Dimension (from page 25 in The Big Book)</string>
+		<string>Fourth Dimension</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -974,13 +974,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Rigorous Honesty)</string>
 		<key>id</key>
 		<integer>98</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Honesty (Rigorous Honesty)</string>
+		<string>Honesty</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -994,13 +994,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(working the program, staying sober)</string>
 		<key>id</key>
 		<integer>100</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>How easy does it (working the program, staying sober) get?</string>
+		<string>How easy does it get?</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1024,13 +1024,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Twelve Step Recovery)</string>
 		<key>id</key>
 		<integer>103</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>How it Works (Twelve Step Recovery)</string>
+		<string>How it Works</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1044,13 +1044,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(HALT)</string>
 		<key>id</key>
 		<integer>105</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Hungry, Angry, Lonely, Tired (HALT)</string>
+		<string>Hungry, Angry, Lonely, Tired</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1094,13 +1094,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Patiently Waiting for a Chance to Ensnare)</string>
 		<key>id</key>
 		<integer>110</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Insidious (Patiently Waiting for a Chance to Ensnare)</string>
+		<string>Insidious Disease</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1114,23 +1114,23 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Taking My Own)</string>
 		<key>id</key>
 		<integer>112</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Inventory (Taking My Own)</string>
+		<string>Inventory</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Taking That of Others)</string>
 		<key>id</key>
 		<integer>113</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Inventory (Taking That of Others)</string>
+		<string>Inventory</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1214,33 +1214,33 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(of Outcomes)</string>
 		<key>id</key>
 		<integer>122</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Letting Go (of Outcomes)</string>
+		<string>Letting Go</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(of the Past)</string>
 		<key>id</key>
 		<integer>123</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Letting Go (of the Past)</string>
+		<string>Letting Go</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(of People, Places and Things)</string>
 		<key>id</key>
 		<integer>124</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Letting Go (of People, Places and Things)</string>
+		<string>Letting Go</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1254,13 +1254,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Using the Big Book, Twelve and Twelve, meditations, etc)</string>
 		<key>id</key>
 		<integer>126</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Literature as a Tool (Using the Big Book, Twelve and Twelve, meditations, etc)</string>
+		<string>Literature as a Tool</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1364,13 +1364,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Problems Other Than Alcohol)</string>
 		<key>id</key>
 		<integer>137</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Mental Illness (Problems Other Than Alcohol)</string>
+		<string>Mental Illness</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1484,13 +1484,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Problems Other Than Alcohol)</string>
 		<key>id</key>
 		<integer>149</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Physical Illness (Problems Other Than Alcohol)</string>
+		<string>Physical Illness</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1574,13 +1574,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Thinking About Outcomes that are in the Future, Good and Bad)</string>
 		<key>id</key>
 		<integer>158</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Projection (Thinking About Outcomes that are in the Future, Good and Bad)</string>
+		<string>Projection</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1614,23 +1614,23 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Getting Better)</string>
 		<key>id</key>
 		<integer>162</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Recovery (Getting Better)</string>
+		<string>Recovery</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(We Will Not Regret the Past, Promises)</string>
 		<key>id</key>
 		<integer>163</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Regret (We Will Not Regret the Past, Promises)</string>
+		<string>Regret</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1720,7 +1720,7 @@
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Restless, Irritable and Discontent (RID)</string>
+		<string>Restless, Irritable and Discontent</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1754,13 +1754,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(You’re Only as Sick as Your Secrets or Your Secrets will get You Drunk)</string>
 		<key>id</key>
 		<integer>176</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Secrets (You’re Only as Sick as Your Secrets or Your Secrets will get You Drunk)</string>
+		<string>Secrets</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1864,13 +1864,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(talking or telling my story)</string>
 		<key>id</key>
 		<integer>187</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Sharing (talking or telling my story) at Meetings</string>
+		<string>Sharing at Meetings</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -1974,7 +1974,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>We admitted we were powerless over alcohol—that our lives had become unmanageable.</string>
 		<key>id</key>
 		<integer>198</integer>
 		<key>isFavorite</key>
@@ -1984,7 +1984,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Came to believe that a Power greater than ourselves could restore us to sanity.</string>
 		<key>id</key>
 		<integer>199</integer>
 		<key>isFavorite</key>
@@ -1994,7 +1994,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Made a decision to turn our will and our lives over to the care of God as we understood Him.</string>
 		<key>id</key>
 		<integer>200</integer>
 		<key>isFavorite</key>
@@ -2004,7 +2004,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Made a searching and fearless moral inventory of ourselves.</string>
 		<key>id</key>
 		<integer>201</integer>
 		<key>isFavorite</key>
@@ -2014,7 +2014,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Admitted to God, to ourselves, and to another human being the exact nature of our wrongs.</string>
 		<key>id</key>
 		<integer>202</integer>
 		<key>isFavorite</key>
@@ -2024,7 +2024,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Were entirely ready to have God remove all these defects of character.</string>
 		<key>id</key>
 		<integer>203</integer>
 		<key>isFavorite</key>
@@ -2034,7 +2034,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Humbly asked Him to remove our shortcomings.</string>
 		<key>id</key>
 		<integer>204</integer>
 		<key>isFavorite</key>
@@ -2044,7 +2044,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Made a list of all persons we had harmed, and became willing to make amends to them all.</string>
 		<key>id</key>
 		<integer>205</integer>
 		<key>isFavorite</key>
@@ -2054,7 +2054,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Made direct amends to such people wherever possible, except when to do so would injure them or others.</string>
 		<key>id</key>
 		<integer>206</integer>
 		<key>isFavorite</key>
@@ -2064,7 +2064,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Continued to take personal inventory and when we were wrong promptly admitted it.</string>
 		<key>id</key>
 		<integer>207</integer>
 		<key>isFavorite</key>
@@ -2074,7 +2074,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Sought through prayer and meditation to improve our conscious contact with God, as we understood Him, praying only for knowledge of His will for us and the power to carry that out.</string>
 		<key>id</key>
 		<integer>208</integer>
 		<key>isFavorite</key>
@@ -2084,7 +2084,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Having had a spiritual awakening as the result of these Steps, we tried to carry this message to alcoholics, and to practice these principles in all our affairs.</string>
 		<key>id</key>
 		<integer>209</integer>
 		<key>isFavorite</key>
@@ -2104,33 +2104,33 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Sharing Our Strength)</string>
 		<key>id</key>
 		<integer>211</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Strength (Sharing Our Strength)</string>
+		<string>Strength</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Coping with Stress)</string>
 		<key>id</key>
 		<integer>212</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Stress (Coping with Stress)</string>
+		<string>Stress</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Taking the Suggestions)</string>
 		<key>id</key>
 		<integer>213</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Suggestions (Taking the Suggestions)</string>
+		<string>Suggestions</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -2154,13 +2154,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>feeling unique can kill me</string>
 		<key>id</key>
 		<integer>216</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>“Terminal” Uniqueness – feeling unique can kill me</string>
+		<string>“Terminal” Uniqueness</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -2184,13 +2184,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Time Takes Time)</string>
 		<key>id</key>
 		<integer>219</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Time (Time Takes Time)</string>
+		<string>Time</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -2224,7 +2224,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Our common welfare should come first; personal recovery depends upon A.A. unity.</string>
 		<key>id</key>
 		<integer>223</integer>
 		<key>isFavorite</key>
@@ -2234,7 +2234,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>For our group purpose there is but one ultimate authority – a loving God as He may express Himself in our group conscience. Our leaders are but trusted servants, they do not govern.</string>
 		<key>id</key>
 		<integer>224</integer>
 		<key>isFavorite</key>
@@ -2244,7 +2244,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>The only requirement for A.A. membership is a desire to stop drinking.</string>
 		<key>id</key>
 		<integer>225</integer>
 		<key>isFavorite</key>
@@ -2254,7 +2254,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Each group should be autonomous except in matters affecting other groups, or A.A. as a whole.</string>
 		<key>id</key>
 		<integer>226</integer>
 		<key>isFavorite</key>
@@ -2264,7 +2264,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Each group has but one primary purpose – to carry its message to the alcoholic who still suffers.</string>
 		<key>id</key>
 		<integer>227</integer>
 		<key>isFavorite</key>
@@ -2274,7 +2274,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>An A.A. group ought never endorse, finance or lend the A.A. name to any related facility or outside enterprise, lest problems of money, property and prestige divert us from our primary purpose.</string>
 		<key>id</key>
 		<integer>228</integer>
 		<key>isFavorite</key>
@@ -2284,7 +2284,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Every A.A. group ought to be fully self-supporting, declining outside contributions.</string>
 		<key>id</key>
 		<integer>229</integer>
 		<key>isFavorite</key>
@@ -2294,7 +2294,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Alcoholics Anonymous should remain forever nonprofessional, but our service centers may employ special workers.</string>
 		<key>id</key>
 		<integer>230</integer>
 		<key>isFavorite</key>
@@ -2304,7 +2304,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>A.A., as such, ought never be organized, but we may create service boards or committees directly responsible to those they serve.</string>
 		<key>id</key>
 		<integer>231</integer>
 		<key>isFavorite</key>
@@ -2314,7 +2314,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Alcoholics Anonymous has no opinion on outside issues, hence the A.A. name ought never be drawn into public controversy.</string>
 		<key>id</key>
 		<integer>232</integer>
 		<key>isFavorite</key>
@@ -2324,7 +2324,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Our public relations policy is based upon attraction rather than promotion; we need always maintain personal anonymity at the level of press, radio and films.</string>
 		<key>id</key>
 		<integer>233</integer>
 		<key>isFavorite</key>
@@ -2334,7 +2334,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>Anonymity is the spiritual foundation of all our Traditions, ever reminding us to place principles before personalities.</string>
 		<key>id</key>
 		<integer>234</integer>
 		<key>isFavorite</key>
@@ -2374,13 +2374,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(one hour, one minute at a time)</string>
 		<key>id</key>
 		<integer>238</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Twenty-four Hours a Day (one hour, one minute at a time)</string>
+		<string>Twenty-four Hours a Day</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -2534,13 +2534,13 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>(Serenity Prayer)</string>
 		<key>id</key>
 		<integer>254</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Wisdom to Know the Difference (Serenity Prayer)</string>
+		<string>Wisdom to Know the Difference</string>
 	</dict>
 	<dict>
 		<key>description</key>

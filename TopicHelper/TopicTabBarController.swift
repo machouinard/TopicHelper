@@ -102,7 +102,7 @@ class TopicTabBarController: UITabBarController {
             let topic = Topic(entity: entity, insertInto: managedContext)
             let topicDict = dict as! [String: Any]
             topic.title = topicDict["title"] as? String
-            topic.details = topicDict["details"] as? String
+            topic.details = topicDict["description"] as? String
             topic.isFavorite = topicDict["isFavorite"] as! Bool
         }
         do {
