@@ -95,7 +95,6 @@ class TopicsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentTopic = fetchedResultsController.object(at: indexPath)
-//        prepare(for: UIStoryboardSegue(identifier: "showTopic", source: self, destination: RandomTopicViewController.init()), sender: nil)
         performSegue(withIdentifier: "showTopic", sender: nil)
         
     }
@@ -116,16 +115,10 @@ class TopicsViewController: UITableViewController {
         
     }
     
-    func UITableViewAlertForLayoutOutsideViewHierarchy() {
-        print("OutsideViewHierarchy")
-    }
-    
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
         performSegue(withIdentifier: "editTopic", sender: nil)
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTopic" {
@@ -137,7 +130,7 @@ class TopicsViewController: UITableViewController {
                 if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
                     editTopicVC?.currentTopic = fetchedResultsController.object(at: indexPath)
                 }
-            } else { // If sender is nil this was initiated by clicking the add bar button
+            } else { // If sender is nil this was initiated by clicking the add barButton
                 editTopicVC?.currentTopic = currentTopic
             }
             

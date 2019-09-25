@@ -72,8 +72,7 @@ class TopicTabBarController: UITabBarController {
                                                 exception.raise()
                     }
                     alert.addAction(action)
-                    // 5
-//                    let tabController = self.window!.rootViewController!
+                    
                     self.present(alert, animated: true,
                                           completion: nil)
             })
