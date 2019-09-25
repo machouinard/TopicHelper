@@ -309,7 +309,7 @@
                                 </state>
                                 <state key="highlighted" backgroundImage="blueButton"/>
                                 <connections>
-                                    <action selector="tappedNextTopic:" destination="Cz9-hF-pSK" eventType="touchUpInside" id="aHQ-ZK-TDf"/>
+                                    <action selector="tappedNextTopic:" destination="Cz9-hF-pSK" eventType="touchDown" id="3Wa-cb-B56"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="aG5-XB-Xh4">
