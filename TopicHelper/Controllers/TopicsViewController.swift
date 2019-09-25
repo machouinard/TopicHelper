@@ -11,20 +11,33 @@ import CoreData
 
 enum ListViewType: String {
     case AllTopics
-    case FavoriteTopics
+    case Favorites
     
 }
 
 class TopicsViewController: UITableViewController {
     
+    var listType: ListViewType!
+    var cacheName: String!
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
     var usePredicate: Bool = false
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
+        if ListViewType.AllTopics == self.listType {
+            self.cacheName = "All Topics"
+        } else {
+            self.cacheName = self.listType.rawValue
+        }
+        
         let fetchRequest = NSFetchRequest<Topic>()
         
         let entity = Topic.entity()
         fetchRequest.entity = entity
+        
+        // If this was instantiated from Favorites tab, add predicate
+        if ListViewType.Favorites == self.listType {
+            fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
+        }
         
         let sort = NSSortDescriptor(key: "title", ascending: true)
         fetchRequest.sortDescriptors = [sort]
@@ -34,7 +47,7 @@ class TopicsViewController: UITableViewController {
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
             sectionNameKeyPath: nil,
-            cacheName: "Topics")
+            cacheName: self.cacheName)
         
         fetchedResultsController.delegate = self
         
@@ -54,6 +67,7 @@ class TopicsViewController: UITableViewController {
         performFetch()
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
+        self.title = self.cacheName
     }
     
     // MARK:- Helper methods
@@ -142,7 +156,7 @@ class TopicsViewController: UITableViewController {
                 RandomTopicVC.nextTopics.append(ct)
             }
             RandomTopicVC.managedContext = managedContext
-            RandomTopicVC.title = "All Topics"
+            RandomTopicVC.title = self.cacheName
             RandomTopicVC.viewShouldScroll = false
             RandomTopicVC.backButtonTitle = "Back"
         }

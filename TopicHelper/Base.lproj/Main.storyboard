@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAH-O5-zNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6149" y="3"/>
+            <point key="canvasLocation" x="-3401" y="48"/>
         </scene>
         <!--All Topics-->
         <scene sceneID="xZh-zp-Psg">
@@ -173,80 +173,19 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JvY-BM-0LO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7345" y="-794"/>
-        </scene>
-        <!--Favorites-->
-        <scene sceneID="uvp-Q4-FC6">
-            <objects>
-                <tableViewController id="8Uj-v0-hFO" customClass="FavoritesViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xux-9E-NT0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="58" id="C3Q-Wm-q9E" customClass="TopicCell" customModule="TopicHelper" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="58"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C3Q-Wm-q9E" id="XfI-bB-boY">
-                                    <rect key="frame" x="0.0" y="0.0" width="370" height="58"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="x3g-PG-XZ1">
-                                            <rect key="frame" x="20" y="10" width="342" height="38"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-Gf-fyL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0B-US-EKd">
-                                                    <rect key="frame" x="0.0" y="23.5" width="342" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="x3g-PG-XZ1" firstAttribute="centerY" secondItem="XfI-bB-boY" secondAttribute="centerY" id="gQo-1d-cNH"/>
-                                        <constraint firstItem="x3g-PG-XZ1" firstAttribute="leading" secondItem="XfI-bB-boY" secondAttribute="leadingMargin" id="h4D-7p-KmF"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="x3g-PG-XZ1" secondAttribute="trailing" id="iOI-DZ-zat"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="details" destination="k0B-US-EKd" id="KJB-lX-20h"/>
-                                    <outlet property="title" destination="7NU-Gf-fyL" id="4DE-LC-CZJ"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8Uj-v0-hFO" id="l4D-xF-yoN"/>
-                            <outlet property="delegate" destination="8Uj-v0-hFO" id="Wzu-8d-CB1"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Favorites" id="Thl-bZ-VAK"/>
-                    <connections>
-                        <segue destination="Cz9-hF-pSK" kind="show" identifier="showFavorite" id="Sfu-32-Avi"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ct9-6g-DkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-7313.04347826087" y="825.66964285714278"/>
+            <point key="canvasLocation" x="-7358" y="56"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="ae6-Vm-7WX">
             <objects>
-                <navigationController id="zVC-cP-uFg" sceneMemberID="viewController">
+                <navigationController id="zVC-cP-uFg" customClass="ListNavigationController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="star-fill" id="Z4f-dB-KVa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T9T-N1-NUz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="8Uj-v0-hFO" kind="relationship" relationship="rootViewController" id="DTP-Uo-VUj"/>
+                        <segue destination="yWw-vd-s1Q" kind="relationship" relationship="rootViewController" id="dtY-QJ-gzU"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSn-eX-KZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -256,7 +195,7 @@
         <!--All Topics-->
         <scene sceneID="98A-Id-dp5">
             <objects>
-                <navigationController id="Qp6-3p-EzL" sceneMemberID="viewController">
+                <navigationController id="Qp6-3p-EzL" customClass="ListNavigationController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="All Topics" image="topics" id="Q4f-WR-gFh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acO-oV-hoa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -363,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atk-6L-Vfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7345" y="11"/>
+            <point key="canvasLocation" x="-4599" y="56"/>
         </scene>
         <!--Random Topic-->
         <scene sceneID="8ug-XQ-eFL">
@@ -382,7 +321,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYA-EG-X31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8432" y="3"/>
+            <point key="canvasLocation" x="-5686" y="48"/>
         </scene>
     </scenes>
     <resources>
@@ -397,7 +336,8 @@
         <image name="unlocked" width="24.5" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kdl-QM-MSD"/>
-        <segue reference="xpl-Wb-nXM"/>
+        <segue reference="4EV-RO-uzg"/>
+        <segue reference="R8i-oj-92N"/>
+        <segue reference="ll9-vy-FRJ"/>
     </inferredMetricsTieBreakers>
 </document>
