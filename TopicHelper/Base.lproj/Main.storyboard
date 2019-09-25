@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Topic Detail-->
+        <!--Edit Topic-->
         <scene sceneID="ukF-kE-Z97">
             <objects>
                 <viewController id="iMq-Fp-Lmd" customClass="EditTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nge-5o-oQB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Topic Detail" id="Fe3-3g-JbR">
+                    <navigationItem key="navigationItem" title="Edit Topic" id="Fe3-3g-JbR">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="vCL-Y7-Omx">
                             <connections>
                                 <action selector="tappedDoneButton:" destination="iMq-Fp-Lmd" id="1io-b9-pfd"/>
@@ -290,7 +290,7 @@
             </objects>
             <point key="canvasLocation" x="-9697" y="3"/>
         </scene>
-        <!--Random Topic-->
+        <!--Random Topics-->
         <scene sceneID="u5P-UO-YhV">
             <objects>
                 <viewController id="Cz9-hF-pSK" customClass="RandomTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
@@ -308,11 +308,11 @@
                                     <constraint firstAttribute="height" constant="360" id="Twt-su-Gqq"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
+                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
                                 <rect key="frame" x="107" y="733" width="200" height="74"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
-                                    <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" backgroundImage="blueButton"/>
                                 <connections>
@@ -335,7 +335,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GT1-WD-fuT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Random Topic" id="aC1-nT-4ZU">
+                    <navigationItem key="navigationItem" title="Random Topics" id="aC1-nT-4ZU">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="star-open" id="RMx-Uh-IIc">
                             <connections>
                                 <action selector="didTapFavorite:" destination="Cz9-hF-pSK" id="mPw-OQ-U9q"/>

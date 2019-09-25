@@ -140,13 +140,15 @@ class RandomTopicViewController: UIViewController {
         topicTitleLabel.textColor = .white
         topicTitleLabel.textAlignment = .center
         topicTitleLabel.lineBreakMode = .byWordWrapping
-        topicTitleLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 28.0)
+//        topicTitleLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 32.0)
+        topicTitleLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .headline), size: 34)
         
         topicDetailLabel.numberOfLines = 0
         topicDetailLabel.textColor = .white
         topicDetailLabel.textAlignment = .center
 //        topicDetailLabel.lineBreakMode = .byWordWrapping
-        topicDetailLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 17.0)
+//        topicDetailLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 21.0)
+        topicDetailLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .subheadline), size: 26)
         
         populateTopics()
         
@@ -160,6 +162,7 @@ class RandomTopicViewController: UIViewController {
         backgroundLogo.isUserInteractionEnabled = true
         
         let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
+        tgr.numberOfTapsRequired = 2
         view.addGestureRecognizer(tgr)
         
         if viewShouldScroll {
