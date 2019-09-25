@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-2j-Ryk">
-                                                <rect key="frame" x="44.5" y="162" width="325" height="34"/>
+                                                <rect key="frame" x="44.5" y="28" width="325" height="34"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="325" id="kkC-sr-npU"/>
@@ -42,8 +42,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="unF-dp-L4E">
-                                                <rect key="frame" x="44.5" y="206" width="325" height="313"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unF-dp-L4E">
+                                                <rect key="frame" x="44.5" y="72" width="325" height="581"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="325" id="5wN-Cn-bTO"/>
@@ -58,6 +58,7 @@
                                             <constraint firstItem="unF-dp-L4E" firstAttribute="centerY" secondItem="Opj-dS-EBe" secondAttribute="centerY" id="A1l-ht-j5u"/>
                                             <constraint firstItem="unF-dp-L4E" firstAttribute="centerX" secondItem="Opj-dS-EBe" secondAttribute="centerX" id="dwg-oU-Tzg"/>
                                             <constraint firstItem="ZFy-2j-Ryk" firstAttribute="centerX" secondItem="Opj-dS-EBe" secondAttribute="centerX" id="f2h-hk-yeT"/>
+                                            <constraint firstItem="ZFy-2j-Ryk" firstAttribute="top" secondItem="Opj-dS-EBe" secondAttribute="topMargin" constant="20" id="lm3-M1-tY6"/>
                                             <constraint firstItem="unF-dp-L4E" firstAttribute="top" secondItem="ZFy-2j-Ryk" secondAttribute="bottom" constant="10" id="p94-in-P3E"/>
                                         </constraints>
                                     </view>
@@ -83,7 +84,6 @@
                             <constraint firstItem="Fv3-Iu-JHX" firstAttribute="top" secondItem="nge-5o-oQB" secondAttribute="top" id="bXY-jx-y1h"/>
                             <constraint firstItem="Fv3-Iu-JHX" firstAttribute="centerX" secondItem="a5m-VL-BFl" secondAttribute="centerX" id="hmr-G1-ZH0"/>
                             <constraint firstItem="PRf-hY-UKx" firstAttribute="leading" secondItem="m8N-rM-RxS" secondAttribute="leading" id="ka8-1d-W14"/>
-                            <constraint firstItem="Fv3-Iu-JHX" firstAttribute="centerY" secondItem="ZFy-2j-Ryk" secondAttribute="centerY" constant="1" id="s88-iW-2jK"/>
                             <constraint firstItem="PRf-hY-UKx" firstAttribute="leading" secondItem="nge-5o-oQB" secondAttribute="leading" id="t6f-bi-C7R"/>
                             <constraint firstItem="m8N-rM-RxS" firstAttribute="top" secondItem="a5m-VL-BFl" secondAttribute="top" id="tK4-zK-Hcz"/>
                         </constraints>
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
-                                <rect key="frame" x="157" y="756" width="100" height="37"/>
+                                <rect key="frame" x="107" y="719" width="200" height="74"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
