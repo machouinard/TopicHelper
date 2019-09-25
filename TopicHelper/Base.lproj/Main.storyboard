@@ -309,7 +309,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
-                                <rect key="frame" x="107" y="733" width="200" height="74"/>
+                                <rect key="frame" x="107" y="719" width="200" height="74"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -325,7 +325,7 @@
                             <constraint firstItem="aG5-XB-Xh4" firstAttribute="centerX" secondItem="QAD-cl-Dfi" secondAttribute="centerX" id="4Mr-ZK-F9A"/>
                             <constraint firstItem="BoP-zr-yZ2" firstAttribute="centerX" secondItem="QAD-cl-Dfi" secondAttribute="centerX" id="Cwz-UV-5Rp"/>
                             <constraint firstItem="WqB-RA-NWc" firstAttribute="leading" secondItem="QAD-cl-Dfi" secondAttribute="leading" id="J6O-n7-rXV"/>
-                            <constraint firstItem="GT1-WD-fuT" firstAttribute="bottom" secondItem="BoP-zr-yZ2" secondAttribute="bottom" constant="6" id="KbC-GJ-72o"/>
+                            <constraint firstItem="GT1-WD-fuT" firstAttribute="bottom" secondItem="BoP-zr-yZ2" secondAttribute="bottom" constant="20" id="KbC-GJ-72o"/>
                             <constraint firstItem="aG5-XB-Xh4" firstAttribute="centerY" secondItem="QAD-cl-Dfi" secondAttribute="centerY" id="ScN-G3-oEd"/>
                             <constraint firstItem="GT1-WD-fuT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BoP-zr-yZ2" secondAttribute="trailing" id="Uv0-g7-O4F"/>
                             <constraint firstItem="WqB-RA-NWc" firstAttribute="top" secondItem="QAD-cl-Dfi" secondAttribute="top" id="W2S-8a-7fA"/>
@@ -397,7 +397,7 @@
         <image name="unlocked" width="24.5" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sfu-32-Avi"/>
+        <segue reference="Kdl-QM-MSD"/>
         <segue reference="xpl-Wb-nXM"/>
     </inferredMetricsTieBreakers>
 </document>

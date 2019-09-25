@@ -19,22 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        let tabController = window?.rootViewController as! TopicTabBarController
-//        tabController.managedContext = coreDataStack.managedContext
-//        if let tabViewControllers = tabController.viewControllers {
-//            var navController = tabViewControllers[2] as! UINavigationController
-//            let allTopicsVC = navController.viewControllers.first as! TopicsViewController
-//            allTopicsVC.managedContext = coreDataStack.managedContext
-//            navController = tabViewControllers[0] as! UINavigationController
-//            let randomVC = navController.topViewController as! RandomTopicViewController
-//            randomVC.managedContext = coreDataStack.managedContext
-//            navController = tabViewControllers[1] as! UINavigationController
-//            let faveVC = navController.topViewController as! FavoritesViewController
-//            faveVC.managedContext = coreDataStack.managedContext
-//        }
-//
-//        listenForFatalCoreDataNotifications()
-        
         return true
     }
 
