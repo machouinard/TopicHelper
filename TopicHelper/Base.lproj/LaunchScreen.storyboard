@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="t9D-y2-c2h">
-                                <rect key="frame" x="44.5" y="268" width="325" height="360"/>
+                                <rect key="frame" x="44.5" y="44" width="325" height="360"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="DdV-eg-KEe"/>
                                     <constraint firstAttribute="height" constant="360" id="pd1-98-Bbr"/>
@@ -29,6 +29,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gt-5x-Uyr">
                                 <rect key="frame" x="157" y="756" width="100" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="dtz-Wd-PGC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,11 +40,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3gt-5x-Uyr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="157" id="9JL-qd-8vd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3gt-5x-Uyr" secondAttribute="bottom" constant="20" id="D9l-eV-zFL"/>
-                            <constraint firstItem="t9D-y2-c2h" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="TjX-25-Ovn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3gt-5x-Uyr" secondAttribute="trailing" constant="157" id="vao-Nq-2Md"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3gt-5x-Uyr" secondAttribute="bottom" constant="20" id="UVh-IT-gV7"/>
+                            <constraint firstItem="t9D-y2-c2h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cba-md-isd"/>
                             <constraint firstItem="t9D-y2-c2h" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="yM8-HL-xMa"/>
+                            <constraint firstItem="3gt-5x-Uyr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zoc-0i-Npe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
