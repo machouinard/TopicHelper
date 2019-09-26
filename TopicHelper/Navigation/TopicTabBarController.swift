@@ -25,7 +25,7 @@ class TopicTabBarController: UITabBarController {
             allTopicsVC.managedContext = coreDataStack.managedContext
             allTopicsVC.listType = ListViewType.AllTopics
             navController = tabViewControllers[0] as! UINavigationController
-            let randomVC = navController.topViewController as! RandomTopicViewController
+            let randomVC = navController.topViewController as! TopicViewController
             randomVC.managedContext = coreDataStack.managedContext
             navController = tabViewControllers[1] as! UINavigationController
             let faveVC = navController.topViewController as! TopicsViewController

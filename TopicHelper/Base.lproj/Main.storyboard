@@ -233,7 +233,7 @@
         <!--Random Topics-->
         <scene sceneID="u5P-UO-YhV">
             <objects>
-                <viewController id="Cz9-hF-pSK" customClass="RandomTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cz9-hF-pSK" customClass="TopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QAD-cl-Dfi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

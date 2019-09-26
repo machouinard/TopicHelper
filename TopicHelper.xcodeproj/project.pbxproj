@@ -17,7 +17,7 @@
 		4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */; };
 		4DC206F0231F797D008CCD8C /* topics10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC206EF231F797D008CCD8C /* topics10.plist */; };
 		4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */; };
-		4DCD1FAD231E218F00B9CA49 /* RandomTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAC231E218F00B9CA49 /* RandomTopicViewController.swift */; };
+		4DCD1FAD231E218F00B9CA49 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAC231E218F00B9CA49 /* TopicViewController.swift */; };
 		4DCD1FB0231E218F00B9CA49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAE231E218F00B9CA49 /* Main.storyboard */; };
 		4DCD1FB3231E218F00B9CA49 /* TopicHelper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB1231E218F00B9CA49 /* TopicHelper.xcdatamodeld */; };
 		4DCD1FB5231E219000B9CA49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD1FB4231E219000B9CA49 /* Assets.xcassets */; };
@@ -37,7 +37,7 @@
 		4DC206EF231F797D008CCD8C /* topics10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics10.plist; sourceTree = "<group>"; };
 		4DCD1FA7231E218F00B9CA49 /* TopicHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopicHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4DCD1FAC231E218F00B9CA49 /* RandomTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTopicViewController.swift; sourceTree = "<group>"; };
+		4DCD1FAC231E218F00B9CA49 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		4DCD1FAF231E218F00B9CA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4DCD1FB2231E218F00B9CA49 /* TopicHelper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TopicHelper.xcdatamodel; sourceTree = "<group>"; };
 		4DCD1FB4231E219000B9CA49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		4D946BAA233C11AB00700A92 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4DCD1FAC231E218F00B9CA49 /* RandomTopicViewController.swift */,
+				4DCD1FAC231E218F00B9CA49 /* TopicViewController.swift */,
 				4DE11BB0231FA1C600316C92 /* EditTopicViewController.swift */,
 				4D6FE8FF232178E600FEE158 /* TopicsViewController.swift */,
 			);
@@ -215,7 +215,7 @@
 				4D34282D232EA9FC006EBB74 /* Functions.swift in Sources */,
 				4D34282F232EAF31006EBB74 /* TopicCell.swift in Sources */,
 				4DE11BB1231FA1C600316C92 /* EditTopicViewController.swift in Sources */,
-				4DCD1FAD231E218F00B9CA49 /* RandomTopicViewController.swift in Sources */,
+				4DCD1FAD231E218F00B9CA49 /* TopicViewController.swift in Sources */,
 				4DBBC6E72336D15B00B852F7 /* TopicTabBarController.swift in Sources */,
 				4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */,
 				4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RandomTopicViewController: UIViewController {
+class TopicViewController: UIViewController {
     
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!

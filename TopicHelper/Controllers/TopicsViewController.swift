@@ -170,7 +170,7 @@ class TopicsViewController: UITableViewController {
             
             editTopicVC?.managedContext = managedContext
         } else if segue.identifier == "showTopic" {
-            let RandomTopicVC = segue.destination as! RandomTopicViewController
+            let RandomTopicVC = segue.destination as! TopicViewController
 //            RandomTopicVC.currentTopic = currentTopic
             if let ct = currentTopic {
                 RandomTopicVC.nextTopics.append(ct)
