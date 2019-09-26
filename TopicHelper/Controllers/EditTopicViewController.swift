@@ -53,7 +53,7 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
     override func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent: parent)
         
-        // If parent is nil, back button was used
+        // If parent is nil, back button was used and we need to dump the topic that wasn't saved
         if nil == parent {
             rollbackMangedObject()
         }
@@ -88,8 +88,14 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
     }
     
     func done() {
-        topicTitleView.resignFirstResponder()
-        topicDetailView.resignFirstResponder()
+        
+        if topicTitleView.isFirstResponder {
+            topicTitleView.resignFirstResponder()
+        }
+        if topicDetailView.isFirstResponder {
+            topicDetailView.resignFirstResponder()
+        }
+        
         
         guard nil != currentTopic, "" != topicTitleView.text else {
             return

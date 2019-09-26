@@ -104,10 +104,14 @@ class TopicsViewController: UITableViewController {
         
         cell.configure(for: topic)
         
-        let accButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        accButton.setImage(UIImage(named: "pencil"), for: .normal)
-        accButton.tintColor = .white
+        // Create button to hold accessory image
+        let accButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        // Create accessory image to place in button - withRenderingMode accepts tintColor from IB and/or allows us to set it with code
+        let accImage = UIImage(named: "pencil")?.withRenderingMode(.alwaysTemplate)
+        accButton.setBackgroundImage(accImage, for: .normal)
         accButton.addTarget(self, action: #selector(editTopic(_:)), for: .touchUpInside)
+        // Set tintColor to white.  This overrides tintColor set in IB
+        cell.tintColor = UIColor.white
         cell.accessoryView = accButton
 
         return cell
@@ -142,7 +146,7 @@ class TopicsViewController: UITableViewController {
     
     @objc func editTopic(_ sender: UIButton) {
         let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
-        
+                
         if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
             currentTopic = fetchedResultsController.object(at: indexPath)
         }
@@ -236,4 +240,12 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
         NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
+}
+
+extension UIImageView {
+  func setImageColor(color: UIColor) {
+    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+    self.image = templateImage
+    self.tintColor = color
+  }
 }
