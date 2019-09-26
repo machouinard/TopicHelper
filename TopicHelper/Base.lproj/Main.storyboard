@@ -178,7 +178,7 @@
         <!--Favorites-->
         <scene sceneID="ae6-Vm-7WX">
             <objects>
-                <navigationController id="zVC-cP-uFg" customClass="ListNavigationController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="zVC-cP-uFg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="star-fill" id="Z4f-dB-KVa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T9T-N1-NUz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -195,7 +195,7 @@
         <!--All Topics-->
         <scene sceneID="98A-Id-dp5">
             <objects>
-                <navigationController id="Qp6-3p-EzL" customClass="ListNavigationController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Qp6-3p-EzL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="All Topics" image="topics" id="Q4f-WR-gFh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="acO-oV-hoa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -241,7 +241,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-zr-yZ2">
-                                <rect key="frame" x="107" y="719" width="200" height="74"/>
+                                <rect key="frame" x="157" y="756" width="100" height="37"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                 <state key="normal" title="Next Topic" backgroundImage="blueButtonHighlighted">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -337,7 +337,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Kdl-QM-MSD"/>
-        <segue reference="dtY-QJ-gzU"/>
+        <segue reference="R8i-oj-92N"/>
         <segue reference="xpl-Wb-nXM"/>
     </inferredMetricsTieBreakers>
 </document>
