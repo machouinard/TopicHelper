@@ -103,6 +103,12 @@ class TopicsViewController: UITableViewController {
         let topic = fetchedResultsController.object(at: indexPath)
         
         cell.configure(for: topic)
+        
+        let accButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        accButton.setImage(UIImage(named: "pencil"), for: .normal)
+        accButton.tintColor = .white
+        accButton.addTarget(self, action: #selector(editTopic(_:)), for: .touchUpInside)
+        cell.accessoryView = accButton
 
         return cell
     }
@@ -131,6 +137,16 @@ class TopicsViewController: UITableViewController {
     
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
+        performSegue(withIdentifier: "editTopic", sender: nil)
+    }
+    
+    @objc func editTopic(_ sender: UIButton) {
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+            currentTopic = fetchedResultsController.object(at: indexPath)
+        }
+        
         performSegue(withIdentifier: "editTopic", sender: nil)
     }
     

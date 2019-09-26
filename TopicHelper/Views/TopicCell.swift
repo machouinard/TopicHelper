@@ -26,6 +26,7 @@ class TopicCell: UITableViewCell {
     
     // MARK: - Helper method
     func configure(for topic: Topic) {
+        
         if let det = topic.details {
             details.text = det
         } else {
