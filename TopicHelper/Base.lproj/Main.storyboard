@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAH-O5-zNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3401" y="48"/>
+            <point key="canvasLocation" x="-6152" y="-394"/>
         </scene>
         <!--All Topics-->
         <scene sceneID="xZh-zp-Psg">
@@ -173,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JvY-BM-0LO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7358" y="56"/>
+            <point key="canvasLocation" x="-7378" y="3"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="ae6-Vm-7WX">
@@ -190,7 +190,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QSn-eX-KZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8377" y="826"/>
+            <point key="canvasLocation" x="-8543" y="3"/>
         </scene>
         <!--All Topics-->
         <scene sceneID="98A-Id-dp5">
@@ -207,7 +207,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3g-A5-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8391" y="-794"/>
+            <point key="canvasLocation" x="-8591" y="901"/>
         </scene>
         <!--Topic Tab Bar Controller-->
         <scene sceneID="BnG-9M-1ST">
@@ -302,11 +302,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atk-6L-Vfh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4599" y="56"/>
+            <point key="canvasLocation" x="-7378" y="-811"/>
         </scene>
         <!--Random Topic-->
         <scene sceneID="8ug-XQ-eFL">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYA-EG-X31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eaf-qQ-cLQ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Random Topic" image="topic" id="vOF-dC-yWI"/>
                     <toolbarItems/>
@@ -319,9 +320,8 @@
                         <segue destination="Cz9-hF-pSK" kind="relationship" relationship="rootViewController" id="Kdl-QM-MSD"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FYA-EG-X31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5686" y="48"/>
+            <point key="canvasLocation" x="-8543" y="-811"/>
         </scene>
     </scenes>
     <resources>
@@ -336,8 +336,8 @@
         <image name="unlocked" width="24.5" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4EV-RO-uzg"/>
-        <segue reference="R8i-oj-92N"/>
-        <segue reference="ll9-vy-FRJ"/>
+        <segue reference="Kdl-QM-MSD"/>
+        <segue reference="dtY-QJ-gzU"/>
+        <segue reference="xpl-Wb-nXM"/>
     </inferredMetricsTieBreakers>
 </document>
