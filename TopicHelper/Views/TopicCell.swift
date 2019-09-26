@@ -24,8 +24,18 @@ class TopicCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    // MARK: - Helper method
+    // MARK: - Helper methods
     func configure(for topic: Topic) {
+        
+        let fave = self.viewWithTag(331) as! UILabel
+
+        fave.textColor = .white
+        
+        if topic.isFavorite {
+            fave.text = "★"
+        } else {
+            fave.text = "☆"
+        }
         
         if let det = topic.details {
             details.text = det
