@@ -23,12 +23,14 @@ class TopicTabBarController: UITabBarController {
             var navController = tabViewControllers[2] as! UINavigationController
             let allTopicsVC = navController.viewControllers.first as! TopicsViewController
             allTopicsVC.managedContext = coreDataStack.managedContext
+            allTopicsVC.listType = ListViewType.AllTopics
             navController = tabViewControllers[0] as! UINavigationController
-            let randomVC = navController.topViewController as! RandomTopicViewController
+            let randomVC = navController.topViewController as! TopicViewController
             randomVC.managedContext = coreDataStack.managedContext
             navController = tabViewControllers[1] as! UINavigationController
-            let faveVC = navController.topViewController as! FavoritesViewController
+            let faveVC = navController.topViewController as! TopicsViewController
             faveVC.managedContext = coreDataStack.managedContext
+            faveVC.listType = ListViewType.Favorites
         }
         
         listenForFatalCoreDataNotifications()
