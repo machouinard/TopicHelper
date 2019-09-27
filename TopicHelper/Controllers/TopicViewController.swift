@@ -206,15 +206,15 @@ class TopicViewController: UIViewController {
     // MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editDisplayedTopic" {
-            let dtvc = segue.destination as? EditTopicViewController
+            let etVC = segue.destination as? EditTopicViewController
             
             if nil == currentTopic {
                 currentTopic = Topic(context: managedContext)
             }
             
-            dtvc?.currentTopic = currentTopic
-            dtvc?.managedContext = managedContext
-            dtvc?.topicLocked = topicLocked
+            etVC?.currentTopic = currentTopic
+            etVC?.managedContext = managedContext
+            etVC?.topicLocked = topicLocked
         }
     }
     
