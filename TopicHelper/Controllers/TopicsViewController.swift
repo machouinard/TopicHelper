@@ -1,5 +1,5 @@
 //
-//  AllTopicsViewController.swift
+//  TopicsViewController.swift
 //  TopicHelper
 //
 //  Created by Mark Chouinard on 9/5/19.
@@ -11,20 +11,33 @@ import CoreData
 
 enum ListViewType: String {
     case AllTopics
-    case FavoriteTopics
+    case Favorites
     
 }
 
 class TopicsViewController: UITableViewController {
     
+    var listType: ListViewType!
+    var cacheName: String!
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
     var usePredicate: Bool = false
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
+        if ListViewType.AllTopics == self.listType {
+            self.cacheName = "All Topics"
+        } else {
+            self.cacheName = self.listType.rawValue
+        }
+        
         let fetchRequest = NSFetchRequest<Topic>()
         
         let entity = Topic.entity()
         fetchRequest.entity = entity
+        
+        // If this was instantiated from Favorites tab, add predicate
+        if ListViewType.Favorites == self.listType {
+            fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
+        }
         
         let sort = NSSortDescriptor(key: "title", ascending: true)
         fetchRequest.sortDescriptors = [sort]
@@ -34,7 +47,7 @@ class TopicsViewController: UITableViewController {
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
             sectionNameKeyPath: nil,
-            cacheName: "Topics")
+            cacheName: self.cacheName)
         
         fetchedResultsController.delegate = self
         
@@ -54,7 +67,22 @@ class TopicsViewController: UITableViewController {
         performFetch()
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
+        self.title = self.cacheName
     }
+    
+    
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        self.fetchedResultsController.delegate = self
+//        self.performFetch()
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.fetchedResultsController.delegate = nil
+//    }
     
     // MARK:- Helper methods
     func performFetch() {
@@ -89,6 +117,16 @@ class TopicsViewController: UITableViewController {
         let topic = fetchedResultsController.object(at: indexPath)
         
         cell.configure(for: topic)
+        
+        // Create button to hold accessory image
+        let accButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        // Create accessory image to place in button - withRenderingMode accepts tintColor from IB and/or allows us to set it with code
+        let accImage = UIImage(named: "pencil")?.withRenderingMode(.alwaysTemplate)
+        accButton.setBackgroundImage(accImage, for: .normal)
+        accButton.addTarget(self, action: #selector(editTopic(_:)), for: .touchUpInside)
+        // Set tintColor to white.  This overrides tintColor set in IB
+        cell.tintColor = UIColor.white
+        cell.accessoryView = accButton
 
         return cell
     }
@@ -115,9 +153,33 @@ class TopicsViewController: UITableViewController {
         
     }
     
+    // MARK: - Actions
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
         performSegue(withIdentifier: "editTopic", sender: nil)
+    }
+    
+    @objc func editTopic(_ sender: UIButton) {
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+                
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+            currentTopic = fetchedResultsController.object(at: indexPath)
+        }
+        
+        performSegue(withIdentifier: "editTopic", sender: nil)
+    }
+    
+    @objc func toggleFavorite(_ sender: UIButton) {
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+            let topic = fetchedResultsController.object(at: indexPath)
+            topic.isFavorite = !topic.isFavorite
+            do {
+                try managedContext.save()
+            } catch {
+                fatalCoreDataError(error)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -136,13 +198,13 @@ class TopicsViewController: UITableViewController {
             
             editTopicVC?.managedContext = managedContext
         } else if segue.identifier == "showTopic" {
-            let RandomTopicVC = segue.destination as! RandomTopicViewController
+            let RandomTopicVC = segue.destination as! TopicViewController
 //            RandomTopicVC.currentTopic = currentTopic
             if let ct = currentTopic {
                 RandomTopicVC.nextTopics.append(ct)
             }
             RandomTopicVC.managedContext = managedContext
-            RandomTopicVC.title = "All Topics"
+            RandomTopicVC.title = self.cacheName
             RandomTopicVC.viewShouldScroll = false
             RandomTopicVC.backButtonTitle = "Back"
         }
@@ -153,6 +215,7 @@ class TopicsViewController: UITableViewController {
 // MARK: - NSFetchedResultsController Delegate
 extension TopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.beginUpdates()
     }
     
@@ -206,4 +269,12 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
         NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
+}
+
+extension UIImageView {
+  func setImageColor(color: UIColor) {
+    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+    self.image = templateImage
+    self.tintColor = color
+  }
 }

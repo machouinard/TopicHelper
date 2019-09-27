@@ -1,5 +1,5 @@
 //
-//  RandomTopicViewController.swift
+//  TopicViewController.swift
 //  TopicHelper
 //
 //  Created by Mark Chouinard on 9/2/19.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RandomTopicViewController: UIViewController {
+class TopicViewController: UIViewController {
     
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!

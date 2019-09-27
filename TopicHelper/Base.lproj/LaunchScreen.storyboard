@@ -84,6 +84,20 @@
             </objects>
             <point key="canvasLocation" x="991.20000000000005" y="374.66266866566718"/>
         </scene>
+        <!--All Topics-->
+        <scene sceneID="6ak-BV-08u">
+            <objects>
+                <navigationController id="j4L-IR-1yi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="All Topics" image="topics" id="hEc-Km-Tc4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="r8U-Fh-0nn">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XNN-DW-r9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="290" y="1225"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Rt4-pR-VHR">
             <objects>
@@ -96,19 +110,37 @@
                     </tabBar>
                     <connections>
                         <segue destination="hmw-dg-EdW" kind="relationship" relationship="viewControllers" id="aam-dd-4be"/>
+                        <segue destination="CRx-rp-h1h" kind="relationship" relationship="viewControllers" id="TrX-mI-idW"/>
+                        <segue destination="j4L-IR-1yi" kind="relationship" relationship="viewControllers" id="hu7-dN-wh5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pxq-7Z-o5N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="BQ3-kp-BNA">
+            <objects>
+                <navigationController id="CRx-rp-h1h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star-fill" id="tRq-u9-P4b"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="djX-1c-B6D">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXY-N2-mKg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-815" y="1180"/>
+        </scene>
     </scenes>
     <resources>
         <image name="blueButtonHighlighted" width="100" height="37"/>
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
+        <image name="star-fill" width="24" height="23.333333969116211"/>
         <image name="star-open" width="24" height="23.333333969116211"/>
         <image name="topic" width="23" height="23"/>
+        <image name="topics" width="20.333333969116211" height="23.333333969116211"/>
         <image name="unlocked" width="24.333333969116211" height="23.333333969116211"/>
     </resources>
 </document>
