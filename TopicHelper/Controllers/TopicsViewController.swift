@@ -70,6 +70,20 @@ class TopicsViewController: UITableViewController {
         self.title = self.cacheName
     }
     
+    
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        self.fetchedResultsController.delegate = self
+//        self.performFetch()
+//    }
+//
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.fetchedResultsController.delegate = nil
+//    }
+    
     // MARK:- Helper methods
     func performFetch() {
 
@@ -139,6 +153,7 @@ class TopicsViewController: UITableViewController {
         
     }
     
+    // MARK: - Actions
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
         performSegue(withIdentifier: "editTopic", sender: nil)
@@ -152,6 +167,19 @@ class TopicsViewController: UITableViewController {
         }
         
         performSegue(withIdentifier: "editTopic", sender: nil)
+    }
+    
+    @objc func toggleFavorite(_ sender: UIButton) {
+        let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
+        if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
+            let topic = fetchedResultsController.object(at: indexPath)
+            topic.isFavorite = !topic.isFavorite
+            do {
+                try managedContext.save()
+            } catch {
+                fatalCoreDataError(error)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -187,6 +215,7 @@ class TopicsViewController: UITableViewController {
 // MARK: - NSFetchedResultsController Delegate
 extension TopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.beginUpdates()
     }
     

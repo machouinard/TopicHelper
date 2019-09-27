@@ -27,23 +27,34 @@ class TopicCell: UITableViewCell {
     // MARK: - Helper methods
     func configure(for topic: Topic) {
         
-        let fave = self.viewWithTag(331) as! UILabel
+        // Add and configure Favorite button
+        let fave = self.viewWithTag(331) as! UIButton
+        fave.addTarget(nil, action: #selector(TopicsViewController.toggleFavorite(_:)), for: .touchUpInside)
+//        fave.translatesAutoresizingMaskIntoConstraints = false
+        fave.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+        fave.imageView?.contentMode = .scaleAspectFit
+        fave.titleLabel?.text = ""
 
-        fave.textColor = .white
+        fave.tintColor = .white
+        
+        var imageName = String()
         
         if topic.isFavorite {
-            fave.text = "★"
+            imageName = "star-fill"
         } else {
-            fave.text = "☆"
+            imageName = "star-open"
         }
         
-        if let det = topic.details {
-            details.text = det
+        let faveImage = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        fave.setImage(faveImage, for: .normal)
+        
+        if let detailsText = topic.details {
+            details.text = detailsText
         } else {
             details.text = ""
         }
-        if let tit = topic.title {
-            title.text = tit
+        if let titleText = topic.title {
+            title.text = titleText
         } else {
             title.text = ""
         }
