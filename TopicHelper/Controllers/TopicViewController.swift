@@ -162,9 +162,14 @@ class TopicViewController: UIViewController {
         
         backgroundLogo.isUserInteractionEnabled = true
         
-        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.topicTapGesture))
+        // Double tap gesture recognizer
+        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
         tgr.numberOfTapsRequired = 2
         view.addGestureRecognizer(tgr)
+        // Long press gesture recognizer
+        let lpr = UILongPressGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
+        lpr.minimumPressDuration = 0.7
+        view.addGestureRecognizer(lpr)
         
         if viewShouldScroll {
             // Swipe right to show next topic
@@ -192,8 +197,10 @@ class TopicViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc @IBAction func topicTapGesture() {
-        performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
+    @objc @IBAction func editTopicGesture(sender: UIGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.ended {
+            performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
+        }
     }
     
     // MARK: - Prepare for Segue
