@@ -35,7 +35,7 @@
 		4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTabBarController.swift; sourceTree = "<group>"; };
 		4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DC206EF231F797D008CCD8C /* topics10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics10.plist; sourceTree = "<group>"; };
-		4DCD1FA7231E218F00B9CA49 /* TopicHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopicHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DCD1FA7231E218F00B9CA49 /* Topic Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Topic Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DCD1FAC231E218F00B9CA49 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		4DCD1FAF231E218F00B9CA49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		4DCD1FA8231E218F00B9CA49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4DCD1FA7231E218F00B9CA49 /* TopicHelper.app */,
+				4DCD1FA7231E218F00B9CA49 /* Topic Helper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 			);
 			name = TopicHelper;
 			productName = TopicHelper;
-			productReference = 4DCD1FA7231E218F00B9CA49 /* TopicHelper.app */;
+			productReference = 4DCD1FA7231E218F00B9CA49 /* Topic Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -374,7 +374,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.chouinard.TopicHelper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Topic Helper";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -392,7 +392,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.chouinard.TopicHelper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Topic Helper";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

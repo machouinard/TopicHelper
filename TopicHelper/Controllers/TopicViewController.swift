@@ -1,5 +1,5 @@
 //
-//  RandomTopicViewController.swift
+//  TopicViewController.swift
 //  TopicHelper
 //
 //  Created by Mark Chouinard on 9/2/19.

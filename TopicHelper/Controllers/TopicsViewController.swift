@@ -1,5 +1,5 @@
 //
-//  AllTopicsViewController.swift
+//  TopicsViewController.swift
 //  TopicHelper
 //
 //  Created by Mark Chouinard on 9/5/19.
