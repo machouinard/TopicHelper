@@ -11,7 +11,7 @@
         <!--Edit Topic-->
         <scene sceneID="ukF-kE-Z97">
             <objects>
-                <viewController id="iMq-Fp-Lmd" customClass="EditTopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iMq-Fp-Lmd" customClass="EditTopicViewController" customModule="Topic_Helper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a5m-VL-BFl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,13 +109,13 @@
         <!--All Topics-->
         <scene sceneID="xZh-zp-Psg">
             <objects>
-                <tableViewController id="yWw-vd-s1Q" customClass="TopicsViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="yWw-vd-s1Q" customClass="TopicsViewController" customModule="Topic_Helper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Wg-jE-hui">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="44" id="ayq-1Y-PFH" customClass="TopicCell" customModule="TopicHelper" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="topicCell" rowHeight="44" id="ayq-1Y-PFH" customClass="TopicCell" customModule="Topic_Helper" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayq-1Y-PFH" id="Meo-76-x8f">
@@ -155,7 +155,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="details" destination="BAM-Qs-wBm" id="J5M-AH-GLJ"/>
                                     <outlet property="title" destination="L5X-kx-9T2" id="TUR-o9-Avo"/>
@@ -221,7 +221,7 @@
         <!--Topic Tab Bar Controller-->
         <scene sceneID="BnG-9M-1ST">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iwa-Jw-Mn9" customClass="TopicTabBarController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iwa-Jw-Mn9" customClass="TopicTabBarController" customModule="Topic_Helper" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uf9-Tg-5vp">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -241,7 +241,7 @@
         <!--Random Topics-->
         <scene sceneID="u5P-UO-YhV">
             <objects>
-                <viewController id="Cz9-hF-pSK" customClass="TopicViewController" customModule="TopicHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Cz9-hF-pSK" customClass="TopicViewController" customModule="Topic_Helper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QAD-cl-Dfi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
