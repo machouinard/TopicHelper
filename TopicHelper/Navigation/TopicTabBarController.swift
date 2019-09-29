@@ -33,6 +33,10 @@ class TopicTabBarController: UITabBarController {
             faveVC.listType = ListViewType.Favorites
         }
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.managedContext = coreDataStack.managedContext
+        
+        
         listenForFatalCoreDataNotifications()
 
         insertStarterTopics()
