@@ -156,6 +156,10 @@ class TopicsViewController: UITableViewController {
     // MARK: - Actions
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
+        // If topic is added from Favorites screen, make it a favorite
+        if ListViewType.Favorites == self.listType {
+            currentTopic?.isFavorite = true
+        }
         performSegue(withIdentifier: "editTopic", sender: nil)
     }
     
