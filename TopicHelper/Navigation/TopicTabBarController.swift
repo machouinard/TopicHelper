@@ -11,14 +11,13 @@ import CoreData
 
 class TopicTabBarController: UITabBarController {
     
-    var managedContext: NSManagedObjectContext!
+//    var managedContext: NSManagedObjectContext!
     lazy var coreDataStack = CoreDataStack(modelName: "TopicHelper")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.managedContext = coreDataStack.managedContext
+//        self.managedContext = coreDataStack.managedContext
         if let tabViewControllers = self.viewControllers {
             var navController = tabViewControllers[2] as! UINavigationController
             let allTopicsVC = navController.viewControllers.first as! TopicsViewController
@@ -92,26 +91,26 @@ class TopicTabBarController: UITabBarController {
         NSFetchedResultsController<Topic>.deleteCache(withName: "Topics")
         
         let fetch: NSFetchRequest<Topic> = Topic.fetchRequest()
-        let count = try! managedContext.count(for: fetch)
+        let count = try! coreDataStack.managedContext.count(for: fetch)
         
         if count > 0 {
             // Topics have already been added
             return
         }
                 
-        let path = Bundle.main.path(forResource: "topics", ofType: "plist")
+        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
         let dataArray = NSArray(contentsOfFile: path!)!
         
         for dict in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: managedContext)!
-            let topic = Topic(entity: entity, insertInto: managedContext)
+            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: coreDataStack.managedContext)!
+            let topic = Topic(entity: entity, insertInto: coreDataStack.managedContext)
             let topicDict = dict as! [String: Any]
             topic.title = topicDict["title"] as? String
             topic.details = topicDict["description"] as? String
             topic.isFavorite = topicDict["isFavorite"] as! Bool
         }
         do {
-            try managedContext.save()
+            try coreDataStack.managedContext.save()
         } catch  {
             fatalCoreDataError(error)
         }

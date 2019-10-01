@@ -9,9 +9,16 @@
 import UIKit
 import CoreData
 
-enum ListViewType: String {
-    case AllTopics
+enum ListViewType: Int, CaseIterable, CustomStringConvertible {
     case Favorites
+    case AllTopics
+    
+    var description: String {
+        switch self {
+            case .Favorites: return "Favorites"
+            case .AllTopics: return "All Topics"
+        }
+    }
     
 }
 
@@ -23,11 +30,6 @@ class TopicsViewController: UITableViewController {
     var currentTopic: Topic?
     var usePredicate: Bool = false
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
-        if ListViewType.AllTopics == self.listType {
-            self.cacheName = "All Topics"
-        } else {
-            self.cacheName = self.listType.rawValue
-        }
         
         let fetchRequest = NSFetchRequest<Topic>()
         
@@ -40,14 +42,16 @@ class TopicsViewController: UITableViewController {
         }
         
         let sort = NSSortDescriptor(key: "title", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
+        let sectionSort = NSSortDescriptor(key: "isFavorite", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sectionSort, sort]
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
-            sectionNameKeyPath: nil,
-            cacheName: self.cacheName)
+            sectionNameKeyPath: #keyPath(Topic.isFavorite),
+            cacheName: self.listType.description)
         
         fetchedResultsController.delegate = self
         
@@ -67,22 +71,22 @@ class TopicsViewController: UITableViewController {
         performFetch()
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
-        self.title = self.cacheName
+        self.title = self.listType.description
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.fetchedResultsController.delegate = self
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.listType.description)
+        self.performFetch()
+        self.tableView.reloadData()
+    }
     
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        self.fetchedResultsController.delegate = self
-//        self.performFetch()
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.fetchedResultsController.delegate = nil
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.fetchedResultsController.delegate = nil
+    }
     
     // MARK:- Helper methods
     func performFetch() {
@@ -100,11 +104,26 @@ class TopicsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-////        return fetchedResultsController.sections!.count
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections!.count
 //        return 1
-//    }
+    }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        let title = UILabel(frame: .zero)
+        title.font = UIFont.boldSystemFont(ofSize: 16)
+        title.textColor = .white
+        title.text = ListViewType(rawValue: section)?.description
+        view.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        title.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
+        
+        return view
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
 //        print("NumberOfObjects: \(sectionInfo.numberOfObjects)")
@@ -202,15 +221,18 @@ class TopicsViewController: UITableViewController {
             
             editTopicVC?.managedContext = managedContext
         } else if segue.identifier == "showTopic" {
-            let RandomTopicVC = segue.destination as! TopicViewController
+            let TopicVC = segue.destination as! TopicViewController
 //            RandomTopicVC.currentTopic = currentTopic
             if let ct = currentTopic {
-                RandomTopicVC.nextTopics.append(ct)
+                TopicVC.nextTopics.append(ct)
             }
-            RandomTopicVC.managedContext = managedContext
-            RandomTopicVC.title = self.cacheName
-            RandomTopicVC.viewShouldScroll = false
-            RandomTopicVC.backButtonTitle = "Back"
+            TopicVC.managedContext = managedContext
+            TopicVC.title = self.listType.description
+            if ListViewType.AllTopics == self.listType {
+                TopicVC.viewShouldScroll = false
+            }
+            TopicVC.backButtonTitle = "Back"
+            TopicVC.listType = self.listType
         }
     }
     
