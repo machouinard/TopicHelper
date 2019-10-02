@@ -64,6 +64,7 @@ class TopicViewController: UIViewController {
     var titleCenterY: NSLayoutConstraint!
     var titleTop: NSLayoutConstraint!
     var nextButton: UIButton!
+    var lpr: UILongPressGestureRecognizer!
     
     
     override func loadView() {
@@ -129,7 +130,7 @@ class TopicViewController: UIViewController {
         
 //        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.Favorites.rawValue)
 //        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.AllTopics.rawValue)
-        performFetch()
+//        performFetch()
         
         // MARK: - Label attributes
         topicTitleLabel.numberOfLines = 0
@@ -159,12 +160,8 @@ class TopicViewController: UIViewController {
         
         backgroundLogo.isUserInteractionEnabled = true
         
-        // Double tap gesture recognizer
-        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
-        tgr.numberOfTapsRequired = 2
-        view.addGestureRecognizer(tgr)
         // Long press gesture recognizer
-        let lpr = UILongPressGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
+        lpr = UILongPressGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
         lpr.minimumPressDuration = 0.7
         view.addGestureRecognizer(lpr)
         
@@ -178,8 +175,16 @@ class TopicViewController: UIViewController {
             view.addGestureRecognizer(sgrLeft)
         }
         
-        displayNextTopic()
         
+        
+    }
+    
+    // TODO: Figure out why I decided to this on viewWillAppear instead of didLoad
+    override func viewWillAppear(_ animated: Bool) {
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.cacheName)
+        self.performFetch()
+        
+        displayNextTopic()
     }
     
     // MARK:- Helper methods
@@ -208,7 +213,12 @@ class TopicViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func didTapEditButton(_ sender: Any) {
+        performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
+    }
+    
     @objc @IBAction func editTopicGesture(sender: UIGestureRecognizer) {
+        
         if sender.state == UIGestureRecognizer.State.began {
             performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
         }
@@ -229,16 +239,7 @@ class TopicViewController: UIViewController {
         }
     }
     
-    // TODO: Figure out why I decided to this on viewWillAppear instead of didLoad
-    override func viewWillAppear(_ animated: Bool) {
-        self.performFetch()
-        if let topicText = currentTopic?.title {
-            topicTitleLabel.text = topicText
-        }
-        if let detailText = currentTopic?.details {
-            topicDetailTextView.text = detailText
-        }
-    }
+
     
     /**
      If we have details to show, move topic title to top of view
@@ -331,7 +332,7 @@ class TopicViewController: UIViewController {
             return
         }
         guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
-            
+            self.clearCurrentTopic()
             return
         }
         
@@ -463,18 +464,4 @@ class TopicViewController: UIViewController {
     }
     
     
-}
-
-// MARK: - NSFetchedResultsController Delegate
-extension TopicViewController: NSFetchedResultsControllerDelegate {
-    
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange anObject: Any,
-                    at indexPath: IndexPath?,
-                    for type: NSFetchedResultsChangeType,
-                    newIndexPath: IndexPath? ) {
-        
-        currentTopic = fetchedResultsController.object(at: indexPath!)
-    }
 }

@@ -42,15 +42,16 @@ class TopicsViewController: UITableViewController {
         }
         
         let sort = NSSortDescriptor(key: "title", ascending: true)
-        let sectionSort = NSSortDescriptor(key: "isFavorite", ascending: false)
+//        let sectionSort = NSSortDescriptor(key: "isFavorite", ascending: false)
         
-        fetchRequest.sortDescriptors = [sectionSort, sort]
+        fetchRequest.sortDescriptors = [sort]
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
-            sectionNameKeyPath: #keyPath(Topic.isFavorite),
+//            sectionNameKeyPath: #keyPath(Topic.isFavorite),
+            sectionNameKeyPath: nil,
             cacheName: self.listType.description)
         
         fetchedResultsController.delegate = self
@@ -115,7 +116,27 @@ class TopicsViewController: UITableViewController {
         let title = UILabel(frame: .zero)
         title.font = UIFont.boldSystemFont(ofSize: 16)
         title.textColor = .white
-        title.text = ListViewType(rawValue: section)?.description
+        
+        if let numSections = fetchedResultsController.sections?.count {
+            let count: Int
+            if let fetched = fetchedResultsController.fetchedObjects {
+                count = fetched.count
+            } else {
+                count = 0
+            }
+            if 1 < numSections || self.listType == ListViewType.Favorites {
+                let text: String
+                if let section = ListViewType(rawValue: section) {
+                    text = section.description
+                } else {
+                    text = ""
+                }
+                title.text = "\(count) \(text)"
+            } else {
+                title.text = "\(count) Topics"
+            }
+        }
+        
         view.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
         title.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

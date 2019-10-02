@@ -56,6 +56,7 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
         // If parent is nil, back button was used and we need to dump the topic that wasn't saved
         if nil == parent {
             rollbackMangedObject()
+            setPreviousControllerCurrentTopic()
         }
     }
     
@@ -89,6 +90,10 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
     
     func done() {
         
+        guard nil != currentTopic, "" != topicTitleView.text else {
+            return
+        }
+        
         if topicTitleView.isFirstResponder {
             topicTitleView.resignFirstResponder()
         }
@@ -96,19 +101,26 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
             topicDetailView.resignFirstResponder()
         }
         
-        
-        guard nil != currentTopic, "" != topicTitleView.text else {
-            return
-        }
-        
         do {
             currentTopic!.title = topicTitleView.text
             currentTopic!.details = topicDetailView.text
             
             try managedContext.save()
+            
+//            setPreviousControllerCurrentTopic()
+            
             navigationController?.popViewController(animated: true)
         } catch let error as NSError {
             fatalCoreDataError(error)
+        }
+        
+    }
+    
+    func setPreviousControllerCurrentTopic() {
+        let nc = self.parent as! UINavigationController
+        if let tvc = nc.getPreviousViewController() as? TopicViewController {
+            tvc.currentTopic = nil
+            tvc.nextTopics.append(currentTopic!)
         }
         
     }
@@ -128,4 +140,12 @@ class EditTopicViewController: UIViewController, UITextFieldDelegate, UITextView
         scrollView.scrollIndicatorInsets = contentInsets
     }
 
+}
+
+extension UINavigationController {
+    func getPreviousViewController() -> UIViewController? {
+        let count = viewControllers.count
+        guard count > 1 else { return nil }
+        return viewControllers[count - 2]
+    }
 }
