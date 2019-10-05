@@ -36,22 +36,23 @@ class TopicsViewController: UITableViewController {
         let entity = Topic.entity()
         fetchRequest.entity = entity
         
+        let sort = NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+        //        let sectionSort = NSSortDescriptor(key: "isFavorite", ascending: false)
+        
         // If this was instantiated from Favorites tab, add predicate
         if ListViewType.Favorites == self.listType {
             fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
         }
         
-        let sort = NSSortDescriptor(key: "title", ascending: true)
-//        let sectionSort = NSSortDescriptor(key: "isFavorite", ascending: false)
-        
-        fetchRequest.sortDescriptors = [sort]
+        let sortChar = NSSortDescriptor(key: "title.firstChar", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+        fetchRequest.sortDescriptors = [sortChar, sort]
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
 //            sectionNameKeyPath: #keyPath(Topic.isFavorite),
-            sectionNameKeyPath: nil,
+            sectionNameKeyPath: "title.firstChar",
             cacheName: self.listType.description)
         
         fetchedResultsController.delegate = self
@@ -118,25 +119,7 @@ class TopicsViewController: UITableViewController {
         title.font = UIFont.boldSystemFont(ofSize: 16)
         title.textColor = .white
         
-        if let numSections = fetchedResultsController.sections?.count {
-            let count: Int
-            if let fetched = fetchedResultsController.fetchedObjects {
-                count = fetched.count
-            } else {
-                count = 0
-            }
-            if 1 < numSections || self.listType == ListViewType.Favorites {
-                let text: String
-                if let section = ListViewType(rawValue: section) {
-                    text = section.description
-                } else {
-                    text = ""
-                }
-                title.text = "\(count) \(text)"
-            } else {
-                title.text = "\(count) Topics"
-            }
-        }
+        title.text = fetchedResultsController.sections![section].name
         
         view.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -146,24 +129,34 @@ class TopicsViewController: UITableViewController {
         return view
     }
     
-    // Update count in section header
-    func updateSectionHeaderCount() {
-        // Section header title has tag 1111
-        let sectionTitle = view.viewWithTag(1111) as! UILabel
-        let count = fetchedResultsController.fetchedObjects?.count
-        var title: String = ""
-        if ListViewType.AllTopics == self.listType {
-            if nil != count {
-                title = "\(count!) Topics"
-            }
-        } else {
-            if nil != count {
-                title = "\(count!) Favorites"
-            }
-        }
-        
-        sectionTitle.text = title
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return fetchedResultsController.sectionIndexTitles
     }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        let result = fetchedResultsController.section(forSectionIndexTitle: title, at: index)
+                
+        return result
+    }
+    
+//    // Update count in section header
+//    func updateSectionHeaderCount() {
+//        // Section header title has tag 1111
+//        let sectionTitle = view.viewWithTag(1111) as! UILabel
+//        let count = fetchedResultsController.fetchedObjects?.count
+//        var title: String = ""
+//        if ListViewType.AllTopics == self.listType {
+//            if nil != count {
+//                title = "\(count!) Topics"
+//            }
+//        } else {
+//            if nil != count {
+//                title = "\(count!) Favorites"
+//            }
+//        }
+//
+//        sectionTitle.text = title
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
@@ -336,7 +329,7 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
         NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
         
-        self.updateSectionHeaderCount()
+//        self.updateSectionHeaderCount()
     }
 }
 
@@ -345,5 +338,14 @@ extension UIImageView {
     let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
     self.image = templateImage
     self.tintColor = color
+  }
+}
+
+extension NSString{
+  @objc func firstChar() -> String{ // @objc is needed to avoid crash
+    if self.length == 0 {
+      return ""
+    }
+    return self.substring(to: 1).capitalized
   }
 }
