@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>description</key>
-		<string>sdf;js f;klas dfl;j;ashfkjhjsa fhkas hdfk ksadf</string>
+		<string></string>
 		<key>id</key>
 		<integer>1</integer>
 		<key>isFavorite</key>
@@ -24,11 +24,11 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>ereerererereererererererrrr</string>
+		<string></string>
 		<key>id</key>
 		<integer>3</integer>
 		<key>isFavorite</key>
-		<true/>
+		<false/>
 		<key>title</key>
 		<string>Action</string>
 	</dict>

@@ -11,27 +11,30 @@ import CoreData
 
 class TopicTabBarController: UITabBarController {
     
-    var managedContext: NSManagedObjectContext!
+//    var managedContext: NSManagedObjectContext!
     lazy var coreDataStack = CoreDataStack(modelName: "TopicHelper")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.managedContext = coreDataStack.managedContext
+//        self.managedContext = coreDataStack.managedContext
         if let tabViewControllers = self.viewControllers {
             var navController = tabViewControllers[2] as! UINavigationController
             let allTopicsVC = navController.viewControllers.first as! TopicsViewController
             allTopicsVC.managedContext = coreDataStack.managedContext
             allTopicsVC.listType = ListViewType.AllTopics
             navController = tabViewControllers[0] as! UINavigationController
-            let randomVC = navController.topViewController as! TopicViewController
-            randomVC.managedContext = coreDataStack.managedContext
+            let topicVC = navController.topViewController as! TopicViewController
+            topicVC.managedContext = coreDataStack.managedContext
             navController = tabViewControllers[1] as! UINavigationController
             let faveVC = navController.topViewController as! TopicsViewController
             faveVC.managedContext = coreDataStack.managedContext
             faveVC.listType = ListViewType.Favorites
         }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.managedContext = coreDataStack.managedContext
+        
         
         listenForFatalCoreDataNotifications()
 
@@ -88,7 +91,7 @@ class TopicTabBarController: UITabBarController {
         NSFetchedResultsController<Topic>.deleteCache(withName: "Topics")
         
         let fetch: NSFetchRequest<Topic> = Topic.fetchRequest()
-        let count = try! managedContext.count(for: fetch)
+        let count = try! coreDataStack.managedContext.count(for: fetch)
         
         if count > 0 {
             // Topics have already been added
@@ -99,15 +102,15 @@ class TopicTabBarController: UITabBarController {
         let dataArray = NSArray(contentsOfFile: path!)!
         
         for dict in dataArray {
-            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: managedContext)!
-            let topic = Topic(entity: entity, insertInto: managedContext)
+            let entity = NSEntityDescription.entity(forEntityName: "Topic", in: coreDataStack.managedContext)!
+            let topic = Topic(entity: entity, insertInto: coreDataStack.managedContext)
             let topicDict = dict as! [String: Any]
             topic.title = topicDict["title"] as? String
             topic.details = topicDict["description"] as? String
             topic.isFavorite = topicDict["isFavorite"] as! Bool
         }
         do {
-            try managedContext.save()
+            try coreDataStack.managedContext.save()
         } catch  {
             fatalCoreDataError(error)
         }

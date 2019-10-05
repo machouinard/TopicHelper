@@ -14,51 +14,41 @@ class TopicViewController: UIViewController {
     @IBOutlet weak var backgroundLogo: UIImageView!
     @IBOutlet weak var topicLock: UIBarButtonItem!
     @IBOutlet weak var isFavoriteButton: UIBarButtonItem!
-    
-    
-    var managedContext: NSManagedObjectContext! {
-        didSet {
-            NotificationCenter.default.addObserver(forName: Notification.Name.NSManagedObjectContextObjectsDidChange, object: managedContext, queue: OperationQueue.main) { notification in
+    var listType: ListViewType!
+    var managedContext: NSManagedObjectContext!
+    var cacheName: String?
+
+    lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
                 
-                // Update our topics with latest changes
-                if let dictionary = notification.userInfo {
-                    // New topic is inserted empty, then updated.  We only deal with updated and deleted.
-                    if nil != dictionary[NSUpdatedObjectsKey] {
-                        let updatedTopics = dictionary["updated"] as! Set<Topic>
-                        if let first = updatedTopics.first {
-                            if  nil == self.topics.firstIndex(of: first) {
-                                // no index means this is a new topic and needs to be added to our array
-                                self.topics.append(first)
-                            }
-                            // If topic is not locked, make this the current topic
-                            if !self.topicLocked {
-                                self.currentTopic = nil
-                                self.nextTopics.append(first)
-                            }
-                        }
-                    } else if nil != dictionary[NSDeletedObjectsKey] {
-                        let deletedTopics = dictionary["deleted"] as! Set<Topic>
-                        if let first = deletedTopics.first {
-                            // Remove topic from prev/next arrays
-                            self.prevTopics.removeAll{ $0 == first }
-                            self.nextTopics.removeAll{ $0 == first }
-                            if let ind = self.topics.firstIndex(of: first) {
-                                // Remove topic from array
-                                self.topics.remove(at: ind)
-                            }
-                            if self.currentTopic == first {
-                                self.clearCurrentTopic()
-                            }
-                        }
-                        
-                    }
-                    // This should display topic from nextTopics array or random topic
-                    self.displayNextTopic()
-                }
-            }
+        let fetchRequest = NSFetchRequest<Topic>()
+        
+        let entity = Topic.entity()
+        fetchRequest.entity = entity
+        
+        // If this was instantiated from Favorites tab, add predicate
+        if ListViewType.Favorites == self.listType {
+            fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
         }
-    }
-    var topics = [Topic]()
+        
+        let sort = NSSortDescriptor(key: "title", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sort]
+        fetchRequest.fetchBatchSize = 20
+        
+        if let type = self.listType {
+            self.cacheName = type.description
+        } else {
+            self.cacheName = ListViewType.AllTopics.description
+        }
+        
+        let fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: self.managedContext,
+            sectionNameKeyPath: nil,
+            cacheName: self.cacheName)
+        
+        return fetchedResultsController
+    }()
     var currentTopic: Topic?
     var lastTopic: Topic?
     var topicLocked: Bool = false
@@ -74,10 +64,13 @@ class TopicViewController: UIViewController {
     var titleCenterY: NSLayoutConstraint!
     var titleTop: NSLayoutConstraint!
     var nextButton: UIButton!
+    var lpr: UILongPressGestureRecognizer!
     
     
     override func loadView() {
         super.loadView()
+        
+        
         
         nextButton = self.view.viewWithTag(201) as? UIButton
         
@@ -135,6 +128,10 @@ class TopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.Favorites.rawValue)
+//        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.AllTopics.rawValue)
+//        performFetch()
+        
         // MARK: - Label attributes
         topicTitleLabel.numberOfLines = 0
         topicTitleLabel.textColor = .white
@@ -150,24 +147,21 @@ class TopicViewController: UIViewController {
 //        topicDetailLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 21.0)
         topicDetailTextView.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .subheadline), size: 26)
         
-        populateTopics()
         
         if let backText = backButtonTitle {
             let backButton = UIBarButtonItem(title: backText, style: .done, target: self, action: #selector(didTapBack))
             navigationItem.leftBarButtonItems?.insert(backButton, at: 0)
-            let sgrBack = UISwipeGestureRecognizer(target: self, action: #selector(dumbFuncToGoBack))
-            view.addGestureRecognizer(sgrBack)
+            if ListViewType.AllTopics == self.listType {
+                let sgrBack = UISwipeGestureRecognizer(target: self, action: #selector(dumbFuncToGoBack))
+                view.addGestureRecognizer(sgrBack)
+            }
             nextButton.isHidden = true
         }
         
         backgroundLogo.isUserInteractionEnabled = true
         
-        // Double tap gesture recognizer
-        let tgr = UITapGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
-        tgr.numberOfTapsRequired = 2
-        view.addGestureRecognizer(tgr)
         // Long press gesture recognizer
-        let lpr = UILongPressGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
+        lpr = UILongPressGestureRecognizer(target: self, action: #selector(self.editTopicGesture))
         lpr.minimumPressDuration = 0.7
         view.addGestureRecognizer(lpr)
         
@@ -181,8 +175,30 @@ class TopicViewController: UIViewController {
             view.addGestureRecognizer(sgrLeft)
         }
         
-        displayNextTopic()
         
+        
+    }
+    
+    // TODO: Figure out why I decided to this on viewWillAppear instead of didLoad
+    override func viewWillAppear(_ animated: Bool) {
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.cacheName)
+        self.performFetch()
+        
+        displayNextTopic()
+    }
+    
+    // MARK:- Helper methods
+    func performFetch() {
+
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalCoreDataError(error)
+        }
+    }
+    
+    deinit {
+        fetchedResultsController.delegate = nil
     }
     
     func clearCurrentTopic() {
@@ -197,8 +213,13 @@ class TopicViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func didTapEditButton(_ sender: Any) {
+        performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
+    }
+    
     @objc @IBAction func editTopicGesture(sender: UIGestureRecognizer) {
-        if sender.state == UIGestureRecognizer.State.ended {
+        
+        if sender.state == UIGestureRecognizer.State.began {
             performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
         }
     }
@@ -218,25 +239,7 @@ class TopicViewController: UIViewController {
         }
     }
     
-    // TODO: Figure out why I decided to this on viewWillAppear instead of didLoad
-    override func viewWillAppear(_ animated: Bool) {
-        if let topicText = currentTopic?.title {
-            topicTitleLabel.text = topicText
-        }
-        if let detailText = currentTopic?.details {
-            topicDetailTextView.text = detailText
-        }
-    }
-    
-    /**
-     Fetch all topics
-     */
-    func populateTopics() {
-        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
-        if topics.isEmpty {
-            topics = try! managedContext.fetch(request)
-        }
-    }
+
     
     /**
      If we have details to show, move topic title to top of view
@@ -264,11 +267,8 @@ class TopicViewController: UIViewController {
     func displayTopic(sender: String) {
         guard false == topicLocked  && nil != currentTopic else {
             // If we've just deleted last topic, make sure we clear the display
-            if topics.isEmpty {
-                topicTitleLabel.text = ""
-                topicDetailTextView.text = ""
-                
-                currentTopic = nil
+            if nil == fetchedResultsController.fetchedObjects {
+                self.clearCurrentTopic()
             }
             
             return
@@ -327,17 +327,28 @@ class TopicViewController: UIViewController {
     }
     
     func setRandomTopic() {
-        
-        guard false == topicLocked && !topics.isEmpty else {
+        if nil == fetchedResultsController.fetchedObjects {
+            self.clearCurrentTopic()
+            return
+        }
+        guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
+            self.clearCurrentTopic()
             return
         }
         
-        if (1 == topics.count) {// If we only have 1 topic, return it
-            currentTopic = topics.first
+        if (1 == fetchedResultsController.fetchedObjects?.count) {// If we only have 1 topic, return it
+            currentTopic = fetchedResultsController.fetchedObjects?.first
             
         } else {
             
-            let randomTopic = topics.randomElement()
+            let count = UInt32(fetchedResultsController.fetchedObjects!.count)
+            let index = Int(arc4random_uniform(count))
+//            let randomTopic = topics.randomElement()
+            let randomTopic = fetchedResultsController.fetchedObjects?[index]
+            
+            
+            
+
             
             if currentTopic == randomTopic {
                 setRandomTopic()
@@ -349,7 +360,12 @@ class TopicViewController: UIViewController {
     }
     
     @objc func displayNextTopic() {
-        guard false == topicLocked  && 0 != topics.count else {
+        if nil == fetchedResultsController.fetchedObjects {
+            self.clearCurrentTopic()
+            return
+        }
+        guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
+            
             return
         }
         
@@ -448,24 +464,4 @@ class TopicViewController: UIViewController {
     }
     
     
-}
-
-// MARK:- Extensions
-extension UITextView {
-    
-    func centerVertically() {
-        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
-        let size = sizeThatFits(fittingSize)
-        let topOffset = (bounds.size.height - size.height * zoomScale) / 2
-        let positiveTopOffset = max(1, topOffset)
-        contentOffset.y = -positiveTopOffset
-    }
-    
-}
-
-// TODO: do we still need this?
-extension UIView {
-    func constraint(withIdentifier: String) -> NSLayoutConstraint? {
-        return self.constraints.filter { $0.identifier == withIdentifier }.first
-    }
 }

@@ -9,9 +9,16 @@
 import UIKit
 import CoreData
 
-enum ListViewType: String {
-    case AllTopics
+enum ListViewType: Int, CaseIterable, CustomStringConvertible {
     case Favorites
+    case AllTopics
+    
+    var description: String {
+        switch self {
+            case .Favorites: return "Favorites"
+            case .AllTopics: return "All Topics"
+        }
+    }
     
 }
 
@@ -22,32 +29,37 @@ class TopicsViewController: UITableViewController {
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
     var usePredicate: Bool = false
+    var sectionPath: String?
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
-        if ListViewType.AllTopics == self.listType {
-            self.cacheName = "All Topics"
-        } else {
-            self.cacheName = self.listType.rawValue
-        }
         
         let fetchRequest = NSFetchRequest<Topic>()
         
         let entity = Topic.entity()
         fetchRequest.entity = entity
         
+        let sort = NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+        //        let sectionSort = NSSortDescriptor(key: "isFavorite", ascending: false)
+        
+        
         // If this was instantiated from Favorites tab, add predicate
         if ListViewType.Favorites == self.listType {
             fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
+            fetchRequest.sortDescriptors = [sort]
+        } else if ListViewType.AllTopics == self.listType {
+            let sortChar = NSSortDescriptor(key: "title.firstChar", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+            fetchRequest.sortDescriptors = [sortChar, sort]
+            self.sectionPath = "title.firstChar"
         }
         
-        let sort = NSSortDescriptor(key: "title", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
+        
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
-            sectionNameKeyPath: nil,
-            cacheName: self.cacheName)
+//            sectionNameKeyPath: #keyPath(Topic.isFavorite),
+            sectionNameKeyPath: self.sectionPath,
+            cacheName: self.listType.description)
         
         fetchedResultsController.delegate = self
         
@@ -58,6 +70,9 @@ class TopicsViewController: UITableViewController {
     override func loadView() {
         super.loadView()
         self.tableView.rowHeight = 44
+        
+        tableView.sectionIndexColor = .white
+        
     }
 
     override func viewDidLoad() {
@@ -67,22 +82,23 @@ class TopicsViewController: UITableViewController {
         performFetch()
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
-        self.title = self.cacheName
+        self.title = self.listType.description
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.fetchedResultsController.delegate = self
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.listType.description)
+        // Update FRC with latest changes in other views
+        self.performFetch()
+        self.tableView.reloadData()
+    }
     
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        self.fetchedResultsController.delegate = self
-//        self.performFetch()
-//    }
-//
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.fetchedResultsController.delegate = nil
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.fetchedResultsController.delegate = nil
+    }
     
     // MARK:- Helper methods
     func performFetch() {
@@ -100,14 +116,62 @@ class TopicsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-////        return fetchedResultsController.sections!.count
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections!.count
 //        return 1
-//    }
+    }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        let title = UILabel(frame: .zero)
+        title.tag = 1111
+        title.font = UIFont.boldSystemFont(ofSize: 16)
+        title.textColor = .white
+        
+        if ListViewType.AllTopics == self.listType {
+            title.text = fetchedResultsController.sections![section].name
+        } else {
+            if let count = fetchedResultsController.fetchedObjects?.count {
+                title.text = "\(count) \(ListViewType.Favorites.description)"
+            }
+            
+        }
+        
+        view.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        title.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
+        
+        return view
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return fetchedResultsController.sectionIndexTitles
+    }
+    
+    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        let result = fetchedResultsController.section(forSectionIndexTitle: title, at: index)
+                
+        return result
+    }
+    
+    // Update count in section header
+    func updateSectionHeaderCount() {
+        var title: String = ""
+        // Section header title has tag 1111
+        let sectionTitle = view.viewWithTag(1111) as! UILabel
+        if let count = fetchedResultsController.fetchedObjects?.count {
+            title = "\(count) \(ListViewType.Favorites.description)"
+        }
+        
+        
+        sectionTitle.text = title
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
-//        print("NumberOfObjects: \(sectionInfo.numberOfObjects)")
+
         return sectionInfo.numberOfObjects
     }
 
@@ -156,6 +220,10 @@ class TopicsViewController: UITableViewController {
     // MARK: - Actions
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
+        // If topic is added from Favorites screen, make it a favorite
+        if ListViewType.Favorites == self.listType {
+            currentTopic?.isFavorite = true
+        }
         performSegue(withIdentifier: "editTopic", sender: nil)
     }
     
@@ -198,15 +266,18 @@ class TopicsViewController: UITableViewController {
             
             editTopicVC?.managedContext = managedContext
         } else if segue.identifier == "showTopic" {
-            let RandomTopicVC = segue.destination as! TopicViewController
+            let TopicVC = segue.destination as! TopicViewController
 //            RandomTopicVC.currentTopic = currentTopic
             if let ct = currentTopic {
-                RandomTopicVC.nextTopics.append(ct)
+                TopicVC.nextTopics.append(ct)
             }
-            RandomTopicVC.managedContext = managedContext
-            RandomTopicVC.title = self.cacheName
-            RandomTopicVC.viewShouldScroll = false
-            RandomTopicVC.backButtonTitle = "Back"
+            TopicVC.managedContext = managedContext
+            TopicVC.title = self.listType.description
+            if ListViewType.AllTopics == self.listType {
+                TopicVC.viewShouldScroll = false
+            }
+            TopicVC.backButtonTitle = "Back"
+            TopicVC.listType = self.listType
         }
     }
     
@@ -227,9 +298,9 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
         
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .right)
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .left)
         case .update:
             if let cell = tableView.cellForRow(at: indexPath!)
                 as? TopicCell {
@@ -268,6 +339,10 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller:
         NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+        
+        if ListViewType.Favorites == self.listType {
+            self.updateSectionHeaderCount()
+        }
     }
 }
 
@@ -276,5 +351,14 @@ extension UIImageView {
     let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
     self.image = templateImage
     self.tintColor = color
+  }
+}
+
+extension NSString{
+  @objc func firstChar() -> String{ // @objc is needed to avoid crash
+    if self.length == 0 {
+      return ""
+    }
+    return self.substring(to: 1).capitalized
   }
 }
