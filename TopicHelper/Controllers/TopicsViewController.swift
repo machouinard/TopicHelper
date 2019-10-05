@@ -29,6 +29,7 @@ class TopicsViewController: UITableViewController {
     var managedContext: NSManagedObjectContext!
     var currentTopic: Topic?
     var usePredicate: Bool = false
+    var sectionPath: String?
     lazy var fetchedResultsController: NSFetchedResultsController<Topic> = {
         
         let fetchRequest = NSFetchRequest<Topic>()
@@ -39,20 +40,25 @@ class TopicsViewController: UITableViewController {
         let sort = NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
         //        let sectionSort = NSSortDescriptor(key: "isFavorite", ascending: false)
         
+        
         // If this was instantiated from Favorites tab, add predicate
         if ListViewType.Favorites == self.listType {
             fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
+            fetchRequest.sortDescriptors = [sort]
+        } else if ListViewType.AllTopics == self.listType {
+            let sortChar = NSSortDescriptor(key: "title.firstChar", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+            fetchRequest.sortDescriptors = [sortChar, sort]
+            self.sectionPath = "title.firstChar"
         }
         
-        let sortChar = NSSortDescriptor(key: "title.firstChar", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
-        fetchRequest.sortDescriptors = [sortChar, sort]
+        
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedContext,
 //            sectionNameKeyPath: #keyPath(Topic.isFavorite),
-            sectionNameKeyPath: "title.firstChar",
+            sectionNameKeyPath: self.sectionPath,
             cacheName: self.listType.description)
         
         fetchedResultsController.delegate = self
@@ -119,7 +125,14 @@ class TopicsViewController: UITableViewController {
         title.font = UIFont.boldSystemFont(ofSize: 16)
         title.textColor = .white
         
-        title.text = fetchedResultsController.sections![section].name
+        if ListViewType.AllTopics == self.listType {
+            title.text = fetchedResultsController.sections![section].name
+        } else {
+            if let count = fetchedResultsController.fetchedObjects?.count {
+                title.text = "\(count) \(ListViewType.Favorites.description)"
+            }
+            
+        }
         
         view.addSubview(title)
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -139,24 +152,18 @@ class TopicsViewController: UITableViewController {
         return result
     }
     
-//    // Update count in section header
-//    func updateSectionHeaderCount() {
-//        // Section header title has tag 1111
-//        let sectionTitle = view.viewWithTag(1111) as! UILabel
-//        let count = fetchedResultsController.fetchedObjects?.count
-//        var title: String = ""
-//        if ListViewType.AllTopics == self.listType {
-//            if nil != count {
-//                title = "\(count!) Topics"
-//            }
-//        } else {
-//            if nil != count {
-//                title = "\(count!) Favorites"
-//            }
-//        }
-//
-//        sectionTitle.text = title
-//    }
+    // Update count in section header
+    func updateSectionHeaderCount() {
+        var title: String = ""
+        // Section header title has tag 1111
+        let sectionTitle = view.viewWithTag(1111) as! UILabel
+        if let count = fetchedResultsController.fetchedObjects?.count {
+            title = "\(count) \(ListViewType.Favorites.description)"
+        }
+        
+        
+        sectionTitle.text = title
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
@@ -329,7 +336,9 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
         NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
         
-//        self.updateSectionHeaderCount()
+        if ListViewType.Favorites == self.listType {
+            self.updateSectionHeaderCount()
+        }
     }
 }
 
