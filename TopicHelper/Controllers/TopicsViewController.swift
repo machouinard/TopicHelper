@@ -114,6 +114,7 @@ class TopicsViewController: UITableViewController {
         let view = UIView()
         view.backgroundColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
         let title = UILabel(frame: .zero)
+        title.tag = 1111
         title.font = UIFont.boldSystemFont(ofSize: 16)
         title.textColor = .white
         
@@ -145,9 +146,28 @@ class TopicsViewController: UITableViewController {
         return view
     }
     
+    // Update count in section header
+    func updateSectionHeaderCount() {
+        // Section header title has tag 1111
+        let sectionTitle = view.viewWithTag(1111) as! UILabel
+        let count = fetchedResultsController.fetchedObjects?.count
+        var title: String = ""
+        if ListViewType.AllTopics == self.listType {
+            if nil != count {
+                title = "\(count!) Topics"
+            }
+        } else {
+            if nil != count {
+                title = "\(count!) Favorites"
+            }
+        }
+        
+        sectionTitle.text = title
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = fetchedResultsController.sections![section]
-//        print("NumberOfObjects: \(sectionInfo.numberOfObjects)")
+
         return sectionInfo.numberOfObjects
     }
 
@@ -274,9 +294,9 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
         
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .right)
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .left)
         case .update:
             if let cell = tableView.cellForRow(at: indexPath!)
                 as? TopicCell {
@@ -315,6 +335,8 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller:
         NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+        
+        self.updateSectionHeaderCount()
     }
 }
 
