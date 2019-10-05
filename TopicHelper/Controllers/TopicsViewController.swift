@@ -189,7 +189,7 @@ class TopicsViewController: UITableViewController {
         accButton.setBackgroundImage(accImage, for: .normal)
         accButton.addTarget(self, action: #selector(editTopic(_:)), for: .touchUpInside)
         // Set tintColor to white.  This overrides tintColor set in IB
-        cell.tintColor = UIColor.white
+        cell.tintColor = .systemGray
         cell.accessoryView = accButton
 
         return cell
