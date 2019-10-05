@@ -70,6 +70,9 @@ class TopicsViewController: UITableViewController {
     override func loadView() {
         super.loadView()
         self.tableView.rowHeight = 44
+        
+        tableView.sectionIndexColor = .white
+        
     }
 
     override func viewDidLoad() {
@@ -87,6 +90,7 @@ class TopicsViewController: UITableViewController {
         
         self.fetchedResultsController.delegate = self
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.listType.description)
+        // Update FRC with latest changes in other views
         self.performFetch()
         self.tableView.reloadData()
     }
