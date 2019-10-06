@@ -17,6 +17,13 @@ class TopicTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let settingsItem = UITabBarItem()
+        settingsItem.title = "Settings"
+        settingsItem.image = UIImage(named: "gear")
+        let settingsVC = SettingsViewController()
+        settingsVC.tabBarItem = settingsItem
+        self.viewControllers?.append(settingsVC)
+        
 //        self.managedContext = coreDataStack.managedContext
         if let tabViewControllers = self.viewControllers {
             var navController = tabViewControllers[2] as! UINavigationController
