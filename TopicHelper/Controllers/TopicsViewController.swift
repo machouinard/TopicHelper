@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+/// Differentiate between tabs sharing this view controller
 enum ListViewType: Int, CaseIterable, CustomStringConvertible {
     case Favorites
     case AllTopics
@@ -22,6 +23,11 @@ enum ListViewType: Int, CaseIterable, CustomStringConvertible {
     
 }
 
+/**
+ ListView display of topics
+ 
+ Shared between All & Favorites tab bar items
+ */
 class TopicsViewController: UITableViewController {
     
     var listType: ListViewType!
@@ -156,7 +162,11 @@ class TopicsViewController: UITableViewController {
         return result
     }
     
-    // Update count in section header
+    /**
+     Update count in section header
+     
+     Called from controllerDidChangeContent to keep count updated
+     */
     func updateSectionHeaderCount() {
         var title: String = ""
         // Section header title has tag 1111
@@ -218,6 +228,7 @@ class TopicsViewController: UITableViewController {
     }
     
     // MARK: - Actions
+    /// Add a topic
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
         // If topic is added from Favorites screen, make it a favorite
@@ -227,6 +238,7 @@ class TopicsViewController: UITableViewController {
         performSegue(withIdentifier: "editTopic", sender: nil)
     }
     
+    /// Segue to edit view from edit button
     @objc func editTopic(_ sender: UIButton) {
         let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
                 
@@ -237,6 +249,11 @@ class TopicsViewController: UITableViewController {
         performSegue(withIdentifier: "editTopic", sender: nil)
     }
     
+    /**
+     Toggle topic isFavorite property
+     
+     Called when user taps favorite button
+     */
     @objc func toggleFavorite(_ sender: UIButton) {
         let buttonPosition = sender.convert(sender.bounds.origin, to: tableView)
         if let indexPath = tableView.indexPathForRow(at: buttonPosition) {
@@ -284,6 +301,7 @@ class TopicsViewController: UITableViewController {
 }
 
 // MARK: - NSFetchedResultsController Delegate
+
 extension TopicsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
@@ -347,18 +365,22 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
 }
 
 extension UIImageView {
-  func setImageColor(color: UIColor) {
-    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
-    self.image = templateImage
-    self.tintColor = color
-  }
+    /// Set color of UIImage
+    func setImageColor(color: UIColor) {
+        let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+        self.image = templateImage
+        self.tintColor = color
+    }
 }
 
 extension NSString{
-  @objc func firstChar() -> String{ // @objc is needed to avoid crash
-    if self.length == 0 {
-      return ""
+    /// Return first character of string, capitalized
+    ///
+    /// Used for SectionIndexTitle
+    @objc func firstChar() -> String{
+        if self.length == 0 {
+            return ""
+        }
+        return self.substring(to: 1).capitalized
     }
-    return self.substring(to: 1).capitalized
-  }
 }
