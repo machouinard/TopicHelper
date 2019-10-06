@@ -21,8 +21,10 @@ class TopicTabBarController: UITabBarController {
         settingsItem.title = "Settings"
         settingsItem.image = UIImage(named: "gear")
         let settingsVC = SettingsViewController()
-        settingsVC.tabBarItem = settingsItem
-        self.viewControllers?.append(settingsVC)
+        let settingsNC = UINavigationController()
+        settingsNC.tabBarItem = settingsItem
+        settingsNC.viewControllers.append(settingsVC)
+        self.viewControllers?.append(settingsNC)
         
 //        self.managedContext = coreDataStack.managedContext
         if let tabViewControllers = self.viewControllers {
