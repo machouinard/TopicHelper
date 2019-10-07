@@ -45,7 +45,7 @@ enum CommunicationOptions: Int, CaseIterable, SectionType {
         switch self {
         case .notifications: return true
         case .email: return true
-        case .reportCrashes: return true
+        case .reportCrashes: return false
         }
     }
     
