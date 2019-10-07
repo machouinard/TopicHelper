@@ -231,6 +231,8 @@ class TopicsViewController: UITableViewController {
     /// Add a topic
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
+        // Make sure we set isUsertopic property to true
+        currentTopic?.isUserTopic = true
         // If topic is added from Favorites screen, make it a favorite
         if ListViewType.Favorites == self.listType {
             currentTopic?.isFavorite = true

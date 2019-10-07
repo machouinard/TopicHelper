@@ -27,6 +27,10 @@ class SettingsCell: UITableViewCell {
                 return
             }
             textLabel?.text = sectionType.description
+            if let details = sectionType.detailText {
+                detailTextLabel?.text = details
+            }
+            
             switchControl.isHidden = !sectionType.containsSwitch
         }
     }
@@ -43,6 +47,7 @@ class SettingsCell: UITableViewCell {
     
     @objc func handleSwitchAction(sender: UISwitch) {
         if sender.isOn {
+            
             print("Switch On")
         } else {
             print("Switch Off")
@@ -50,7 +55,7 @@ class SettingsCell: UITableViewCell {
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
         
         

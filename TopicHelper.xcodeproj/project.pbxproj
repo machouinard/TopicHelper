@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4D34282D232EA9FC006EBB74 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34282C232EA9FC006EBB74 /* Functions.swift */; };
 		4D34282F232EAF31006EBB74 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D34282E232EAF31006EBB74 /* TopicCell.swift */; };
-		4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */; };
 		4D6FE900232178E600FEE158 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE8FF232178E600FEE158 /* TopicsViewController.swift */; };
 		4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE9102321E33100FEE158 /* CoreDataStack.swift */; };
 		4D720C15233B3B6000C56029 /* topics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D720C14233B3B6000C56029 /* topics.plist */; };
@@ -17,6 +16,7 @@
 		4DB1883A234A94F5004AED01 /* SettingsInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18839234A94F5004AED01 /* SettingsInfoHeader.swift */; };
 		4DB1883C234A95E2004AED01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1883B234A95E2004AED01 /* SettingsViewController.swift */; };
 		4DB1883E234A9865004AED01 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1883D234A9865004AED01 /* SettingsSection.swift */; };
+		4DB18842234AD524004AED01 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18840234AD524004AED01 /* Topic+CoreDataProperties.swift */; };
 		4DBBC6E72336D15B00B852F7 /* TopicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */; };
 		4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */; };
 		4DC206F0231F797D008CCD8C /* topics10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC206EF231F797D008CCD8C /* topics10.plist */; };
@@ -33,7 +33,6 @@
 /* Begin PBXFileReference section */
 		4D34282C232EA9FC006EBB74 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		4D34282E232EAF31006EBB74 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
-		4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D6FE8FF232178E600FEE158 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		4D6FE9102321E33100FEE158 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4D720C14233B3B6000C56029 /* topics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics.plist; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		4DB18839234A94F5004AED01 /* SettingsInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInfoHeader.swift; sourceTree = "<group>"; };
 		4DB1883B234A95E2004AED01 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4DB1883D234A9865004AED01 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		4DB18840234AD524004AED01 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTabBarController.swift; sourceTree = "<group>"; };
 		4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DC206EF231F797D008CCD8C /* topics10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics10.plist; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */,
-				4D342831232F29CE006EBB74 /* Topic+CoreDataProperties.swift */,
+				4DB18840234AD524004AED01 /* Topic+CoreDataProperties.swift */,
 				4D6FE9102321E33100FEE158 /* CoreDataStack.swift */,
 				4DB1883D234A9865004AED01 /* SettingsSection.swift */,
 			);
@@ -234,10 +234,10 @@
 				4DB1883E234A9865004AED01 /* SettingsSection.swift in Sources */,
 				4DE11BB1231FA1C600316C92 /* EditTopicViewController.swift in Sources */,
 				4DB1883A234A94F5004AED01 /* SettingsInfoHeader.swift in Sources */,
+				4DB18842234AD524004AED01 /* Topic+CoreDataProperties.swift in Sources */,
 				4DB1883C234A95E2004AED01 /* SettingsViewController.swift in Sources */,
 				4DCD1FAD231E218F00B9CA49 /* TopicViewController.swift in Sources */,
 				4DBBC6E72336D15B00B852F7 /* TopicTabBarController.swift in Sources */,
-				4D342833232F29CE006EBB74 /* Topic+CoreDataProperties.swift in Sources */,
 				4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */,
 				4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */,
 				4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */,

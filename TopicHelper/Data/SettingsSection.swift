@@ -8,53 +8,107 @@
 
 protocol SectionType: CustomStringConvertible {
     var containsSwitch: Bool { get }
+    var detailText: String? { get }
+    
+}
+
+enum Actions: Int, CaseIterable, CustomStringConvertible {
+    case defaultRestore
+    case defaultDelete
+    case userDelete
+    case globalDelete
+    
+    var description: String {
+        switch self {
+        case .defaultRestore: return "Restore Default Topics"
+        case .defaultDelete: return "Delete Default Topics"
+        case .userDelete: return "Delete My Topics"
+        case .globalDelete: return "Delete All Topics"
+        }
+    }
+    
 }
 
 enum SettingsSection: Int, CaseIterable, CustomStringConvertible {
-    case Social
-    case Communications
+    case Defaults
+    case User
+    case Global
     
     var description: String {
         switch self {
-        case .Social: return "Social"
-        case .Communications: return "Communications"
+        case .Defaults:
+            return "Default Topics"
+        case .User:
+            return "User Topics"
+        case .Global:
+            return "Global Topics"
         }
     }
 }
 
-enum SocialOptions: Int, CaseIterable, SectionType {
-    case editProfile
-    case logout
+enum DefaultOptions: Int, CaseIterable, SectionType {
     
-    var containsSwitch: Bool { return false }
-    
-    var description: String {
-        switch self {
-        case .editProfile: return "Edit Profile"
-        case .logout: return "Log Out"
-        }
-    }
-}
-
-enum CommunicationOptions: Int, CaseIterable, SectionType {
-    case notifications
-    case email
-    case reportCrashes
+    case restoreDefaultTopics
+    case RemoveDefaultTopics
     
     var containsSwitch: Bool {
         switch self {
-        case .notifications: return true
-        case .email: return true
-        case .reportCrashes: return false
+        case .restoreDefaultTopics:
+            return false
+        case .RemoveDefaultTopics:
+            return true
+        }
+    }
+    
+    var detailText: String? {
+        switch self {
+        case .restoreDefaultTopics:
+            return nil
+        case .RemoveDefaultTopics:
+            return "Remove permanently with switch"
         }
     }
     
     var description: String {
         switch self {
-        case .notifications: return "Notifications"
-        case .email: return "Email"
-        case .reportCrashes: return "Report Crashes"
+        case .restoreDefaultTopics:
+            return Actions.defaultRestore.description
+        case .RemoveDefaultTopics:
+            return Actions.defaultDelete.description
         }
     }
 }
 
+enum UserOptions: Int, CaseIterable, SectionType {
+    case removeUserTopics
+    
+    var containsSwitch: Bool {
+        switch self {
+        case .removeUserTopics:
+            return false
+        }
+    }
+    
+    var detailText: String? { return nil }
+    
+    var description: String {
+        switch self {
+        case .removeUserTopics:
+            return Actions.userDelete.description
+        }
+    }
+}
+
+enum GlobalOptions: Int, CaseIterable, SectionType {
+    case removeAllTopics
+    
+    var containsSwitch: Bool { return false }
+    var detailText: String? { return nil }
+    
+    var description: String {
+        switch self {
+        case .removeAllTopics:
+            return Actions.globalDelete.description
+        }
+    }
+}

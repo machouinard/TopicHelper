@@ -128,10 +128,6 @@ class TopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.Favorites.rawValue)
-//        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.AllTopics.rawValue)
-//        performFetch()
-        
         // MARK: - Label attributes
         topicTitleLabel.numberOfLines = 0
         topicTitleLabel.textColor = .white
@@ -332,7 +328,7 @@ class TopicViewController: UIViewController {
             return
         }
         guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
-            self.clearCurrentTopic()
+            clearCurrentTopic()
             return
         }
         
@@ -361,11 +357,11 @@ class TopicViewController: UIViewController {
     
     @objc func displayNextTopic() {
         if nil == fetchedResultsController.fetchedObjects {
-            self.clearCurrentTopic()
+            clearCurrentTopic()
             return
         }
         guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
-            
+            clearCurrentTopic()
             return
         }
         

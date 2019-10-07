@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Vqv-Ie-2FZ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="launchCell" id="Vqv-Ie-2FZ">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vqv-Ie-2FZ" id="Mfi-LM-mzU">
@@ -131,7 +131,7 @@
         <scene sceneID="R43-1o-kle">
             <objects>
                 <navigationController id="z6d-L7-uYi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="CzV-sf-Iif"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" id="CzV-sf-Iif"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mId-tI-6ib">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,7 +182,7 @@
     </scenes>
     <resources>
         <image name="blueButtonHighlighted" width="100" height="37"/>
-        <image name="gear" catalog="system" width="64" height="60"/>
+        <image name="gear" width="23" height="23.333333969116211"/>
         <image name="gradiant" width="562.5" height="1218"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
         <image name="star-fill" width="24" height="23.333333969116211"/>
