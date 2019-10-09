@@ -17,6 +17,16 @@ class TopicTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let settingsItem = UITabBarItem()
+        settingsItem.title = "Settings"
+        settingsItem.image = UIImage(named: "gear")
+        let settingsVC = SettingsViewController()
+        settingsVC.managedContext = coreDataStack.managedContext
+        let settingsNC = UINavigationController()
+        settingsNC.tabBarItem = settingsItem
+        settingsNC.viewControllers.append(settingsVC)
+        self.viewControllers?.append(settingsNC)
+        
 //        self.managedContext = coreDataStack.managedContext
         if let tabViewControllers = self.viewControllers {
             var navController = tabViewControllers[2] as! UINavigationController
@@ -38,7 +48,7 @@ class TopicTabBarController: UITabBarController {
         
         listenForFatalCoreDataNotifications()
 
-        insertStarterTopics()
+        insertStarterTopics(force: false)
     }
     
 
@@ -85,7 +95,10 @@ class TopicTabBarController: UITabBarController {
 
     
     // MARK:- Starter Topics
-    func insertStarterTopics() {
+    func insertStarterTopics(force: Bool) {
+        
+        let completed: Bool = UserDefaults.standard.bool(forKey: "topicsInserted")
+        if completed { return }
         
 //        print(applicationDocumentsDirectory)
         NSFetchedResultsController<Topic>.deleteCache(withName: "Topics")
@@ -93,11 +106,11 @@ class TopicTabBarController: UITabBarController {
         let fetch: NSFetchRequest<Topic> = Topic.fetchRequest()
         let count = try! coreDataStack.managedContext.count(for: fetch)
         
-        if count > 0 {
+        if count > 0 && !force {
             // Topics have already been added
             return
         }
-                
+        // Start activityIndicator
         let path = Bundle.main.path(forResource: "topics", ofType: "plist")
         let dataArray = NSArray(contentsOfFile: path!)!
         
@@ -111,6 +124,8 @@ class TopicTabBarController: UITabBarController {
         }
         do {
             try coreDataStack.managedContext.save()
+            UserDefaults.standard.set(true, forKey: "topicsInserted")
+            // stop activityIndicator
         } catch  {
             fatalCoreDataError(error)
         }

@@ -153,6 +153,12 @@ class TopicsViewController: UITableViewController {
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        // Only show index when there enough rows to make it useful
+        if let count = fetchedResultsController.fetchedObjects?.count {
+            if 10 > count && 9 > fetchedResultsController.sectionIndexTitles.count {
+                return nil
+            }
+        }
         return fetchedResultsController.sectionIndexTitles
     }
     
@@ -231,6 +237,8 @@ class TopicsViewController: UITableViewController {
     /// Add a topic
     @IBAction func addTopic(_ sender: Any) {
         currentTopic = Topic(context: managedContext)
+        // Make sure we set isUsertopic property to true
+        currentTopic?.isUserTopic = true
         // If topic is added from Favorites screen, make it a favorite
         if ListViewType.Favorites == self.listType {
             currentTopic?.isFavorite = true
@@ -322,8 +330,7 @@ extension TopicsViewController: NSFetchedResultsControllerDelegate {
         case .update:
             if let cell = tableView.cellForRow(at: indexPath!)
                 as? TopicCell {
-                let topic = controller.object(at: indexPath!)
-                    as! Topic
+                let topic = controller.object(at: indexPath!) as! Topic
                 cell.configure(for: topic)
             }
         case .move:

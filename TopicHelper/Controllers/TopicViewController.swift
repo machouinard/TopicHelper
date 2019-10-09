@@ -70,8 +70,6 @@ class TopicViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        
-        
         nextButton = self.view.viewWithTag(201) as? UIButton
         
         // MARK: - Constraints - Title
@@ -121,16 +119,10 @@ class TopicViewController: UIViewController {
         
         scrollStack.axis = .vertical
         
-        
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.Favorites.rawValue)
-//        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.AllTopics.rawValue)
-//        performFetch()
         
         // MARK: - Label attributes
         topicTitleLabel.numberOfLines = 0
@@ -174,8 +166,6 @@ class TopicViewController: UIViewController {
             sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
             view.addGestureRecognizer(sgrLeft)
         }
-        
-        
         
     }
     
@@ -332,7 +322,7 @@ class TopicViewController: UIViewController {
             return
         }
         guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
-            self.clearCurrentTopic()
+            clearCurrentTopic()
             return
         }
         
@@ -361,11 +351,11 @@ class TopicViewController: UIViewController {
     
     @objc func displayNextTopic() {
         if nil == fetchedResultsController.fetchedObjects {
-            self.clearCurrentTopic()
+            clearCurrentTopic()
             return
         }
         guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
-            
+            clearCurrentTopic()
             return
         }
         
