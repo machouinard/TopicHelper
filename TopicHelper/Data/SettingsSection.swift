@@ -17,6 +17,7 @@ enum Actions: Int, CaseIterable, CustomStringConvertible {
     case defaultDelete
     case userDelete
     case globalDelete
+    case clearFavorites
     
     var description: String {
         switch self {
@@ -24,6 +25,7 @@ enum Actions: Int, CaseIterable, CustomStringConvertible {
         case .defaultDelete: return "Delete Default Topics"
         case .userDelete: return "Delete My Topics"
         case .globalDelete: return "Delete All Topics"
+        case .clearFavorites: return "Clear all Favorites"
         }
     }
     
@@ -56,16 +58,16 @@ enum DefaultOptions: Int, CaseIterable, SectionType {
         case .restoreDefaultTopics:
             return false
         case .RemoveDefaultTopics:
-            return true
+            return false
         }
     }
     
     var detailText: String? {
         switch self {
         case .restoreDefaultTopics:
-            return nil
+            return "Will not overwrite added topics"
         case .RemoveDefaultTopics:
-            return "Remove permanently with switch"
+            return "Remove original topics"
         }
     }
     
@@ -89,7 +91,13 @@ enum UserOptions: Int, CaseIterable, SectionType {
         }
     }
     
-    var detailText: String? { return nil }
+    var detailText: String? {
+        switch self {
+        case .removeUserTopics:
+            return "Remove topics you've added"
+        }
+        
+    }
     
     var description: String {
         switch self {
@@ -101,14 +109,24 @@ enum UserOptions: Int, CaseIterable, SectionType {
 
 enum GlobalOptions: Int, CaseIterable, SectionType {
     case removeAllTopics
+    case clearAllFavorites
     
     var containsSwitch: Bool { return false }
-    var detailText: String? { return nil }
+    var detailText: String? {
+        switch self {
+        case .removeAllTopics:
+            return "Remove everything"
+        case .clearAllFavorites:
+            return "Unmark all favorite topics"
+        }
+    }
     
     var description: String {
         switch self {
         case .removeAllTopics:
             return Actions.globalDelete.description
+        case .clearAllFavorites:
+            return Actions.clearFavorites.description
         }
     }
 }

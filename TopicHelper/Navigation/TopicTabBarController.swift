@@ -97,6 +97,9 @@ class TopicTabBarController: UITabBarController {
     // MARK:- Starter Topics
     func insertStarterTopics(force: Bool) {
         
+        let completed: Bool = UserDefaults.standard.bool(forKey: "topicsInserted")
+        if completed { return }
+        
 //        print(applicationDocumentsDirectory)
         NSFetchedResultsController<Topic>.deleteCache(withName: "Topics")
         
@@ -108,7 +111,7 @@ class TopicTabBarController: UITabBarController {
             return
         }
         // Start activityIndicator
-        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
+        let path = Bundle.main.path(forResource: "topics", ofType: "plist")
         let dataArray = NSArray(contentsOfFile: path!)!
         
         for dict in dataArray {
@@ -121,6 +124,7 @@ class TopicTabBarController: UITabBarController {
         }
         do {
             try coreDataStack.managedContext.save()
+            UserDefaults.standard.set(true, forKey: "topicsInserted")
             // stop activityIndicator
         } catch  {
             fatalCoreDataError(error)

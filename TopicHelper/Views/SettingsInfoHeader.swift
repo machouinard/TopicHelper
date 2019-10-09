@@ -17,7 +17,8 @@ class SettingsInfoHeader: UIView {
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.image = UIImage(named: "gear")
+        iv.image = UIImage(named: "gear")?.withRenderingMode(.alwaysTemplate)
+        
         return iv
     }()
     
@@ -35,6 +36,7 @@ class SettingsInfoHeader: UIView {
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.tag = 401
         return label
     }()
     

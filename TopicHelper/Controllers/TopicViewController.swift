@@ -70,8 +70,6 @@ class TopicViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        
-        
         nextButton = self.view.viewWithTag(201) as? UIButton
         
         // MARK: - Constraints - Title
@@ -121,8 +119,6 @@ class TopicViewController: UIViewController {
         
         scrollStack.axis = .vertical
         
-        
-        
     }
     
     override func viewDidLoad() {
@@ -170,8 +166,6 @@ class TopicViewController: UIViewController {
             sgrLeft.direction = UISwipeGestureRecognizer.Direction.left
             view.addGestureRecognizer(sgrLeft)
         }
-        
-        
         
     }
     

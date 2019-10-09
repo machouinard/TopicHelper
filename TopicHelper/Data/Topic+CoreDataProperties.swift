@@ -2,7 +2,7 @@
 //  Topic+CoreDataProperties.swift
 //  TopicHelper
 //
-//  Created by Mark Chouinard on 10/6/19.
+//  Created by Mark Chouinard on 10/8/19.
 //  Copyright © 2019 Mark Chouinard. All rights reserved.
 //
 //
@@ -19,7 +19,7 @@ extension Topic {
 
     @NSManaged public var details: String?
     @NSManaged public var isFavorite: Bool
-    @NSManaged public var title: String?
     @NSManaged public var isUserTopic: Bool
+    @NSManaged public var title: String?
 
 }

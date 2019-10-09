@@ -16,13 +16,24 @@ class SettingsViewController: UIViewController {
     var managedContext: NSManagedObjectContext!
     var tableView: UITableView!
     var settingsInfoHeader: SettingsInfoHeader!
+    var headerLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        headerLabel = view.viewWithTag(401) as? UILabel
+        if nil != headerLabel {
+            headerLabel.text = ""
+            headerLabel.textColor = .systemGreen
+            headerLabel.font = .boldSystemFont(ofSize: 14)
+        }
+        
+    }
 
     // MARK: - Helper Functions
     
@@ -47,13 +58,14 @@ class SettingsViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = false
-//        navigationController?.navigationBar.barStyle = .blackTranslucent
+        navigationController?.navigationBar.barStyle = .default
 //        navigationController?.navigationBar.barTintColor = .systemBlue
 //        navigationController?.navigationBar.barTintColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
         navigationItem.title = "Settings"
     }
     
     @objc func modifyTopics(action: String) {
+        headerLabel.text = ""
         // Start activityIndicator
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.AllTopics.description)
         NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.Favorites.description)
@@ -65,25 +77,38 @@ class SettingsViewController: UIViewController {
         case Actions.defaultDelete.description:
             actionPredicate = NSPredicate(format: "isUserTopic == NO")
             deleteTopics(predicate: actionPredicate!)
-            print("delete default")
         case Actions.defaultRestore.description:
             actionPredicate = NSPredicate(format: "isUserTopic == NO")
             deleteTopics(predicate: actionPredicate!)
             restoreDefaultTopics()
-            print("restore default")
         case Actions.userDelete.description:
             actionPredicate = NSPredicate(format: "isUserTopic == YES")
             deleteTopics(predicate: actionPredicate!)
-            print("user delete")
         case Actions.globalDelete.description:
             deleteTopics(predicate: nil)
-            print("global delete")
+        case Actions.clearFavorites.description:
+            actionPredicate = NSPredicate(format: "isFavorite == YES")
+            clearFavorites(predicate: actionPredicate!)
         default:
-            print("none")
+            return
         }
         
+    }
+    
+    func clearFavorites(predicate: NSPredicate) {
         
-        
+        let updateRequest = NSBatchUpdateRequest(entityName: "Topic")
+        updateRequest.propertiesToUpdate = ["isFavorite": "NO"]
+        updateRequest.predicate = predicate
+        updateRequest.resultType = .updatedObjectsCountResultType
+
+        do {
+            try managedContext.execute(updateRequest)
+            headerLabel.text = "Favorites Cleared"
+            removeSpinner()
+        } catch  {
+            fatalCoreDataError(error)
+        }
         
     }
     
@@ -98,19 +123,19 @@ class SettingsViewController: UIViewController {
         
         let request = NSBatchDeleteRequest(fetchRequest: fetch as! NSFetchRequest<NSFetchRequestResult>)
         
+        let headerLabel = view.viewWithTag(401) as! UILabel
         
         do {
             try managedContext.execute(request)
-            // End activityIndicator
+            headerLabel.text = "Topics Deleted"
             removeSpinner()
-            print("DONE")
         } catch  {
             fatalCoreDataError(error)
         }
     }
     
     func restoreDefaultTopics() {
-        let path = Bundle.main.path(forResource: "topics10", ofType: "plist")
+        let path = Bundle.main.path(forResource: "topics", ofType: "plist")
         let dataArray = NSArray(contentsOfFile: path!)!
         
         for dict in dataArray {
@@ -123,7 +148,8 @@ class SettingsViewController: UIViewController {
         }
         do {
             try managedContext.save()
-            // stop activityIndicator
+            headerLabel.text = "Topics Restored"
+            removeSpinner()
         } catch  {
             fatalCoreDataError(error)
         }
@@ -183,8 +209,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
-        
-        
         switch section {
         case .Defaults:
             cell.sectionType = DefaultOptions(rawValue: indexPath.row)
@@ -201,7 +225,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print("Section:Row \(indexPath.section):\(indexPath.row)")
         let cell = tableView.cellForRow(at: indexPath) as! SettingsCell
         
         guard let topicAction = cell.sectionType?.description else {
@@ -215,14 +238,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Yes", style: .default ) {
             (action: UIAlertAction!) in
-            print("confirmed action")
-            // Start spinner
-            self.showSpinner()
+//            self.showSpinner()
             self.modifyTopics(action: topicAction)
         }
         alertController.addAction(confirmAction)
         let cancelAction = UIAlertAction(title: "No", style: .default) { (action: UIAlertAction!) in
-            print("canceled action")
+//            print("canceled action")
         }
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)

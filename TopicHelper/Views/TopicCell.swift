@@ -26,7 +26,7 @@ class TopicCell: UITableViewCell {
     
     // MARK: - Helper methods
     func configure(for topic: Topic) {
-                
+                       
         // Add and configure Favorite button
         let fave = self.viewWithTag(331) as! UIButton
         fave.addTarget(nil, action: #selector(TopicsViewController.toggleFavorite(_:)), for: .touchUpInside)
