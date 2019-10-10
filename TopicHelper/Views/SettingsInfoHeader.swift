@@ -12,7 +12,7 @@ class SettingsInfoHeader: UIView {
 
     // MARK: - Properties
     
-    let profileImageView: UIImageView = {
+    let settingsImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
@@ -47,20 +47,20 @@ class SettingsInfoHeader: UIView {
         
         let profileImageDimension: CGFloat = 60
         
-        addSubview(profileImageView)
-        profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        profileImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: profileImageDimension).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: profileImageDimension).isActive = true
-        profileImageView.layer.cornerRadius = profileImageDimension / 2
+        addSubview(settingsImageView)
+        settingsImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        settingsImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        settingsImageView.widthAnchor.constraint(equalToConstant: profileImageDimension).isActive = true
+        settingsImageView.heightAnchor.constraint(equalToConstant: profileImageDimension).isActive = true
+        settingsImageView.layer.cornerRadius = profileImageDimension / 2
         
         addSubview(settingsViewLabel)
-        settingsViewLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: -10).isActive = true
-        settingsViewLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12).isActive = true
+        settingsViewLabel.centerYAnchor.constraint(equalTo: settingsImageView.centerYAnchor, constant: -10).isActive = true
+        settingsViewLabel.leftAnchor.constraint(equalTo: settingsImageView.rightAnchor, constant: 12).isActive = true
         
         addSubview(settingsViewSubLabel)
-        settingsViewSubLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor, constant: 10).isActive = true
-        settingsViewSubLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 12).isActive = true
+        settingsViewSubLabel.centerYAnchor.constraint(equalTo: settingsImageView.centerYAnchor, constant: 10).isActive = true
+        settingsViewSubLabel.leftAnchor.constraint(equalTo: settingsImageView.rightAnchor, constant: 12).isActive = true
     }
     
     required init?(coder: NSCoder) {
