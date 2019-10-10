@@ -71,6 +71,13 @@ class TopicsViewController: UITableViewController {
         
         return fetchedResultsController
     }()
+    let searchController = UISearchController(searchResultsController: nil)
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
     
     
     override func loadView() {
@@ -89,6 +96,16 @@ class TopicsViewController: UITableViewController {
         self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
         tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
         self.title = self.listType.description
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        if self.listType == ListViewType.AllTopics {
+            searchController.searchBar.placeholder = "Search Topics"
+        } else {
+            searchController.searchBar.placeholder = "Search Favorites"
+        }
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -390,4 +407,36 @@ extension NSString{
         }
         return self.substring(to: 1).capitalized
     }
+}
+
+extension TopicsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.listType.description)
+        
+        let searchText = searchController.searchBar.text ?? ""
+        var predicate: NSPredicate?
+        if searchText.count > 0 {
+            
+            if ListViewType.Favorites == self.listType {
+                predicate = NSPredicate(format: "(isFavorite == YES && (title contains[cd] %@ || details contains[cd] %@))", searchText, searchText)
+            } else {
+                predicate = NSPredicate(format: "(title contains[cd] %@ || details contains[cd] %@)", searchText, searchText)
+            }
+        } else {
+            if ListViewType.Favorites == self.listType {
+                predicate = NSPredicate(format: "(isFavorite == YES)")
+            } else {
+                predicate = nil
+            }
+            
+        }
+        
+        fetchedResultsController.fetchRequest.predicate = predicate
+        
+        performFetch()
+        tableView.reloadData()
+        
+    }
+    
+    
 }
