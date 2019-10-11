@@ -354,8 +354,7 @@ class TopicViewController: UIViewController {
             clearCurrentTopic()
             return
         }
-        guard false == topicLocked && !fetchedResultsController.fetchedObjects!.isEmpty else {
-            clearCurrentTopic()
+        guard false == topicLocked else {
             return
         }
         
@@ -371,7 +370,7 @@ class TopicViewController: UIViewController {
     }
     
     @objc func displayPreviousTopic() {
-        guard !prevTopics.isEmpty else {
+        guard false == topicLocked && !prevTopics.isEmpty else {
             return
         }
         
