@@ -9,42 +9,42 @@
 import Foundation
 import UIKit
 
-fileprivate var aView: UIView?
+private var aView: UIView?
 
 extension UIViewController {
-    func showSpinner() {
-        aView = UIView(frame: self.view.bounds)
-        aView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        
-        let ai = UIActivityIndicatorView(style: .whiteLarge)
-        ai.center = aView!.center
-        ai.startAnimating()
-        aView!.addSubview(ai)
-        self.view.addSubview(aView!)
-    }
-    
-    func removeSpinner() {
-        aView?.removeFromSuperview()
-        aView = nil
-    }
+  func showSpinner() {
+    aView = UIView(frame: self.view.bounds)
+    aView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+
+    let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    activityIndicator.center = aView!.center
+    activityIndicator.startAnimating()
+    aView!.addSubview(activityIndicator)
+    self.view.addSubview(aView!)
+  }
+
+  func removeSpinner() {
+    aView?.removeFromSuperview()
+    aView = nil
+  }
 }
 
 func afterDelay(_ seconds: Double, run: @escaping () -> Void) {
-    DispatchQueue.main.asyncAfter(deadline: .now() + seconds,
-                                  execute: run)
+  DispatchQueue.main.asyncAfter(deadline: .now() + seconds,
+                                execute: run)
 }
 
 let applicationDocumentsDirectory: URL = {
-    let paths = FileManager.default.urls(for: .documentDirectory,
-                                         in: .userDomainMask)
-    return paths[0]
+  let paths = FileManager.default.urls(for: .documentDirectory,
+                                       in: .userDomainMask)
+  return paths[0]
 }()
 
-let CoreDataSaveFailedNotification =
-    Notification.Name(rawValue: "CoreDataSaveFailedNotification")
+let coreDataSaveFailedNotification =
+  Notification.Name(rawValue: "CoreDataSaveFailedNotification")
 
 func fatalCoreDataError(_ error: Error) {
-    print("*** Fatal error: \(error)")
-    NotificationCenter.default.post(
-        name: CoreDataSaveFailedNotification, object: nil)
+  print("*** Fatal error: \(error)")
+  NotificationCenter.default.post(
+    name: coreDataSaveFailedNotification, object: nil)
 }
