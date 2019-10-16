@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
   var tableView: UITableView!
   var settingsInfoHeader: SettingsInfoHeader!
   var headerLabel: UILabel!
+  var queue: DispatchQueue?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -64,6 +65,7 @@ class SettingsViewController: UIViewController {
   }
 
   @objc func modifyTopics(action: String) {
+    queue = DispatchQueue(label: "me.chouinard.topic-settings")
     headerLabel.text = ""
     // Start activityIndicator
     NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: ListViewType.allTopics.description)
@@ -74,19 +76,46 @@ class SettingsViewController: UIViewController {
     switch action {
     case TopicActions.defaultDelete.description:
       actionPredicate = NSPredicate(format: "isUserTopic == NO")
-      deleteTopics(predicate: actionPredicate!)
+      queue?.async {
+        self.deleteTopics(predicate: actionPredicate!)
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "Default topics were deleted")
+        }
+      }
     case TopicActions.defaultRestore.description:
       actionPredicate = NSPredicate(format: "isUserTopic == NO")
-      deleteTopics(predicate: actionPredicate!)
-      restoreDefaultTopics()
+      queue?.async {
+        self.deleteTopics(predicate: actionPredicate!)
+      }
+      queue?.async {
+        self.restoreDefaultTopics()
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "Default topics were restored")
+        }
+      }
     case TopicActions.userDelete.description:
       actionPredicate = NSPredicate(format: "isUserTopic == YES")
-      deleteTopics(predicate: actionPredicate!)
+      queue?.async {
+        self.deleteTopics(predicate: actionPredicate!)
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "Your topics were deleted")
+        }
+      }
     case TopicActions.globalDelete.description:
-      deleteTopics(predicate: nil)
+      queue?.async {
+        self.deleteTopics(predicate: nil)
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "All topics were deleted")
+        }
+      }
     case TopicActions.clearFavorites.description:
       actionPredicate = NSPredicate(format: "isFavorite == YES")
-      clearFavorites(predicate: actionPredicate!)
+      queue?.async {
+        self.clearFavorites(predicate: actionPredicate!)
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "All favorites were cleared")
+        }
+      }
     default:
       return
     }
@@ -102,7 +131,6 @@ class SettingsViewController: UIViewController {
 
     do {
       try managedContext.execute(updateRequest)
-      headerLabel.text = "Favorites Cleared"
       removeSpinner()
     } catch {
       fatalCoreDataError(error)
@@ -122,16 +150,18 @@ class SettingsViewController: UIViewController {
     // swiftlint:disable force_cast
     let request = NSBatchDeleteRequest(fetchRequest: fetch as! NSFetchRequest<NSFetchRequestResult>)
 
-    let headerLabel = view.viewWithTag(401) as! UILabel
-
     do {
       try managedContext.execute(request)
-      headerLabel.text = "Topics Deleted"
       removeSpinner()
     } catch {
       fatalCoreDataError(error)
     }
     // swiftlint:enable force_cast
+  }
+
+  func updateHeaderlabel(label: String) {
+    headerLabel = view.viewWithTag(401) as? UILabel
+    headerLabel?.text = label
   }
 
   func restoreDefaultTopics() {
@@ -150,7 +180,6 @@ class SettingsViewController: UIViewController {
     // swiftlint:enable force_cast
     do {
       try managedContext.save()
-      headerLabel.text = "Topics Restored"
       removeSpinner()
     } catch {
       fatalCoreDataError(error)

@@ -51,7 +51,7 @@ class TopicTabBarController: UITabBarController {
 
     insertStarterTopics(force: false)
   }
-  
+
   // MARK: - Helper methods
 
   func listenForFatalCoreDataNotifications() {
