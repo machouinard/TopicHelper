@@ -265,12 +265,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let confirmAction = UIAlertAction(title: "Yes", style: .default ) { (action: UIAlertAction!) in
-      //            self.showSpinner()
+      tableView.deselectRow(at: indexPath, animated: false)
       self.modifyTopics(action: topicAction)
     }
     alertController.addAction(confirmAction)
     let cancelAction = UIAlertAction(title: "No", style: .default) { (_: UIAlertAction!) in
-      //            print("canceled action")
+      tableView.deselectRow(at: indexPath, animated: false)
     }
     alertController.addAction(cancelAction)
     self.present(alertController, animated: true, completion: nil)
