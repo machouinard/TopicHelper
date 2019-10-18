@@ -2160,7 +2160,7 @@
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>“Terminal” Uniqueness</string>
+		<string>Terminal Uniqueness</string>
 	</dict>
 	<dict>
 		<key>description</key>
@@ -2571,6 +2571,16 @@
 		<false/>
 		<key>title</key>
 		<string>What don&apos;t you want to talk about?</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>It&apos;s medicine, right?</string>
+		<key>id</key>
+		<integer>236</integer>
+		<key>isFavorite</key>
+		<false/>
+		<key>title</key>
+		<string>Self-Medicating</string>
 	</dict>
 </array>
 </plist>
