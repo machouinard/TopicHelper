@@ -147,9 +147,7 @@ class TopicsViewController: UITableViewController {
   override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
     // Only show index when there enough rows to make it useful
     if let count = fetchedResultsController.fetchedObjects?.count {
-      if 10 > count && 9 > fetchedResultsController.sectionIndexTitles.count {
-        return nil
-      }
+      if 10 > count && 9 > fetchedResultsController.sectionIndexTitles.count {return nil}
     }
     return fetchedResultsController.sectionIndexTitles
   }
@@ -187,6 +185,9 @@ class TopicsViewController: UITableViewController {
     // swiftlint:enable force_cast
     let topic = fetchedResultsController.object(at: indexPath)
     cell.configure(for: topic)
+    if let fave = cell.viewWithTag(331) as? UIButton {
+      fave.addTarget(self, action: #selector(toggleFavorite(_:)), for: .touchUpInside)
+    }
     // Create button to hold accessory image
     let accButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     // Create accessory image to place in button
@@ -366,9 +367,7 @@ extension NSString {
   ///
   /// Used for SectionIndexTitle
   @objc func firstChar() -> String {
-    if self.length == 0 {
-      return ""
-    }
+    if self.length == 0 {return ""}
     return self.substring(to: 1).capitalized
   }
 }

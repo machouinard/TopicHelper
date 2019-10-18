@@ -31,11 +31,8 @@ class TopicCell: UITableViewCell {
     // Add and configure Favorite button
     let fave = self.viewWithTag(331) as! UIButton
     // swiftlint:enable force_cast
-    fave.addTarget(nil, action: #selector(TopicsViewController.toggleFavorite(_:)), for: .touchUpInside)
-    //        fave.titleLabel?.text = ""
 
     fave.tintColor = .systemBlue
-    //        fave.contentEdgeInsets = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 10)
 
     var imageName = String()
 
