@@ -13,7 +13,6 @@
 		4D451ED8234DA98900F37F73 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D451ED7234DA98900F37F73 /* Topic+CoreDataProperties.swift */; };
 		4D6FE900232178E600FEE158 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE8FF232178E600FEE158 /* TopicsViewController.swift */; };
 		4D6FE9112321E33100FEE158 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6FE9102321E33100FEE158 /* CoreDataStack.swift */; };
-		4D720C15233B3B6000C56029 /* topics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D720C14233B3B6000C56029 /* topics.plist */; };
 		4DB18838234A9477004AED01 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18837234A9477004AED01 /* SettingsCell.swift */; };
 		4DB1883A234A94F5004AED01 /* SettingsInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB18839234A94F5004AED01 /* SettingsInfoHeader.swift */; };
 		4DB1883C234A95E2004AED01 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1883B234A95E2004AED01 /* SettingsViewController.swift */; };
@@ -21,6 +20,7 @@
 		4DBBC6E72336D15B00B852F7 /* TopicTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */; };
 		4DC206E8231F51A8008CCD8C /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */; };
 		4DC206F0231F797D008CCD8C /* topics10.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC206EF231F797D008CCD8C /* topics10.plist */; };
+		4DC70EA223AEF58B0067074F /* topics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DC70EA123AEF58B0067074F /* topics.plist */; };
 		4DCD1FAB231E218F00B9CA49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */; };
 		4DCD1FAD231E218F00B9CA49 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAC231E218F00B9CA49 /* TopicViewController.swift */; };
 		4DCD1FB0231E218F00B9CA49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD1FAE231E218F00B9CA49 /* Main.storyboard */; };
@@ -38,7 +38,6 @@
 		4D451ED7234DA98900F37F73 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4D6FE8FF232178E600FEE158 /* TopicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		4D6FE9102321E33100FEE158 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		4D720C14233B3B6000C56029 /* topics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics.plist; sourceTree = "<group>"; };
 		4DB18837234A9477004AED01 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		4DB18839234A94F5004AED01 /* SettingsInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInfoHeader.swift; sourceTree = "<group>"; };
 		4DB1883B234A95E2004AED01 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		4DBBC6E62336D15B00B852F7 /* TopicTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTabBarController.swift; sourceTree = "<group>"; };
 		4DC206E6231F51A8008CCD8C /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4DC206EF231F797D008CCD8C /* topics10.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics10.plist; sourceTree = "<group>"; };
+		4DC70EA123AEF58B0067074F /* topics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = topics.plist; sourceTree = "<group>"; };
 		4DCD1FA7231E218F00B9CA49 /* Topic Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Topic Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DCD1FAA231E218F00B9CA49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DCD1FAC231E218F00B9CA49 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 				4DCD1FB4231E219000B9CA49 /* Assets.xcassets */,
 				4DCD1FB6231E219000B9CA49 /* LaunchScreen.storyboard */,
 				4DCD1FB9231E219000B9CA49 /* Info.plist */,
-				4D720C14233B3B6000C56029 /* topics.plist */,
+				4DC70EA123AEF58B0067074F /* topics.plist */,
 				4DC206EF231F797D008CCD8C /* topics10.plist */,
 			);
 			path = TopicHelper;
@@ -216,9 +216,9 @@
 			files = (
 				4DCD1FB8231E219000B9CA49 /* LaunchScreen.storyboard in Resources */,
 				4D0282CF23514D8E0032E14F /* swiftlint.yaml in Resources */,
+				4DC70EA223AEF58B0067074F /* topics.plist in Resources */,
 				4DCD1FB5231E219000B9CA49 /* Assets.xcassets in Resources */,
 				4DCD1FB0231E218F00B9CA49 /* Main.storyboard in Resources */,
-				4D720C15233B3B6000C56029 /* topics.plist in Resources */,
 				4DC206F0231F797D008CCD8C /* topics10.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
