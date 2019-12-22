@@ -179,6 +179,9 @@ class TopicViewController: UIViewController {
   }
 
   @objc @IBAction func editTopicGesture(sender: UIGestureRecognizer) {
+    guard !topicLocked else {
+      return
+    }
     if sender.state == UIGestureRecognizer.State.began {
       performSegue(withIdentifier: "editDisplayedTopic", sender: nil)
     }
