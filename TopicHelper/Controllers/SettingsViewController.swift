@@ -261,7 +261,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     let title: String = "Are you sure?"
-    let message: String = "Do you really want to \(topicAction)?"
+    let message: String = "Do you really want to \(topicAction.lowercased())?"
 
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let confirmAction = UIAlertAction(title: "Yes", style: .default ) { (action: UIAlertAction!) in

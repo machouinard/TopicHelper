@@ -212,7 +212,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
+		<string>There is a principle which is a bar against all information, which is proof against all arguments and which can not fail to keep a man in everlasting ignorance. That principle is contempt prior to investigation.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1752,7 +1752,7 @@
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>What Don't You Want to Talk About?</string>
+		<string>What Don&apos;t You Want to Talk About?</string>
 	</dict>
 	<dict>
 		<key>description</key>
