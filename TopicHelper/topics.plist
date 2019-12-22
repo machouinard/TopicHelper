@@ -5,8 +5,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>1</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -15,18 +13,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>2</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Act As If</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>3</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -35,8 +21,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>4</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -45,8 +29,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>5</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -54,19 +36,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(We Agnostics)</string>
-		<key>id</key>
-		<integer>6</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Agnostics</string>
-	</dict>
-	<dict>
-		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>7</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -75,18 +45,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>8</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Amends, Making Hard Amends</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>9</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -95,8 +53,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>10</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -105,8 +61,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>11</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -115,8 +69,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>12</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -125,8 +77,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>13</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -135,8 +85,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>14</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -145,8 +93,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>15</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -154,19 +100,15 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(in and out of AA)</string>
-		<key>id</key>
-		<integer>16</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Being Considerate of Others</string>
+		<string>Being Considerate of Others (in and out of AA)</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>17</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -175,18 +117,14 @@
 	<dict>
 		<key>description</key>
 		<string>(Using the Big Book)</string>
-		<key>id</key>
-		<integer>18</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>The Big Book</string>
+		<string>Big Book</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>19</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -194,29 +132,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(you hit bottom when you stop digging)</string>
-		<key>id</key>
-		<integer>20</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>The Bottom is Where You Stop Digging</string>
-	</dict>
-	<dict>
-		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>21</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Breaking My Anonymity</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>22</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -225,8 +141,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>23</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -235,8 +149,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>24</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -244,19 +156,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>25</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Change</string>
-	</dict>
-	<dict>
-		<key>description</key>
 		<string>(to avoid drinking)</string>
-		<key>id</key>
-		<integer>26</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -265,8 +165,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>27</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -275,8 +173,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>28</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -285,18 +181,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>29</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Codependence</string>
+		<string>Codependency</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>30</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -305,8 +197,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>31</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -315,18 +205,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>32</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Completely Giving Myself to This Simple Program</string>
+		<string>Completely Giving Yourself to This Simple Program</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>&quot;There is a principle which is a bar against all information, which is proof against all arguments, and which cannot fail to keep a man in everlasting ignorance—that principle is contempt prior to investigation.&quot;</string>
-		<key>id</key>
-		<integer>33</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -335,8 +221,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>34</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -344,9 +228,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Serenity Prayer)</string>
-		<key>id</key>
-		<integer>35</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -355,8 +237,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>36</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -365,8 +245,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>37</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -375,8 +253,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>38</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -385,8 +261,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>39</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -395,8 +269,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>40</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -405,18 +277,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>41</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Detaching, Detaching with Love</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>42</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -425,8 +285,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>43</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -435,18 +293,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>44</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Disease Concept</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>45</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -455,8 +301,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>46</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -465,8 +309,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>47</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -475,8 +317,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>48</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -485,38 +325,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>49</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>A Drug is a Drug</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string>(Problems Other Than Alcohol)</string>
-		<key>id</key>
-		<integer>50</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Drugs</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>51</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Drunk Who Brought You In Will Take You Out</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>52</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -525,8 +333,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>53</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -535,8 +341,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>54</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -544,9 +348,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(ego-smashing, Easing God Out)</string>
-		<key>id</key>
-		<integer>55</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -554,9 +356,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(from Step 10)</string>
-		<key>id</key>
-		<integer>56</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -565,8 +365,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>57</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -574,19 +372,15 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Having Fun Sober)</string>
-		<key>id</key>
-		<integer>58</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Enjoying Life</string>
+		<string>Enjoying Life Sober</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>59</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -594,9 +388,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Unreasonable Expectation, Pre-Planned Resentments)</string>
-		<key>id</key>
-		<integer>60</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -604,19 +396,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Sharing Our Experience)</string>
-		<key>id</key>
-		<integer>61</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Experience</string>
-	</dict>
-	<dict>
-		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>62</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -625,8 +405,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>63</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -635,8 +413,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>64</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -645,8 +421,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>65</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -655,8 +429,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>66</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -665,8 +437,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>67</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -675,8 +445,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>68</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -685,8 +453,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>69</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -695,8 +461,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>70</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -705,48 +469,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>71</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>First Drink Gets You Drunk</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>72</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>First Things First</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>73</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>First Thought Wrong</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>74</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Fixing Me, Not You</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>75</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -755,8 +477,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>76</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -765,28 +485,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>77</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Forgiving Ourselves</string>
+		<string>Forgiving Yourself</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>78</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Foundation</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string>(from pages 8 &amp; 25 in The Big Book)</string>
-		<key>id</key>
-		<integer>79</integer>
+		<string>(from pages 8, 25 in The Big Book)</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -795,8 +501,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>80</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -805,8 +509,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>81</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -815,8 +517,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>82</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -825,18 +525,30 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>83</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Fun</string>
+		<string>Fun in Sobriety</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>84</integer>
+		<key>isFavorite</key>
+		<false/>
+		<key>title</key>
+		<string>Future Tripping</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string></string>
+		<key>isFavorite</key>
+		<false/>
+		<key>title</key>
+		<string>Geographical Cures</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -845,8 +557,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>85</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -855,18 +565,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>86</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Gossip</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>87</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -875,18 +573,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>88</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Greed, Gluttony, Having Enough</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>89</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -895,8 +581,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>90</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -905,8 +589,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>91</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -915,8 +597,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>92</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -925,8 +605,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>93</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -935,8 +613,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>94</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -945,8 +621,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>95</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -955,8 +629,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>96</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -965,8 +637,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>97</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -974,19 +644,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Rigorous Honesty)</string>
-		<key>id</key>
-		<integer>98</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Honesty</string>
-	</dict>
-	<dict>
-		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>99</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -995,8 +653,6 @@
 	<dict>
 		<key>description</key>
 		<string>(working the program, staying sober)</string>
-		<key>id</key>
-		<integer>100</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1005,8 +661,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>101</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1015,28 +669,22 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>102</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>How Important Is It?</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string>(Twelve Step Recovery)</string>
-		<key>id</key>
-		<integer>103</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>How it Works</string>
+		<string>How Important is Sobriety to You?</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>104</integer>
+		<key>isFavorite</key>
+		<false/>
+		<key>title</key>
+		<string>How it Works for You</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1045,8 +693,6 @@
 	<dict>
 		<key>description</key>
 		<string>(HALT)</string>
-		<key>id</key>
-		<integer>105</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1054,19 +700,15 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>106</integer>
+		<string>When anyone, anywhere, reaches out for help, I want the hand of AA always to be there. And for that I am responsible.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>I Am Responsible</string>
+		<string>I Am Responsible.</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>107</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1075,18 +717,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>108</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Improving the Quality of My Sobriety</string>
+		<string>Improving the Quality of Your Sobriety</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>109</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1094,9 +732,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Patiently Waiting for a Chance to Ensnare)</string>
-		<key>id</key>
-		<integer>110</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1105,8 +741,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>111</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1114,9 +748,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Taking My Own)</string>
-		<key>id</key>
-		<integer>112</integer>
+		<string>Taking Your Own</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1124,9 +756,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Taking That of Others)</string>
-		<key>id</key>
-		<integer>113</integer>
+		<string>Taking That of Others</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1135,8 +765,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>114</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1145,18 +773,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>115</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>It Is What It Is</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>116</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1165,8 +781,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>117</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1175,8 +789,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>118</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1185,8 +797,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>119</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1195,8 +805,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>120</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1205,8 +813,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>121</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1214,9 +820,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(of Outcomes)</string>
-		<key>id</key>
-		<integer>122</integer>
+		<string>of Outcomes</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1224,9 +828,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(of the Past)</string>
-		<key>id</key>
-		<integer>123</integer>
+		<string>of the Past</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1234,9 +836,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(of People, Places and Things)</string>
-		<key>id</key>
-		<integer>124</integer>
+		<string>of People, Places and Things</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1245,8 +845,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>125</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1254,9 +852,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Using the Big Book, Twelve and Twelve, meditations, etc)</string>
-		<key>id</key>
-		<integer>126</integer>
+		<string>Using the Big Book, Twelve and Twelve, meditations, etc...</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1265,8 +861,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>127</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1275,18 +869,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>128</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Living in the Real World</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>129</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1295,18 +877,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>130</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Living with Myself in Sobriety</string>
+		<string>Living with Yourself in Sobriety</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>131</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1315,8 +893,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>132</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1325,8 +901,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>133</integer>
+		<key>isFavorite</key>
+		<false/>
+		<key>title</key>
+		<string>Making Difficult Amends</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1335,8 +917,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>134</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1345,8 +925,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>135</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1355,28 +933,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>136</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Mental, Spiritual and Physical Disease</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string>(Problems Other Than Alcohol)</string>
-		<key>id</key>
-		<integer>137</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Mental Illness</string>
+		<string>Mental, Spiritual and Physical Health</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>138</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1385,8 +949,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>139</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1395,8 +957,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>140</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1405,8 +965,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>141</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1415,8 +973,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>142</integer>
+		<key>isFavorite</key>
+		<false/>
+		<key>title</key>
+		<string>Not taking the first drink</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1425,28 +989,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>143</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Organized Religion</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>144</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Other Addictions</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>145</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1455,8 +997,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>146</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1465,8 +1005,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>147</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1475,8 +1013,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>148</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1484,9 +1020,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Problems Other Than Alcohol)</string>
-		<key>id</key>
-		<integer>149</integer>
+		<string>Problems Other Than Alcohol</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1495,8 +1029,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>150</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1505,8 +1037,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>151</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1515,8 +1045,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>152</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1525,8 +1053,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>153</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1535,8 +1061,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>154</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1545,8 +1069,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>155</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1555,8 +1077,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>156</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1565,8 +1085,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>157</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1574,19 +1092,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Thinking About Outcomes that are in the Future, Good and Bad)</string>
-		<key>id</key>
-		<integer>158</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Projection</string>
-	</dict>
-	<dict>
-		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>159</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1595,18 +1101,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>160</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Progression</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>161</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1614,9 +1108,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Getting Better)</string>
-		<key>id</key>
-		<integer>162</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1625,18 +1117,14 @@
 	<dict>
 		<key>description</key>
 		<string>(We Will Not Regret the Past, Promises)</string>
-		<key>id</key>
-		<integer>163</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Regret</string>
+		<string>Regrets</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>164</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1645,8 +1133,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>165</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1655,8 +1141,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>166</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1665,8 +1149,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>167</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1675,8 +1157,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>168</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1685,8 +1165,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>169</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1695,8 +1173,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>170</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1705,8 +1181,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>171</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1715,8 +1189,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>172</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1725,8 +1197,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>173</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1735,18 +1205,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>174</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Road Rage</string>
+		<string>Rigorous Honesty</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>175</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1754,9 +1220,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(You’re Only as Sick as Your Secrets or Your Secrets will get You Drunk)</string>
-		<key>id</key>
-		<integer>176</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1765,8 +1229,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>177</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1775,8 +1237,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>178</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1785,8 +1245,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>179</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1795,8 +1253,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>180</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1805,8 +1261,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>181</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1815,8 +1269,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>182</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1825,8 +1277,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>183</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1835,8 +1285,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>184</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1845,8 +1293,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>185</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1855,8 +1301,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>186</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1864,9 +1308,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(talking or telling my story)</string>
-		<key>id</key>
-		<integer>187</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1875,8 +1317,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>188</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1885,18 +1325,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>189</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Slips</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>190</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1905,8 +1333,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>191</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1915,8 +1341,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>192</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1925,8 +1349,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>193</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1935,8 +1357,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>194</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1945,8 +1365,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>195</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1955,8 +1373,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>196</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1965,8 +1381,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>197</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1975,8 +1389,6 @@
 	<dict>
 		<key>description</key>
 		<string>We admitted we were powerless over alcohol—that our lives had become unmanageable.</string>
-		<key>id</key>
-		<integer>198</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1985,8 +1397,6 @@
 	<dict>
 		<key>description</key>
 		<string>Came to believe that a Power greater than ourselves could restore us to sanity.</string>
-		<key>id</key>
-		<integer>199</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -1995,8 +1405,6 @@
 	<dict>
 		<key>description</key>
 		<string>Made a decision to turn our will and our lives over to the care of God as we understood Him.</string>
-		<key>id</key>
-		<integer>200</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2005,8 +1413,6 @@
 	<dict>
 		<key>description</key>
 		<string>Made a searching and fearless moral inventory of ourselves.</string>
-		<key>id</key>
-		<integer>201</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2015,8 +1421,6 @@
 	<dict>
 		<key>description</key>
 		<string>Admitted to God, to ourselves, and to another human being the exact nature of our wrongs.</string>
-		<key>id</key>
-		<integer>202</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2025,8 +1429,6 @@
 	<dict>
 		<key>description</key>
 		<string>Were entirely ready to have God remove all these defects of character.</string>
-		<key>id</key>
-		<integer>203</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2035,8 +1437,6 @@
 	<dict>
 		<key>description</key>
 		<string>Humbly asked Him to remove our shortcomings.</string>
-		<key>id</key>
-		<integer>204</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2045,8 +1445,6 @@
 	<dict>
 		<key>description</key>
 		<string>Made a list of all persons we had harmed, and became willing to make amends to them all.</string>
-		<key>id</key>
-		<integer>205</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2055,8 +1453,6 @@
 	<dict>
 		<key>description</key>
 		<string>Made direct amends to such people wherever possible, except when to do so would injure them or others.</string>
-		<key>id</key>
-		<integer>206</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2065,8 +1461,6 @@
 	<dict>
 		<key>description</key>
 		<string>Continued to take personal inventory and when we were wrong promptly admitted it.</string>
-		<key>id</key>
-		<integer>207</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2075,8 +1469,6 @@
 	<dict>
 		<key>description</key>
 		<string>Sought through prayer and meditation to improve our conscious contact with God, as we understood Him, praying only for knowledge of His will for us and the power to carry that out.</string>
-		<key>id</key>
-		<integer>208</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2085,8 +1477,6 @@
 	<dict>
 		<key>description</key>
 		<string>Having had a spiritual awakening as the result of these Steps, we tried to carry this message to alcoholics, and to practice these principles in all our affairs.</string>
-		<key>id</key>
-		<integer>209</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2095,18 +1485,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>210</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Stick with the Winners</string>
+		<string>Sticking with the Winners</string>
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Sharing Our Strength)</string>
-		<key>id</key>
-		<integer>211</integer>
+		<string>Sharing Our Strength</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2114,9 +1500,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Coping with Stress)</string>
-		<key>id</key>
-		<integer>212</integer>
+		<string>Coping with Stress</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2124,9 +1508,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Taking the Suggestions)</string>
-		<key>id</key>
-		<integer>213</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2135,8 +1517,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>214</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2145,8 +1525,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>215</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2154,9 +1532,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>feeling unique can kill me</string>
-		<key>id</key>
-		<integer>216</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2165,18 +1541,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>217</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Think, Think, Think</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>218</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2184,19 +1548,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Time Takes Time)</string>
-		<key>id</key>
-		<integer>219</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Time</string>
-	</dict>
-	<dict>
-		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>220</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2205,8 +1557,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>221</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2215,8 +1565,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>222</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2225,8 +1573,6 @@
 	<dict>
 		<key>description</key>
 		<string>Our common welfare should come first; personal recovery depends upon A.A. unity.</string>
-		<key>id</key>
-		<integer>223</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2234,9 +1580,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>For our group purpose there is but one ultimate authority – a loving God as He may express Himself in our group conscience. Our leaders are but trusted servants, they do not govern.</string>
-		<key>id</key>
-		<integer>224</integer>
+		<string>For our group purpose there is but one ultimate authority - a loving God as He may express Himself in our group conscience. Our leaders are but trusted servants; they do not govern.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2245,8 +1589,6 @@
 	<dict>
 		<key>description</key>
 		<string>The only requirement for A.A. membership is a desire to stop drinking.</string>
-		<key>id</key>
-		<integer>225</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2254,9 +1596,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>Each group should be autonomous except in matters affecting other groups, or A.A. as a whole.</string>
-		<key>id</key>
-		<integer>226</integer>
+		<string>Each group should be autonomous except in matters affecting other groups or A.A. as a whole.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2264,9 +1604,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>Each group has but one primary purpose – to carry its message to the alcoholic who still suffers.</string>
-		<key>id</key>
-		<integer>227</integer>
+		<string>Each group has but one primary purpose - to carry its message to the alcoholic who still suffers.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2274,9 +1612,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>An A.A. group ought never endorse, finance or lend the A.A. name to any related facility or outside enterprise, lest problems of money, property and prestige divert us from our primary purpose.</string>
-		<key>id</key>
-		<integer>228</integer>
+		<string>An A.A. group ought never endorse, finance, or lend the A.A. name to any related facility or outside enterprise, lest problems of money, property, and prestige divert us from our primary purpose.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2285,8 +1621,6 @@
 	<dict>
 		<key>description</key>
 		<string>Every A.A. group ought to be fully self-supporting, declining outside contributions.</string>
-		<key>id</key>
-		<integer>229</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2294,9 +1628,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>Alcoholics Anonymous should remain forever nonprofessional, but our service centers may employ special workers.</string>
-		<key>id</key>
-		<integer>230</integer>
+		<string>Alcoholics Anonymous should remain forever non-professional, but our service centers may employ special workers.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2304,9 +1636,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>A.A., as such, ought never be organized, but we may create service boards or committees directly responsible to those they serve.</string>
-		<key>id</key>
-		<integer>231</integer>
+		<string>A.A., as such, ought never be organized; but we may create service boards or committees directly responsible to those they serve.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2314,9 +1644,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>Alcoholics Anonymous has no opinion on outside issues, hence the A.A. name ought never be drawn into public controversy.</string>
-		<key>id</key>
-		<integer>232</integer>
+		<string>Alcoholics Anonymous has no opinion on outside issues; hence the A.A. name ought never be drawn into public controversy.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2324,9 +1652,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>Our public relations policy is based upon attraction rather than promotion; we need always maintain personal anonymity at the level of press, radio and films.</string>
-		<key>id</key>
-		<integer>233</integer>
+		<string>Our public relations policy is based on attraction rather than promotion; we need always maintain personal anonymity at the level of press, radio and films.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2334,9 +1660,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>Anonymity is the spiritual foundation of all our Traditions, ever reminding us to place principles before personalities.</string>
-		<key>id</key>
-		<integer>234</integer>
+		<string>Anonymity is the spiritual foundation of all our traditions, ever reminding us to place principles before personalities.</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2345,8 +1669,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>235</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2355,8 +1677,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>236</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2365,8 +1685,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>237</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2375,8 +1693,6 @@
 	<dict>
 		<key>description</key>
 		<string>(one hour, one minute at a time)</string>
-		<key>id</key>
-		<integer>238</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2385,8 +1701,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>239</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2395,8 +1709,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>240</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2405,8 +1717,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>241</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2415,18 +1725,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>242</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Wait to Worry</string>
+		<string>Waiting to Worry</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>243</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2435,8 +1741,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>244</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2445,18 +1749,22 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>245</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>What is AA?</string>
+		<string>What Don't You Want to Talk About?</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>246</integer>
+		<key>isFavorite</key>
+		<false/>
+		<key>title</key>
+		<string>What is AA to You?</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2465,8 +1773,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>247</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2475,8 +1781,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>248</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2484,19 +1788,15 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>249</integer>
+		<string>To stay sober?</string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Who supported you to get sober?  To stay sober?</string>
+		<string>Who supported you to get sober?</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>250</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2505,18 +1805,14 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>251</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
-		<string>Will power</string>
+		<string>Will Power</string>
 	</dict>
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>252</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2525,8 +1821,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>253</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2534,9 +1828,7 @@
 	</dict>
 	<dict>
 		<key>description</key>
-		<string>(Serenity Prayer)</string>
-		<key>id</key>
-		<integer>254</integer>
+		<string></string>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2545,8 +1837,6 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>255</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
@@ -2555,32 +1845,10 @@
 	<dict>
 		<key>description</key>
 		<string></string>
-		<key>id</key>
-		<integer>256</integer>
 		<key>isFavorite</key>
 		<false/>
 		<key>title</key>
 		<string>Yet</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string></string>
-		<key>id</key>
-		<integer>235</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>What don&apos;t you want to talk about?</string>
-	</dict>
-	<dict>
-		<key>description</key>
-		<string>It&apos;s medicine, right?</string>
-		<key>id</key>
-		<integer>236</integer>
-		<key>isFavorite</key>
-		<false/>
-		<key>title</key>
-		<string>Self-Medicating</string>
 	</dict>
 </array>
 </plist>

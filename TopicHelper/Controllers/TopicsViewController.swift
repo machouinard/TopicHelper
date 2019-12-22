@@ -69,7 +69,6 @@ class TopicsViewController: UITableViewController {
   override func loadView() {
     super.loadView()
     self.tableView.rowHeight = 44
-    tableView.sectionIndexColor = .white
   }
 
   override func viewDidLoad() {
@@ -78,7 +77,7 @@ class TopicsViewController: UITableViewController {
     tableView.dataSource = self
     performFetch()
     self.navigationItem.rightBarButtonItems?.append(self.editButtonItem)
-    tableView.backgroundView = UIImageView(image: UIImage(named: "gradiant"))
+
     self.title = self.listType.description
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
@@ -194,8 +193,6 @@ class TopicsViewController: UITableViewController {
     let accImage = UIImage(named: "pencil")?.withRenderingMode(.alwaysTemplate)
     accButton.setBackgroundImage(accImage, for: .normal)
     accButton.addTarget(self, action: #selector(editTopic(_:)), for: .touchUpInside)
-    // Set tintColor to white.  This overrides tintColor set in IB
-    cell.tintColor = .systemGray
     cell.accessoryView = accButton
 
     return cell

@@ -57,10 +57,10 @@ class SettingsViewController: UIViewController {
   func configureUI() {
     configureTableView()
 
-    navigationController?.navigationBar.prefersLargeTitles = true
-    navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.barStyle = .default
-    //        navigationController?.navigationBar.barTintColor = .systemBlue
+//    navigationController?.navigationBar.prefersLargeTitles = true
+//    navigationController?.navigationBar.isTranslucent = true
+//    navigationController?.navigationBar.barStyle = .default
+//            navigationController?.navigationBar.barTintColor = .systemBlue
     navigationItem.title = "Settings"
   }
 

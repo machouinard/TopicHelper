@@ -27,6 +27,8 @@ class TopicCell: UITableViewCell {
   // MARK: - Helper methods
   func configure(for topic: Topic) {
 
+//    self.backgroundColor = .white
+
     // swiftlint:disable force_cast
     // Add and configure Favorite button
     let fave = self.viewWithTag(331) as! UIButton

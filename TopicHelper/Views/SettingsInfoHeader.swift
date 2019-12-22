@@ -25,7 +25,7 @@ class SettingsInfoHeader: UIView {
   let settingsViewLabel: UILabel = {
     let label = UILabel()
     label.text = "Topic Management"
-    label.font = UIFont.systemFont(ofSize: 16)
+    label.font = UIFont.systemFont(ofSize: 20)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -34,7 +34,6 @@ class SettingsInfoHeader: UIView {
     let label = UILabel()
     label.text = "Some settings"
     label.font = UIFont.systemFont(ofSize: 14)
-    label.textColor = .lightGray
     label.translatesAutoresizingMaskIntoConstraints = false
     label.tag = 401
     return label
