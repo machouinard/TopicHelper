@@ -157,7 +157,6 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="Sbx-h7-uvE" secondAttribute="trailing" id="s9Z-ZU-5Ac"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="details" destination="BAM-Qs-wBm" id="J5M-AH-GLJ"/>
                                     <outlet property="title" destination="L5X-kx-9T2" id="TUR-o9-Avo"/>
