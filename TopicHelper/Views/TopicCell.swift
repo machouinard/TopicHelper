@@ -27,8 +27,6 @@ class TopicCell: UITableViewCell {
   // MARK: - Helper methods
   func configure(for topic: Topic) {
 
-//    self.backgroundColor = .white
-
     // swiftlint:disable force_cast
     // Add and configure Favorite button
     let fave = self.viewWithTag(331) as! UIButton
@@ -38,7 +36,9 @@ class TopicCell: UITableViewCell {
 
     var imageName = String()
 
-    if topic.isFavorite {
+    if topic.isGem {
+      imageName = "lightbulb"
+    } else if topic.isFavorite {
       imageName = "star-fill"
     } else {
       imageName = "star-open"

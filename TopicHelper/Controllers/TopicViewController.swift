@@ -28,6 +28,9 @@ class TopicViewController: UIViewController {
     if ListViewType.favorites == self.listType {
       fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
     }
+    if ListViewType.gems == self.listType {
+      fetchRequest.predicate = NSPredicate(format: "isGem == YES")
+    }
     let sort = NSSortDescriptor(key: "title", ascending: true)
     fetchRequest.sortDescriptors = [sort]
     fetchRequest.fetchBatchSize = 20
@@ -369,7 +372,9 @@ class TopicViewController: UIViewController {
 
   func configureFavoriteButton() {
     let btn = navigationItem.leftBarButtonItems?.last
-    if isFavorite {
+    if ListViewType.gems == self.listType {
+      btn?.image = UIImage(named: "lightbulb")
+    } else if isFavorite {
       btn?.image = UIImage(named: "star-fill")
     } else {
       btn?.image = UIImage(named: "star-open")

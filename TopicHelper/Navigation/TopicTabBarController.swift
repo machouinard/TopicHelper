@@ -41,6 +41,10 @@ class TopicTabBarController: UITabBarController {
       let faveVC = navController.topViewController as! TopicsViewController
       faveVC.managedContext = coreDataStack.managedContext
       faveVC.listType = ListViewType.favorites
+      navController = tabViewControllers[3] as! UINavigationController
+      let gemVC = navController.topViewController as! TopicsViewController
+      gemVC.managedContext = coreDataStack.managedContext
+      gemVC.listType = ListViewType.gems
     }
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -117,6 +121,7 @@ class TopicTabBarController: UITabBarController {
       topic.title = topicDict["title"] as? String
       topic.details = topicDict["description"] as? String
       topic.isFavorite = topicDict["isFavorite"] as! Bool
+      topic.isGem = topicDict["isGem"] as! Bool
     }
     do {
       try coreDataStack.managedContext.save()

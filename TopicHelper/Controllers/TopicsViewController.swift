@@ -13,11 +13,13 @@ import CoreData
 enum ListViewType: Int, CaseIterable, CustomStringConvertible {
   case favorites
   case allTopics
+  case gems
 
   var description: String {
     switch self {
     case .favorites: return "Favorites"
     case .allTopics: return "All Topics"
+    case .gems: return "Gems"
     }
   }
 }
@@ -40,13 +42,17 @@ class TopicsViewController: UITableViewController {
     let sort = NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
     // If this was instantiated from Favorites tab, add predicate
     if ListViewType.favorites == self.listType {
-      fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
+      fetchRequest.predicate = NSPredicate(format: "isFavorite == YES && isGem == NO")
       fetchRequest.sortDescriptors = [sort]
     } else if ListViewType.allTopics == self.listType {
       let sortChar = NSSortDescriptor(key: "title.firstChar",
                                       ascending: true, selector: #selector(NSString.caseInsensitiveCompare))
+      fetchRequest.predicate = NSPredicate(format: "isGem == NO")
       fetchRequest.sortDescriptors = [sortChar, sort]
       self.sectionPath = "title.firstChar"
+    } else if ListViewType.gems == self.listType {
+      fetchRequest.predicate = NSPredicate(format: "isGem == YES")
+      fetchRequest.sortDescriptors = [sort]
     }
     fetchRequest.fetchBatchSize = 20
     let fetchedResultsController = NSFetchedResultsController(
@@ -83,8 +89,10 @@ class TopicsViewController: UITableViewController {
     searchController.obscuresBackgroundDuringPresentation = false
     if self.listType == ListViewType.allTopics {
       searchController.searchBar.placeholder = "Search Topics"
-    } else {
+    } else if self.listType == ListViewType.favorites {
       searchController.searchBar.placeholder = "Search Favorites"
+    } else if self.listType == ListViewType.gems {
+      searchController.searchBar.placeholder = "Search Gems"
     }
     navigationItem.searchController = searchController
     definesPresentationContext = true
@@ -133,7 +141,11 @@ class TopicsViewController: UITableViewController {
       title.text = fetchedResultsController.sections![section].name
     } else {
       if let count = fetchedResultsController.fetchedObjects?.count {
-        title.text = "\(count) \(ListViewType.favorites.description)"
+        if ListViewType.favorites == self.listType {
+          title.text = "\(count) \(ListViewType.favorites.description)"
+        } else if ListViewType.gems == self.listType {
+          title.text = "\(count) \(ListViewType.gems.description)"
+        }
       }
     }
     view.addSubview(title)
@@ -227,6 +239,8 @@ class TopicsViewController: UITableViewController {
     // If topic is added from Favorites screen, make it a favorite
     if ListViewType.favorites == self.listType {
       currentTopic?.isFavorite = true
+    } else if ListViewType.gems == self.listType {
+      currentTopic?.isGem = true
     }
     performSegue(withIdentifier: "editTopic", sender: nil)
   }
@@ -379,14 +393,19 @@ extension TopicsViewController: UISearchResultsUpdating {
       if ListViewType.favorites == self.listType {
         predicate = NSPredicate(format: "(isFavorite == YES && (title contains[cd] %@ || details contains[cd] %@))",
                                 searchText, searchText)
-      } else {
+      } else if ListViewType.allTopics == self.listType {
         predicate = NSPredicate(format: "(title contains[cd] %@ || details contains[cd] %@)", searchText, searchText)
+      } else if ListViewType.gems == self.listType {
+        predicate = NSPredicate(format: "(isGem == YES && (title contains[cd] %@ || details contains[cd] %@))",
+                                searchText, searchText)
       }
     } else {
       if ListViewType.favorites == self.listType {
         predicate = NSPredicate(format: "(isFavorite == YES)")
-      } else {
+      } else if ListViewType.allTopics == self.listType {
         predicate = nil
+      } else if ListViewType.gems == self.listType {
+        predicate = NSPredicate(format: "(isGem == YES)")
       }
     }
     fetchedResultsController.fetchRequest.predicate = predicate
