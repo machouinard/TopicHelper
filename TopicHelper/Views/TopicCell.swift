@@ -36,7 +36,9 @@ class TopicCell: UITableViewCell {
 
     var imageName = String()
 
-    if topic.isFavorite {
+    if topic.isGem {
+      imageName = "lightbulb"
+    } else if topic.isFavorite {
       imageName = "star-fill"
     } else {
       imageName = "star-open"
