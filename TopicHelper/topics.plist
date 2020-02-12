@@ -2322,5 +2322,25 @@
 		<key>title</key>
 		<string>Get off the cross, we need the wood.</string>
 	</dict>
+	<dict>
+		<key>description</key>
+		<string>Letting go of a better past.</string>
+		<key>isFavorite</key>
+		<false/>
+		<key>isGem</key>
+		<true/>
+		<key>title</key>
+		<string>Acceptance</string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>The power of God keeps me sober.</string>
+		<key>isFavorite</key>
+		<false/>
+		<key>isGem</key>
+		<true/>
+		<key>title</key>
+		<string>God doesn&apos;t keep me sober.</string>
+	</dict>
 </array>
 </plist>
