@@ -24,12 +24,13 @@ class TopicViewController: UIViewController {
     let entity = Topic.entity()
     fetchRequest.entity = entity
 
-    // If this was instantiated from Favorites tab, add predicate
+    // Add predicate depending on listType
     if ListViewType.favorites == self.listType {
       fetchRequest.predicate = NSPredicate(format: "isFavorite == YES")
-    }
-    if ListViewType.gems == self.listType {
+    } else if ListViewType.gems == self.listType {
       fetchRequest.predicate = NSPredicate(format: "isGem == YES")
+    } else {
+      fetchRequest.predicate = NSPredicate(format: "isGem == NO")
     }
     let sort = NSSortDescriptor(key: "title", ascending: true)
     fetchRequest.sortDescriptors = [sort]
