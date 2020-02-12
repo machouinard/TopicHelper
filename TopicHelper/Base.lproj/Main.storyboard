@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iwa-Jw-Mn9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iwa-Jw-Mn9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -217,7 +217,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S3g-A5-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8591" y="901"/>
+            <point key="canvasLocation" x="-8543" y="765"/>
+        </scene>
+        <!--Gems-->
+        <scene sceneID="zjO-fz-ug6">
+            <objects>
+                <navigationController id="abV-Yv-fvS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Gems" image="lightbulb" id="pTN-sE-64Y"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KL0-qJ-L9z">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yWw-vd-s1Q" kind="relationship" relationship="rootViewController" id="Ckw-Lr-j6A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1sc-TX-jWI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-9557" y="755"/>
         </scene>
         <!--Topic Tab Bar Controller-->
         <scene sceneID="BnG-9M-1ST">
@@ -233,6 +250,7 @@
                         <segue destination="eaf-qQ-cLQ" kind="relationship" relationship="viewControllers" id="4dk-RW-wxH"/>
                         <segue destination="zVC-cP-uFg" kind="relationship" relationship="viewControllers" id="quh-RM-FBe"/>
                         <segue destination="Qp6-3p-EzL" kind="relationship" relationship="viewControllers" id="Y8h-TE-hq3"/>
+                        <segue destination="abV-Yv-fvS" kind="relationship" relationship="viewControllers" id="I7f-zV-IJ5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKY-bu-RAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,6 +356,7 @@
         <image name="blueButton" width="100" height="37"/>
         <image name="blueButtonHighlighted" width="100" height="37"/>
         <image name="gradiant" width="562.5" height="1218"/>
+        <image name="lightbulb" width="13.5" height="20"/>
         <image name="logoWhite" width="426.66665649414062" height="426.66665649414062"/>
         <image name="star-fill" width="24" height="23"/>
         <image name="star-open" width="24" height="23"/>
@@ -347,7 +366,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4EV-RO-uzg"/>
-        <segue reference="R8i-oj-92N"/>
+        <segue reference="Ckw-Lr-j6A"/>
         <segue reference="ll9-vy-FRJ"/>
     </inferredMetricsTieBreakers>
 </document>

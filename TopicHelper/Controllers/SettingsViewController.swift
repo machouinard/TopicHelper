@@ -56,11 +56,6 @@ class SettingsViewController: UIViewController {
 
   func configureUI() {
     configureTableView()
-
-//    navigationController?.navigationBar.prefersLargeTitles = true
-//    navigationController?.navigationBar.isTranslucent = true
-//    navigationController?.navigationBar.barStyle = .default
-//            navigationController?.navigationBar.barTintColor = .systemBlue
     navigationItem.title = "Settings"
   }
 
@@ -75,7 +70,7 @@ class SettingsViewController: UIViewController {
 
     switch action {
     case TopicActions.defaultDelete.description:
-      actionPredicate = NSPredicate(format: "isUserTopic == NO")
+      actionPredicate = NSPredicate(format: "isUserTopic == NO && isGem == NO")
       queue?.async {
         self.deleteTopics(predicate: actionPredicate!)
         DispatchQueue.main.async {
@@ -90,11 +85,11 @@ class SettingsViewController: UIViewController {
       queue?.async {
         self.restoreDefaultTopics()
         DispatchQueue.main.async {
-          self.updateHeaderlabel(label: "Default topics were restored")
+          self.updateHeaderlabel(label: "Default topics & gems were restored")
         }
       }
     case TopicActions.userDelete.description:
-      actionPredicate = NSPredicate(format: "isUserTopic == YES")
+      actionPredicate = NSPredicate(format: "isUserTopic == YES && isGem == NO")
       queue?.async {
         self.deleteTopics(predicate: actionPredicate!)
         DispatchQueue.main.async {
@@ -102,10 +97,35 @@ class SettingsViewController: UIViewController {
         }
       }
     case TopicActions.globalDelete.description:
+      actionPredicate = NSPredicate(format: "isGem == NO")
       queue?.async {
-        self.deleteTopics(predicate: nil)
+        self.deleteTopics(predicate: actionPredicate!)
         DispatchQueue.main.async {
           self.updateHeaderlabel(label: "All topics were deleted")
+        }
+      }
+    case TopicActions.defaultGemDelete.description:
+      actionPredicate = NSPredicate(format: "isUserTopic == NO && isGem == YES")
+      queue?.async {
+        self.deleteTopics(predicate: actionPredicate!)
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "Default gems were deleted")
+        }
+      }
+    case TopicActions.userGemDelete.description:
+      actionPredicate = NSPredicate(format: "isUserTopic == YES && isGem == YES")
+      queue?.async {
+        self.deleteTopics(predicate: actionPredicate!)
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "Your gems were deleted")
+        }
+      }
+    case TopicActions.globalGemDelete.description:
+      actionPredicate = NSPredicate(format: "isGem == YES")
+      queue?.async {
+        self.deleteTopics(predicate: actionPredicate!)
+        DispatchQueue.main.async {
+          self.updateHeaderlabel(label: "All gems were deleted")
         }
       }
     case TopicActions.clearFavorites.description:
@@ -176,6 +196,7 @@ class SettingsViewController: UIViewController {
       topic.title = topicDict["title"] as? String
       topic.details = topicDict["description"] as? String
       topic.isFavorite = topicDict["isFavorite"] as! Bool
+      topic.isGem = topicDict["isGem"] as! Bool
     }
     // swiftlint:enable force_cast
     do {
